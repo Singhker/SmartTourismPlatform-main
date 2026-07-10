@@ -6,6 +6,7 @@ import json
 import os
 import csv
 import io
+import random  # ← ADD THIS LINE
 from datetime import datetime, timedelta
 import plotly
 import plotly.express as px
@@ -915,8 +916,226 @@ def server_error(error):
     return render_template('500.html'), 500
 
 # =============================================================================
+# Interactive Map Route
+# =============================================================================
+
+
+@app.route('/map')
+def interactive_map():
+    """Interactive map showing all tourist places."""
+    # Get all places with coordinates
+    places_df = get_db_data("""
+        SELECT place_id, place_name, district, category, 
+               latitude, longitude, description, popularity_level,
+               entry_fee_inr, best_season
+        FROM tourist_places 
+        WHERE latitude IS NOT NULL AND longitude IS NOT NULL
+          AND latitude != 0 AND longitude != 0
+    """)
+
+    # Convert to list of dictionaries for JSON
+    places = places_df.to_dict('records') if not places_df.empty else []
+
+    # Get place count by district for stats
+    district_stats = get_db_data("""
+        SELECT district, COUNT(*) as count 
+        FROM tourist_places 
+        WHERE latitude IS NOT NULL AND longitude IS NOT NULL
+          AND latitude != 0 AND longitude != 0
+        GROUP BY district
+        ORDER BY count DESC
+    """)
+
+    return render_template('map.html',
+                           places=places,
+                           district_stats=district_stats.to_dict(
+                               'records') if not district_stats.empty else [],
+                           total_places=len(places)
+                           )
+# =============================================================================
 # Main
 # =============================================================================
+# =============================================================================
+# AI Chatbot Routes
+# =============================================================================
+
+
+# =============================================================================
+# AI Chatbot Routes
+# =============================================================================
+
+# =============================================================================
+# AI Chatbot Routes
+# =============================================================================
+
+@app.route('/chatbot')
+def chatbot_page():
+    """Chatbot interface page."""
+    return render_template('chatbot.html')
+
+
+@app.route('/api/chatbot', methods=['POST'])
+def chatbot_api():
+    """AI Chatbot API endpoint."""
+    try:
+        data = request.get_json()
+        message = data.get('message', '').strip()
+
+        if not message:
+            return jsonify({'response': 'Please type a message.'})
+
+        # Get response from chatbot logic
+        response = get_chatbot_response(message)
+
+        return jsonify({
+            'response': response,
+            'success': True
+        })
+    except Exception as e:
+        return jsonify({
+            'response': 'Sorry, I encountered an error. Please try again.',
+            'success': False,
+            'error': str(e)
+        })
+
+
+def get_chatbot_response(message):
+    """Generate intelligent response based on user message."""
+    import random  # ← ADDED HERE FOR SAFETY
+    message_lower = message.lower()
+
+    # ==========================================
+    # 1. GREETINGS
+    # ==========================================
+    greetings = ['hello', 'hi', 'hey', 'namaste',
+                 'good morning', 'good afternoon', 'good evening']
+    if any(word in message_lower for word in greetings):
+        return random.choice([
+            "Hello! 👋 Welcome to Smart Tourism. How can I help you explore Manipur?",
+            "Namaste! 🌸 I'm your virtual tourism assistant. Ask me anything about Manipur!",
+            "Hi there! 🗺️ Ready to discover the hidden gems of Manipur?",
+            "Greetings! 🏔️ I'm here to help you plan your perfect trip to Manipur."
+        ])
+
+    # ==========================================
+    # 2. PLACES
+    # ==========================================
+    place_keywords = ['places', 'destinations',
+                      'tourist spots', 'attractions', 'sites', 'locations']
+    if any(word in message_lower for word in place_keywords):
+        return random.choice([
+            "Manipur has 70+ amazing tourist places! 🏞️ Some top destinations are:\n• Loktak Lake (floating lake)\n• Kangla Fort (historical)\n• Shirui Hills (rare lilies)\n• Keibul Lamjao National Park\n• Ima Keithel (women's market)\n\nCheck our Places page for details!",
+            "Explore these beautiful places in Manipur: 🌄\n• Loktak Lake - the floating lake\n• Kangla Fort - royal heritage\n• Shirui National Park - rare lilies\n• Khonghampat Orchidarium\n• Andro Village - pottery tradition\n\nVisit our Places section for more!",
+            "Manipur is full of hidden gems! 💎\n• Natural: Loktak Lake, Dzuko Valley\n• Historical: Kangla Fort, War Cemetery\n• Religious: Govindajee Temple, Marjing Temple\n• Cultural: Ima Market, Andro Village\n\nWhich type interests you most?"
+        ])
+
+    # ==========================================
+    # 3. SPECIFIC PLACES
+    # ==========================================
+    if 'loktak' in message_lower:
+        return "Loktak Lake is the largest freshwater lake in Northeast India! 🌊\n\n✨ Highlights:\n• Floating phumdis (unique vegetation)\n• Keibul Lamjao National Park (world's only floating park)\n• Sendra Island (beautiful view)\n• Boating and fishing\n\n🕐 Best time: October to March\n📌 Location: Bishnupur District"
+
+    if 'kangla' in message_lower:
+        return "Kangla Fort is the historical heart of Manipur! 🏰\n\n✨ Highlights:\n• Ancient temples and shrines\n• Royal palace ruins\n• Two majestic gateways\n• Beautiful gardens\n\n🕐 Opening Hours: 9:00 AM - 5:00 PM\n💰 Entry Fee: ₹30 (Indians)"
+
+    if 'shirui' in message_lower:
+        return "Shirui Hills is home to the rare Shirui Lily! 🌸\n\n✨ Highlights:\n• Rare pink Shirui lilies (state flower)\n• Beautiful hill views\n• Trekking opportunities\n• Bird watching\n\n🕐 Best time: May-June (when lilies bloom)\n📌 Location: Ukhrul District"
+
+    if 'ima' in message_lower or 'keithel' in message_lower:
+        return "Ima Keithel is Asia's largest all-women market! 🛍️\n\n✨ Highlights:\n• 3,000+ women vendors\n• Fresh vegetables and fruits\n• Handloom textiles\n• Traditional crafts\n\n🕐 Opening Hours: 6:00 AM - 8:00 PM\n📌 Location: Imphal"
+
+    # ==========================================
+    # 4. BEST TIME TO VISIT
+    # ==========================================
+    time_keywords = ['best time', 'when to visit',
+                     'season', 'weather', 'climate', 'visit when']
+    if any(word in message_lower for word in time_keywords):
+        return "The best time to visit Manipur is from October to March! 🌤️\n\n📅 Seasons:\n• Winter (Oct-Feb): Pleasant weather, ideal for sightseeing\n• Spring (Mar-Apr): Beautiful flowers, mild weather\n• Summer (May-Jun): Warm but comfortable\n• Monsoon (Jul-Sep): Heavy rainfall, fewer tourists\n\n🌡️ Temperature: 15°C to 30°C\n💡 Tip: Visit during Sangai Festival (November)!"
+
+    # ==========================================
+    # 5. FOOD
+    # ==========================================
+    food_keywords = ['food', 'cuisine', 'eat',
+                     'restaurant', 'dish', 'meal', 'dining']
+    if any(word in message_lower for word in food_keywords):
+        return "Manipuri cuisine is delicious and unique! 🍛\n\nMust-try dishes:\n• Eromba (spicy fermented fish)\n• Chamthong (vegetable stew)\n• Singju (spicy salad)\n• Morok Metpa (chili chutney)\n• Kangshoi (vegetable soup)\n\n🍽️ Popular restaurants:\n• Anand Family Restaurant\n• The Bamboo Hut\n• Loktak Floating Restaurant\n\n💡 Tip: Try Ima Keithel for authentic local food!"
+
+    # ==========================================
+    # 6. HOTELS & ACCOMMODATION
+    # ==========================================
+    hotel_keywords = ['hotel', 'stay', 'accommodation',
+                      'lodge', 'resort', 'guest house', 'place to stay']
+    if any(word in message_lower for word in hotel_keywords):
+        return "We have 150+ hotels and accommodations! 🏨\n\nTop hotels:\n• The Classic Hotel (Imphal)\n• Loktak Lake Resort\n• Shirui Hills Retreat\n• Kangla Heritage Hotel\n• Ima Market Guest House\n\n💰 Price range: ₹500 - ₹15,000/night\n🛏️ Options: Budget, Luxury, Homestays, Resorts\n\nCheck our Hotels page for details!"
+
+    # ==========================================
+    # 7. TRANSPORTATION
+    # ==========================================
+    transport_keywords = ['transport', 'reach', 'how to reach',
+                          'travel', 'bus', 'train', 'flight', 'airport']
+    if any(word in message_lower for word in transport_keywords):
+        return "Getting to and around Manipur is easy! ✈️🚌\n\n🚀 How to reach:\n• By Air: Imphal Airport (direct flights from Delhi, Kolkata, Guwahati)\n• By Road: Well-connected buses from Guwahati, Dimapur\n• By Train: Nearest station is Dimapur (Nagaland)\n\n🛺 Getting around:\n• Taxis and auto-rickshaws available\n• Local buses connect major towns\n• You can also rent vehicles\n\n🚗 Tip: Hiring a private vehicle is best for exploring!"
+
+    # ==========================================
+    # 8. SAFETY
+    # ==========================================
+    safety_keywords = ['safe', 'safety', 'security',
+                       'danger', 'risky', 'safe to visit']
+    if any(word in message_lower for word in safety_keywords):
+        return "Manipur is generally safe for tourists! 🛡️\n\n✅ Safety tips:\n• Visit with a local guide for remote areas\n• Keep emergency contacts handy\n• Respect local customs and traditions\n• Carry ID proof\n• Stay updated on local news\n\n📞 Emergency numbers:\n• Police: 100\n• Ambulance: 102\n• Fire: 101\n\n💡 Note: Always check current travel advisories before visiting."
+
+    # ==========================================
+    # 9. SHOPPING
+    # ==========================================
+    shopping_keywords = ['shop', 'buy', 'souvenir',
+                         'gift', 'market', 'shopping', 'handloom']
+    if any(word in message_lower for word in shopping_keywords):
+        return "Shop beautiful handloom and handicrafts in Manipur! 🛍️\n\n🎁 What to buy:\n• Handloom textiles (Phanek, Sarong)\n• Handicrafts (pottery, bamboo products)\n• Organic honey and spices\n• Traditional jewelry\n• Wooden artifacts\n\n📍 Best shopping places:\n• Ima Keithel (largest women's market)\n• Khwairamband Bazar\n• Local handloom emporiums\n\n💡 Tip: Bargaining is common in local markets!"
+
+    # ==========================================
+    # 10. FESTIVALS
+    # ==========================================
+    festival_keywords = ['festival', 'celebration',
+                         'event', 'fair', 'dance', 'culture']
+    if any(word in message_lower for word in festival_keywords):
+        return "Manipur has vibrant festivals all year round! 🎉\n\nMajor festivals:\n• Sangai Festival (Nov) - The biggest tourism festival\n• Yaoshang (Mar) - Manipuri Holi\n• Cheiraoba (Apr) - Manipuri New Year\n• Kut Festival (Nov) - Kuki-Chin-Mizo harvest festival\n• Gaan-Ngai (Feb) - Zeliangrong festival\n\n🎭 Culture:\n• Ras Leela - traditional dance\n• Pung Cholom - drum dance\n• Thang Ta - martial art\n\n💡 Tip: Plan your visit around November for Sangai Festival!"
+
+    # ==========================================
+    # 11. ACTIVITIES
+    # ==========================================
+    activity_keywords = ['activity', 'adventure', 'trek',
+                         'boating', 'wildlife', 'camping', 'hiking']
+    if any(word in message_lower for word in activity_keywords):
+        return "Exciting activities to try in Manipur! 🏔️\n\nAdventure activities:\n• Boating at Loktak Lake 🚣\n• Trekking at Dzuko Valley 🥾\n• Wildlife watching at Keibul Lamjao 🦌\n• Caving at Tharon Cave 🕳️\n• Camping at Shirui Hills ⛺\n\nPhotography: 📸\n• Loktak Lake sunrise\n• Orchids at Khonghampat\n• Shirui lilies\n• Cultural dance performances\n\n💡 Tip: Book adventure activities with registered guides!"
+
+    # ==========================================
+    # 12. COST & BUDGET
+    # ==========================================
+    budget_keywords = ['cost', 'budget', 'expense',
+                       'price', 'money', 'afford', 'cheap', 'expensive']
+    if any(word in message_lower for word in budget_keywords):
+        return "Manipur is affordable compared to many tourist destinations! 💰\n\nBudget guide:\n• Budget traveler: ₹500-800/day (homestays, local food)\n• Mid-range: ₹1,500-2,500/day (hotels, restaurants)\n• Luxury: ₹5,000+/day (resorts, fine dining)\n\nEntry fees: ₹0-100 for most places\nTransport: ₹10-50 for local buses\n\n💡 Tip: Plan ahead for best deals on accommodation!"
+
+    # ==========================================
+    # 13. HELP / SUPPORT
+    # ==========================================
+    help_keywords = ['help', 'support', 'assist',
+                     'guide', 'suggestion', 'advice', 'recommend']
+    if any(word in message_lower for word in help_keywords):
+        return "I'm here to help you explore Manipur! 🌟\n\nHere's what I can assist with:\n• 🏞️ Tourist places and attractions\n• 🌤️ Best time to visit\n• 🍛 Local cuisine and restaurants\n• 🏨 Hotels and accommodation\n• ✈️ Transportation and how to reach\n• 🛍️ Shopping and souvenirs\n• 🎉 Festivals and events\n• 🏔️ Adventure activities\n\nJust ask me anything! 😊"
+
+    # ==========================================
+    # 14. DEFAULT / FALLBACK
+    # ==========================================
+    fallback_responses = [
+        "That's a great question! 🤔 Let me try to help.\n\nI can tell you about:\n• Places to visit 🏞️\n• Best time to visit 🌤️\n• Local food 🍛\n• Hotels 🏨\n• Festivals 🎉\n• Activities 🏔️\n\nPlease be more specific about what you're looking for!",
+
+        "I'm your tourism assistant for Manipur! 🌸\n\nTry asking me about:\n• 'What are the best places to visit?'\n• 'When should I visit Manipur?'\n• 'Where can I eat local food?'\n• 'How to reach Manipur?'\n• 'Are there adventure activities?'\n• 'What festivals are celebrated?'\n\nI'll give you detailed answers! 😊",
+
+        "Let me help you discover Manipur! 🗺️\n\nHere are some things I can help with:\n• Tourist attractions and their details\n• Weather and best season to visit\n• Local food recommendations\n• Accommodation options\n• Transportation guides\n• Cultural events\n\nWhat would you like to know about?"
+    ]
+
+    return random.choice(fallback_responses)
 
 
 if __name__ == '__main__':

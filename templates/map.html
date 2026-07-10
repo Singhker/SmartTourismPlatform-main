@@ -1,0 +1,505 @@
+{% extends "base.html" %} {% block title %}Interactive Map - Smart Tourism{%
+endblock %} {% block extra_css %}
+<!-- Leaflet CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+/>
+
+<style>
+  .map-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  #map {
+    height: 600px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .map-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .map-controls h6 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0d6efd;
+  }
+
+  .map-controls .place-item {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+  }
+
+  .map-controls .place-item:hover {
+    background: #f0f4ff;
+    border-left-color: #0d6efd;
+    transform: translateX(3px);
+  }
+
+  .map-controls .place-item .badge {
+    font-size: 0.7rem;
+  }
+
+  .map-controls .search-box {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .map-controls .search-box:focus {
+    border-color: #0d6efd;
+    outline: none;
+  }
+
+  .map-controls .place-count {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+
+  .custom-popup .popup-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin: -12px -12px 10px -12px;
+    width: calc(100% + 24px);
+  }
+
+  .custom-popup .popup-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #0d6efd;
+  }
+
+  .custom-popup .popup-details {
+    font-size: 0.85rem;
+    color: #495057;
+  }
+
+  .custom-popup .popup-details i {
+    width: 18px;
+    color: #6c757d;
+  }
+
+  .custom-popup .popup-link {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 15px;
+    border-radius: 20px;
+    background: #0d6efd;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.3s ease;
+  }
+
+  .custom-popup .popup-link:hover {
+    background: #0a58ca;
+    color: white;
+  }
+
+  /* Dark Mode */
+  body.dark-mode .map-controls {
+    background: #1a1a2e;
+    color: #e9ecef;
+  }
+
+  body.dark-mode .map-controls .place-item:hover {
+    background: #1a2a4e;
+  }
+
+  body.dark-mode .map-controls .search-box {
+    background: #16213e;
+    color: #e9ecef;
+    border-color: #2a3a5e;
+  }
+
+  body.dark-mode .map-controls .search-box:focus {
+    border-color: #0d6efd;
+  }
+
+  body.dark-mode .custom-popup .popup-details {
+    color: #adb5bd;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #map {
+      height: 400px;
+    }
+
+    .map-controls {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-bottom: 15px;
+      max-height: 300px;
+      min-width: unset;
+    }
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h2><i class="bi bi-geo-alt text-primary"></i> Interactive Map</h2>
+      <p class="text-muted">{{ total_places }} tourist places across Manipur</p>
+    </div>
+    <div>
+      <a href="{{ url_for('places') }}" class="btn btn-outline-primary">
+        <i class="bi bi-list"></i> List View
+      </a>
+      <button onclick="resetMapView()" class="btn btn-outline-secondary">
+        <i class="bi bi-house"></i> Reset View
+      </button>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <!-- Map Controls -->
+    <div class="map-controls" id="mapControls">
+      <h6><i class="bi bi-search"></i> Find Places</h6>
+      <input
+        type="text"
+        class="search-box"
+        id="searchInput"
+        placeholder="Search by name or district..."
+        onkeyup="filterPlaces()"
+      />
+
+      <div class="place-count">
+        <span id="filteredCount">{{ total_places }}</span> places displayed
+      </div>
+
+      <div id="placeList" style="max-height: 350px; overflow-y: auto">
+        {% for place in places %}
+        <div
+          class="place-item"
+          data-place-id="{{ place.place_id }}"
+          onclick="zoomToPlace({{ place.latitude }}, {{ place.longitude }}, '{{ place.place_name|escape }}')"
+        >
+          <strong>{{ place.place_name }}</strong>
+          <br />
+          <span class="text-muted small">
+            <i class="bi bi-geo-alt"></i> {{ place.district }}
+          </span>
+          <span class="badge bg-primary float-end">{{ place.category }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+  </div>
+
+  <!-- District Stats -->
+  <div class="row mt-4 g-3">
+    <div class="col-12">
+      <h5><i class="bi bi-bar-chart"></i> Places by District</h5>
+    </div>
+    {% for stat in district_stats %}
+    <div class="col-md-2 col-4">
+      <div class="card shadow-sm border-0 text-center">
+        <div class="card-body">
+          <h6 class="text-muted small">{{ stat.district }}</h6>
+          <p class="display-6 mb-0">{{ stat.count }}</p>
+          <small class="text-muted">places</small>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<script>
+  // ==========================================
+  // MAP CONFIGURATION
+  // ==========================================
+
+  // Center of Manipur
+  const MANIPUR_CENTER = [24.817, 93.933];
+  const MANIPUR_ZOOM = 9;
+
+  let map;
+  let markers = {};
+  let currentTileLayer = null;
+
+  // ==========================================
+  // SET MAP STYLE (Light/Dark)
+  // ==========================================
+
+  function setMapStyle(isDark) {
+      if (currentTileLayer) {
+          map.removeLayer(currentTileLayer);
+      }
+
+      // Choose tile layer based on dark mode
+      const style = isDark ?
+          'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' :
+          'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+      currentTileLayer = L.tileLayer(style, {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; CartoDB',
+          maxZoom: 19
+      }).addTo(map);
+  }
+
+  // ==========================================
+  // INITIALIZE MAP
+  // ==========================================
+
+  function initMap() {
+      map = L.map('map', {
+          center: MANIPUR_CENTER,
+          zoom: MANIPUR_ZOOM,
+          zoomControl: true,
+          fadeAnimation: true,
+          attributionControl: true
+      });
+
+      // Set initial map style (light)
+      setMapStyle(false);
+
+      // Add scale control
+      L.control.scale({
+          position: 'bottomright',
+          metric: true,
+          imperial: false
+      }).addTo(map);
+
+      // Add places to map
+      {% for place in places %}
+      addMarker({
+          place_id: "{{ place.place_id }}",
+          place_name: "{{ place.place_name|escape }}",
+          district: "{{ place.district }}",
+          category: "{{ place.category }}",
+          latitude: {{ place.latitude }},
+          longitude: {{ place.longitude }},
+          description: "{{ place.description[:100]|escape }}",
+          popularity_level: "{{ place.popularity_level }}",
+          entry_fee_inr: {{ place.entry_fee_inr or 0 }},
+          best_season: "{{ place.best_season }}"
+      });
+      {% endfor %}
+
+      // Handle map resize
+      setTimeout(function() {
+          map.invalidateSize();
+      }, 500);
+
+      // Listen for dark mode changes
+      setupDarkModeListener();
+  }
+
+  // ==========================================
+  // DARK MODE LISTENER
+  // ==========================================
+
+  function setupDarkModeListener() {
+      // Check if dark mode toggle exists
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+          // Listen for clicks on dark mode toggle
+          darkModeToggle.addEventListener('click', function() {
+              // Wait a moment for the class to be toggled
+              setTimeout(() => {
+                  const isDark = document.body.classList.contains('dark-mode');
+                  setMapStyle(isDark);
+              }, 100);
+          });
+      }
+
+      // Also listen for class changes on body
+      const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+              if (mutation.attributeName === 'class') {
+                  const isDark = document.body.classList.contains('dark-mode');
+                  setMapStyle(isDark);
+              }
+          });
+      });
+
+      observer.observe(document.body, { attributes: true });
+  }
+
+  // ==========================================
+  // ADD MARKER
+  // ==========================================
+
+  function addMarker(place) {
+      // Skip if no valid coordinates
+      if (!place.latitude || !place.longitude || place.latitude == 0 || place.longitude == 0) {
+          return;
+      }
+
+      // Determine marker color based on popularity
+      let markerColor = '#0d6efd';
+      let iconSize = [30, 30];
+
+      if (place.popularity_level === 'High') {
+          markerColor = '#dc3545';
+          iconSize = [35, 35];
+      } else if (place.popularity_level === 'Medium') {
+          markerColor = '#ffc107';
+          iconSize = [32, 32];
+      }
+
+      // Create custom icon
+      const icon = L.divIcon({
+          className: 'custom-marker',
+          html: `<div style="background: ${markerColor}; width: ${iconSize[0]}px; height: ${iconSize[1]}px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 3px solid white;">
+                  <i class="bi bi-pin-map" style="font-size: 16px;"></i>
+                </div>`,
+          iconSize: iconSize,
+          iconAnchor: [iconSize[0]/2, iconSize[1]]
+      });
+
+      // Create popup content
+      const popupContent = `
+          <div class="custom-popup" style="max-width: 280px;">
+              <h5 class="popup-title">${place.place_name}</h5>
+              <p class="popup-details">
+                  <i class="bi bi-geo-alt"></i> ${place.district}<br>
+                  <i class="bi bi-tag"></i> ${place.category}<br>
+                  <i class="bi bi-star"></i> ${place.popularity_level || 'Medium'}<br>
+                  <i class="bi bi-calendar"></i> ${place.best_season || 'All Season'}<br>
+                  ${place.entry_fee_inr > 0 ? `<i class="bi bi-currency-rupee"></i> ₹${place.entry_fee_inr}` : '<i class="bi bi-check-circle text-success"></i> Free Entry'}
+              </p>
+              <p class="small text-muted">${place.description || ''}</p>
+              <a href="/place/${place.place_id}" class="popup-link">
+                  <i class="bi bi-eye"></i> View Details
+              </a>
+          </div>
+      `;
+
+      // Create marker
+      const marker = L.marker([place.latitude, place.longitude], {
+          icon: icon,
+          riseOnHover: true
+      })
+      .bindPopup(popupContent, {
+          maxWidth: 300,
+          className: 'custom-popup'
+      })
+      .addTo(map);
+
+      // Store marker reference
+      markers[place.place_id] = marker;
+
+      // Add hover effect
+      marker.on('mouseover', function() {
+          this.openPopup();
+      });
+  }
+
+  // ==========================================
+  // ZOOM TO PLACE
+  // ==========================================
+
+  function zoomToPlace(lat, lng, name) {
+      map.setView([lat, lng], 14, {
+          animate: true,
+          duration: 1
+      });
+
+      // Open popup for the marker
+      for (const [id, marker] of Object.entries(markers)) {
+          const markerLatLng = marker.getLatLng();
+          if (Math.abs(markerLatLng.lat - lat) < 0.0001 &&
+              Math.abs(markerLatLng.lng - lng) < 0.0001) {
+              marker.openPopup();
+              break;
+          }
+      }
+  }
+
+  // ==========================================
+  // RESET MAP VIEW
+  // ==========================================
+
+  function resetMapView() {
+      map.setView(MANIPUR_CENTER, MANIPUR_ZOOM, {
+          animate: true,
+          duration: 1
+      });
+      map.closePopup();
+  }
+
+  // ==========================================
+  // FILTER PLACES
+  // ==========================================
+
+  function filterPlaces() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const placeItems = document.querySelectorAll('.place-item');
+      let visibleCount = 0;
+
+      placeItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(searchTerm)) {
+              item.style.display = 'block';
+              visibleCount++;
+          } else {
+              item.style.display = 'none';
+          }
+      });
+
+      document.getElementById('filteredCount').textContent = visibleCount;
+  }
+
+  // ==========================================
+  // INITIALIZE ON LOAD
+  // ==========================================
+
+  document.addEventListener('DOMContentLoaded', function() {
+      initMap();
+
+      // Fix map size after loading
+      setTimeout(() => {
+          map.invalidateSize();
+      }, 1000);
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+      if (map) {
+          map.invalidateSize();
+      }
+  });
+</script>
+{% endblock %}
