@@ -918,7 +918,248 @@ def server_error(error):
 # =============================================================================
 # Interactive Map Route
 # =============================================================================
+# =============================================================================
+# Interactive Dashboard Route
+# =============================================================================
 
+
+@app.route('/dashboard')
+def dashboard():
+    """Interactive dashboard with real-time stats and charts."""
+    conn = get_db_connection()
+
+    # ==========================================
+    # 1. REAL-TIME STATS
+    # ==========================================
+
+    # Total places
+    total_places = conn.execute(
+        "SELECT COUNT(*) as count FROM tourist_places").fetchone()[0]
+
+    # Total visitors
+    total_visitors = conn.execute(
+        "SELECT SUM(total_visitors) as total FROM visitor_statistics").fetchone()[0] or 0
+
+    # Total reviews
+    total_reviews = conn.execute(
+        "SELECT COUNT(*) as count FROM reviews").fetchone()[0]
+
+    # Today's visitors (based on latest data)
+    today_visitors = conn.execute("""
+        SELECT SUM(total_visitors) as total 
+        FROM visitor_statistics 
+        WHERE created_date >= date('now', '-30 days')
+    """).fetchone()[0] or 0
+
+    # Average rating
+    avg_rating = conn.execute(
+        "SELECT AVG(overall_rating) as avg FROM reviews").fetchone()[0] or 0
+
+    # Total hotels
+    total_hotels = conn.execute(
+        "SELECT COUNT(*) as count FROM hotels").fetchone()[0]
+
+    # Total restaurants
+    total_restaurants = conn.execute(
+        "SELECT COUNT(*) as count FROM restaurants").fetchone()[0]
+
+    # Upcoming events
+    upcoming_events = conn.execute("""
+        SELECT COUNT(*) as count FROM events 
+        WHERE start_date >= date('now')
+    """).fetchone()[0]
+
+    # ==========================================
+    # 2. TOP PLACES BY VISITORS
+    # ==========================================
+
+    top_places = get_db_data("""
+        SELECT p.place_id, p.place_name, p.district,
+               SUM(v.total_visitors) as total_visitors,
+               AVG(v.visitor_satisfaction) as satisfaction
+        FROM tourist_places p
+        JOIN visitor_statistics v ON p.place_id = v.place_id
+        GROUP BY p.place_id
+        ORDER BY total_visitors DESC
+        LIMIT 10
+    """)
+
+    # ==========================================
+    # 3. MONTHLY VISITOR TRENDS
+    # ==========================================
+
+    monthly_trends = get_db_data("""
+        SELECT month_name, 
+               SUM(total_visitors) as visitors,
+               AVG(visitor_satisfaction) as satisfaction
+        FROM visitor_statistics
+        GROUP BY month_number
+        ORDER BY month_number
+    """)
+
+    # ==========================================
+    # 4. CATEGORY DISTRIBUTION
+    # ==========================================
+
+    category_dist = get_db_data("""
+        SELECT category, COUNT(*) as count 
+        FROM tourist_places 
+        GROUP BY category 
+        ORDER BY count DESC
+    """)
+
+    # ==========================================
+    # 5. DISTRICT DISTRIBUTION
+    # ==========================================
+
+    district_dist = get_db_data("""
+        SELECT district, COUNT(*) as count 
+        FROM tourist_places 
+        GROUP BY district 
+        ORDER BY count DESC
+        LIMIT 10
+    """)
+
+    # ==========================================
+    # 6. RECENT REVIEWS
+    # ==========================================
+
+    recent_reviews = get_db_data("""
+        SELECT r.*, p.place_name
+        FROM reviews r
+        JOIN tourist_places p ON r.place_id = p.place_id
+        ORDER BY r.created_date DESC
+        LIMIT 10
+    """)
+
+    # ==========================================
+    # 7. SENTIMENT DISTRIBUTION
+    # ==========================================
+
+    sentiment_dist = get_db_data("""
+        SELECT sentiment, COUNT(*) as count 
+        FROM reviews 
+        GROUP BY sentiment
+    """)
+
+    # ==========================================
+    # 8. GROWTH TRENDS (YoY)
+    # ==========================================
+
+    growth_trends = get_db_data("""
+        SELECT year, 
+               SUM(total_visitors) as visitors,
+               COUNT(DISTINCT place_id) as active_places
+        FROM visitor_statistics
+        GROUP BY year
+        ORDER BY year
+    """)
+
+    conn.close()
+
+    # Create charts as JSON
+    charts = create_dashboard_charts(
+        monthly_trends, category_dist, district_dist, sentiment_dist, growth_trends, top_places)
+
+    return render_template('dashboard.html',
+                           # Stats
+                           total_places=total_places,
+                           total_visitors=total_visitors,
+                           total_reviews=total_reviews,
+                           today_visitors=today_visitors,
+                           avg_rating=round(avg_rating, 2),
+                           total_hotels=total_hotels,
+                           total_restaurants=total_restaurants,
+                           upcoming_events=upcoming_events,
+                           # Data
+                           top_places=top_places.to_dict(
+                               'records') if not top_places.empty else [],
+                           recent_reviews=recent_reviews.to_dict(
+                               'records') if not recent_reviews.empty else [],
+                           monthly_trends=monthly_trends.to_dict(
+                               'records') if not monthly_trends.empty else [],
+                           category_dist=category_dist.to_dict(
+                               'records') if not category_dist.empty else [],
+                           district_dist=district_dist.to_dict(
+                               'records') if not district_dist.empty else [],
+                           sentiment_dist=sentiment_dist.to_dict(
+                               'records') if not sentiment_dist.empty else [],
+                           growth_trends=growth_trends.to_dict(
+                               'records') if not growth_trends.empty else [],
+                           # Charts
+                           charts=charts
+                           )
+
+
+def create_dashboard_charts(monthly_trends, category_dist, district_dist, sentiment_dist, growth_trends, top_places):
+    """Create Plotly charts for the dashboard."""
+    charts = {}
+
+    # 1. Monthly Visitors Trend
+    if not monthly_trends.empty:
+        fig = px.line(monthly_trends, x='month_name', y='visitors',
+                      title='Monthly Visitor Trends',
+                      markers=True,
+                      labels={'visitors': 'Total Visitors', 'month_name': 'Month'})
+        fig.update_traces(line_color='#0d6efd', line_width=3)
+        charts['monthly_visitors'] = json.dumps(
+            fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    # 2. Category Distribution (Pie)
+    if not category_dist.empty:
+        fig = px.pie(category_dist, values='count', names='category',
+                     title='Places by Category',
+                     color_discrete_sequence=px.colors.qualitative.Set3)
+        charts['category_dist'] = json.dumps(
+            fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    # 3. District Distribution (Bar)
+    if not district_dist.empty:
+        fig = px.bar(district_dist, x='district', y='count',
+                     title='Places by District',
+                     color='count',
+                     color_continuous_scale='Blues',
+                     labels={'count': 'Number of Places', 'district': 'District'})
+        charts['district_dist'] = json.dumps(
+            fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    # 4. Sentiment Distribution
+    if not sentiment_dist.empty:
+        colors = {'Positive': '#28a745',
+                  'Neutral': '#ffc107', 'Negative': '#dc3545'}
+        fig = px.pie(sentiment_dist, values='count', names='sentiment',
+                     title='Review Sentiment Analysis',
+                     color='sentiment',
+                     color_discrete_map=colors)
+        charts['sentiment_dist'] = json.dumps(
+            fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    # 5. Growth Trends
+    if not growth_trends.empty:
+        fig = px.bar(growth_trends, x='year', y='visitors',
+                     title='Year-over-Year Visitor Growth',
+                     text='visitors',
+                     color='visitors',
+                     color_continuous_scale='Greens',
+                     labels={'visitors': 'Total Visitors', 'year': 'Year'})
+        fig.update_traces(texttemplate='%{text:,}', textposition='outside')
+        charts['growth_trends'] = json.dumps(
+            fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    # 6. Top Places (Horizontal Bar)
+    if not top_places.empty:
+        top_places_sorted = top_places.sort_values(
+            'total_visitors', ascending=True).tail(10)
+        fig = px.bar(top_places_sorted, x='total_visitors', y='place_name',
+                     title='Top 10 Most Visited Places',
+                     orientation='h',
+                     color='satisfaction',
+                     color_continuous_scale='RdYlGn',
+                     labels={'total_visitors': 'Total Visitors', 'place_name': ''})
+        charts['top_places'] = json.dumps(
+            fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return charts
 
 @app.route('/map')
 def interactive_map():

@@ -1,213 +1,553 @@
 {% extends "base.html" %} {% block title %}Analytics Dashboard - Smart Tourism
-Platform{% endblock %} {% block content %}
-<div class="container py-4">
-  <h2 class="mb-4"><i class="bi bi-graph-up"></i> Analytics Dashboard</h2>
+Platform{% endblock %} {% block extra_css %}
+<style>
+  .analytics-container {
+    padding: 20px 30px 40px;
+    background: #f0f4ff;
+    min-height: 100vh;
+  }
 
-  <!-- Summary Cards -->
+  .analytics-header {
+    margin-bottom: 30px;
+  }
+
+  .analytics-header h2 {
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #1a1a2e, #4a4a6a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .analytics-header .subtitle {
+    color: #6c7a89;
+    font-weight: 400;
+  }
+
+  .stat-card-analytics {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    height: 100%;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .stat-card-analytics:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .stat-card-analytics:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .stat-card-analytics:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .stat-card-analytics:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  .stat-card-analytics:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+  }
+
+  .stat-card-analytics .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-card-analytics .stat-label {
+    color: #6c7a89;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .chart-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    height: 100%;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .chart-card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .chart-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .chart-card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .chart-card:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .chart-card .card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chart-card .card-title i {
+    font-size: 1.3rem;
+  }
+
+  /* ===== FIXED: Chart Container Height ===== */
+  .chart-container {
+    height: 350px;
+    position: relative;
+    width: 100%;
+  }
+
+  .chart-container .plotly-chart {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Table styles */
+  .table-analytics {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .table-analytics thead th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 12px 16px;
+  }
+
+  .table-analytics tbody tr {
+    transition: all 0.3s ease;
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  .table-analytics tbody tr:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .table-analytics tbody tr:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .table-analytics tbody tr:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .table-analytics tbody tr:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .table-analytics tbody tr:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+
+  .table-analytics tbody tr:hover {
+    background: rgba(102, 126, 234, 0.08);
+    transform: scale(1.01);
+  }
+
+  /* Dark Mode */
+  body.dark-mode .analytics-container {
+    background: #0d0d1a;
+  }
+
+  body.dark-mode .stat-card-analytics {
+    background: rgba(26, 26, 46, 0.9);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .stat-card-analytics .stat-label {
+    color: #adb5bd;
+  }
+
+  body.dark-mode .chart-card {
+    background: rgba(26, 26, 46, 0.9);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .chart-card .card-title {
+    color: #e9ecef;
+  }
+
+  body.dark-mode .analytics-header h2 {
+    background: linear-gradient(135deg, #e9ecef, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  body.dark-mode .table-analytics {
+    color: #e9ecef;
+  }
+
+  body.dark-mode .table-analytics tbody td {
+    background: #1a1a2e;
+    border-color: #2a3a5e;
+    color: #e9ecef;
+  }
+
+  body.dark-mode .table-analytics tbody tr:hover {
+    background: #1a2a4e;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .analytics-container {
+      padding: 15px 15px 30px;
+    }
+
+    .chart-container {
+      height: 280px;
+    }
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="analytics-container">
+  <!-- Header -->
+  <div class="analytics-header">
+    <h2>
+      <i
+        class="bi bi-graph-up"
+        style="
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        "
+      ></i>
+      Analytics Dashboard
+    </h2>
+    <p class="subtitle">Real-time tourism insights and trends</p>
+  </div>
+
+  <!-- Summary Stats -->
   <div class="row g-4 mb-4">
     <div class="col-md-3">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <h6 class="text-muted">Total Visitors</h6>
-          <p class="display-6">
-            {% if seasonal and seasonal|length > 0 %} {{
-            seasonal|sum(attribute='total_visitors')|default(0, true)|int }} {%
-            else %} 0 {% endif %}
-          </p>
+      <div class="stat-card-analytics text-center">
+        <div class="stat-number">
+          {% if seasonal and seasonal|length > 0 %} {{
+          seasonal|sum(attribute='total_visitors')|default(0, true)|int }} {%
+          else %} 0 {% endif %}
         </div>
+        <div class="stat-label">Total Visitors</div>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <h6 class="text-muted">Categories</h6>
-          <p class="display-6">{{ category_analysis|length|default(0) }}</p>
-        </div>
+      <div class="stat-card-analytics text-center">
+        <div class="stat-number">{{ category_analysis|length|default(0) }}</div>
+        <div class="stat-label">Categories</div>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <h6 class="text-muted">Districts</h6>
-          <p class="display-6">{{ district_analysis|length|default(0) }}</p>
-        </div>
+      <div class="stat-card-analytics text-center">
+        <div class="stat-number">{{ district_analysis|length|default(0) }}</div>
+        <div class="stat-label">Districts</div>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <h6 class="text-muted">Avg Satisfaction</h6>
-          <p class="display-6">
-            {% if seasonal and seasonal|length > 0 %} {{
-            "%.1f"|format(seasonal|map(attribute='avg_satisfaction')|select('defined')|sum
-            / seasonal|length) }} {% else %} 0.0 {% endif %}
-          </p>
+      <div class="stat-card-analytics text-center">
+        <div class="stat-number">
+          {% if seasonal and seasonal|length > 0 %} {{
+          "%.1f"|format(seasonal|map(attribute='avg_satisfaction')|select('defined')|sum
+          / seasonal|length) }} {% else %} 0.0 {% endif %}
         </div>
+        <div class="stat-label">Avg Satisfaction</div>
       </div>
     </div>
   </div>
 
-  <!-- Seasonal Chart -->
-  <div class="row mb-4">
+  <!-- Charts Row 1 -->
+  <div class="row g-4 mb-4">
     <div class="col-md-12">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h5>Visitors by Season</h5>
+      <div class="chart-card">
+        <div class="card-title">
+          <i class="bi bi-graph-up-arrow" style="color: #667eea"></i> Visitors
+          by Season
+        </div>
+        <div class="chart-container">
           {% if charts and charts.seasonal %}
-          <div id="seasonalChart"></div>
-          <script>
-            var seasonalData = {{ charts.seasonal|safe }};
-            Plotly.newPlot('seasonalChart', seasonalData.data, seasonalData.layout);
-          </script>
+          <div id="seasonalChart" style="height: 100%; width: 100%"></div>
           {% else %}
-          <p class="text-muted">No seasonal data available</p>
+          <p class="text-muted text-center mt-4">No data available</p>
           {% endif %}
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Category Chart -->
-  <div class="row mb-4">
+  <!-- Charts Row 2 -->
+  <div class="row g-4 mb-4">
     <div class="col-md-6">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h5>Average Visitors by Category</h5>
+      <div class="chart-card">
+        <div class="card-title">
+          <i class="bi bi-bar-chart" style="color: #2ed573"></i> Average
+          Visitors by Category
+        </div>
+        <div class="chart-container">
           {% if charts and charts.category %}
-          <div id="categoryChart"></div>
-          <script>
-            var categoryData = {{ charts.category|safe }};
-            Plotly.newPlot('categoryChart', categoryData.data, categoryData.layout);
-          </script>
+          <div id="categoryChart" style="height: 100%; width: 100%"></div>
           {% else %}
-          <p class="text-muted">No category data available</p>
+          <p class="text-muted text-center mt-4">No data available</p>
           {% endif %}
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h5>Total Visitors by District</h5>
+      <div class="chart-card">
+        <div class="card-title">
+          <i class="bi bi-pie-chart" style="color: #f7971e"></i> Total Visitors
+          by District
+        </div>
+        <div class="chart-container">
           {% if charts and charts.district %}
-          <div id="districtChart"></div>
-          <script>
-            var districtData = {{ charts.district|safe }};
-            Plotly.newPlot('districtChart', districtData.data, districtData.layout);
-          </script>
+          <div id="districtChart" style="height: 100%; width: 100%"></div>
           {% else %}
-          <p class="text-muted">No district data available</p>
+          <p class="text-muted text-center mt-4">No data available</p>
           {% endif %}
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Data Tables -->
-  <div class="row mb-4">
+  <!-- Tables Row -->
+  <div class="row g-4 mb-4">
     <div class="col-md-6">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h5>Seasonal Analysis</h5>
-          <div class="table-responsive">
-            <table class="table table-sm table-hover">
-              <thead>
-                <tr>
-                  <th>Season</th>
-                  <th>Total Visitors</th>
-                  <th>Avg Satisfaction</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% if seasonal and seasonal|length > 0 %} {% for row in seasonal
-                %}
-                <tr>
-                  <td>{{ row.season }}</td>
-                  <td>{{ row.total_visitors|default(0)|int }}</td>
-                  <td>{{ "%.2f"|format(row.avg_satisfaction|default(0)) }}</td>
-                </tr>
-                {% endfor %} {% else %}
-                <tr>
-                  <td colspan="3" class="text-muted">No seasonal data</td>
-                </tr>
-                {% endif %}
-              </tbody>
-            </table>
-          </div>
+      <div class="chart-card">
+        <div class="card-title">
+          <i class="bi bi-table" style="color: #4facfe"></i> Seasonal Analysis
+        </div>
+        <div class="table-responsive">
+          <table class="table table-analytics table-hover">
+            <thead>
+              <tr>
+                <th>Season</th>
+                <th>Total Visitors</th>
+                <th>Avg Satisfaction</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if seasonal and seasonal|length > 0 %} {% for row in seasonal
+              %}
+              <tr>
+                <td><strong>{{ row.season }}</strong></td>
+                <td>{{ row.total_visitors|default(0)|int }}</td>
+                <td>
+                  <span
+                    class="badge {% if row.avg_satisfaction|default(0) >= 4.0 %}bg-success {% elif row.avg_satisfaction|default(0) >= 3.0 %}bg-warning {% else %}bg-danger{% endif %}"
+                  >
+                    {{ "%.2f"|format(row.avg_satisfaction|default(0)) }}
+                  </span>
+                </td>
+              </tr>
+              {% endfor %} {% else %}
+              <tr>
+                <td colspan="3" class="text-muted text-center">
+                  No seasonal data
+                </td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h5>Category Analysis</h5>
-          <div class="table-responsive">
-            <table class="table table-sm table-hover">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Places</th>
-                  <th>Avg Visitors</th>
-                  <th>Avg Satisfaction</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% if category_analysis and category_analysis|length > 0 %} {%
-                for row in category_analysis %}
-                <tr>
-                  <td>{{ row.category }}</td>
-                  <td>{{ row.place_count|default(0)|int }}</td>
-                  <td>{{ row.avg_visitors|default(0)|int }}</td>
-                  <td>{{ "%.2f"|format(row.avg_satisfaction|default(0)) }}</td>
-                </tr>
-                {% endfor %} {% else %}
-                <tr>
-                  <td colspan="4" class="text-muted">No category data</td>
-                </tr>
-                {% endif %}
-              </tbody>
-            </table>
-          </div>
+      <div class="chart-card">
+        <div class="card-title">
+          <i class="bi bi-table" style="color: #f093fb"></i> Category Analysis
+        </div>
+        <div class="table-responsive">
+          <table class="table table-analytics table-hover">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Places</th>
+                <th>Avg Visitors</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if category_analysis and category_analysis|length > 0 %} {% for
+              row in category_analysis %}
+              <tr>
+                <td><strong>{{ row.category }}</strong></td>
+                <td>{{ row.place_count|default(0)|int }}</td>
+                <td>{{ row.avg_visitors|default(0)|int }}</td>
+              </tr>
+              {% endfor %} {% else %}
+              <tr>
+                <td colspan="3" class="text-muted text-center">
+                  No category data
+                </td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row mb-4">
+  <!-- District Analysis Table -->
+  <div class="row g-4">
     <div class="col-md-12">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h5>District Analysis</h5>
-          <div class="table-responsive">
-            <table class="table table-sm table-hover">
-              <thead>
-                <tr>
-                  <th>District</th>
-                  <th>Places</th>
-                  <th>Total Visitors</th>
-                  <th>Avg Rating</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% if district_analysis and district_analysis|length > 0 %} {%
-                for row in district_analysis %}
-                <tr>
-                  <td>{{ row.district }}</td>
-                  <td>{{ row.place_count|default(0)|int }}</td>
-                  <td>{{ row.total_visitors|default(0)|int }}</td>
-                  <td>{{ "%.2f"|format(row.avg_rating|default(0)) }}</td>
-                </tr>
-                {% endfor %} {% else %}
-                <tr>
-                  <td colspan="4" class="text-muted">No district data</td>
-                </tr>
-                {% endif %}
-              </tbody>
-            </table>
-          </div>
+      <div class="chart-card">
+        <div class="card-title">
+          <i class="bi bi-table" style="color: #11998e"></i> District Analysis
+        </div>
+        <div class="table-responsive">
+          <table class="table table-analytics table-hover">
+            <thead>
+              <tr>
+                <th>District</th>
+                <th>Places</th>
+                <th>Total Visitors</th>
+                <th>Avg Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if district_analysis and district_analysis|length > 0 %} {% for
+              row in district_analysis %}
+              <tr>
+                <td><strong>{{ row.district }}</strong></td>
+                <td>{{ row.place_count|default(0)|int }}</td>
+                <td>{{ row.total_visitors|default(0)|int }}</td>
+                <td>
+                  <span
+                    class="badge {% if row.avg_rating|default(0) >= 4.0 %}bg-success {% elif row.avg_rating|default(0) >= 3.0 %}bg-warning {% else %}bg-danger{% endif %}"
+                  >
+                    {{ "%.2f"|format(row.avg_rating|default(0)) }}
+                  </span>
+                </td>
+              </tr>
+              {% endfor %} {% else %}
+              <tr>
+                <td colspan="4" class="text-muted text-center">
+                  No district data
+                </td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </div>
+{% endblock %} {% block extra_js %}
+<script>
+  // ==========================================
+  // RENDER CHARTS WITH ANIMATIONS
+  // ==========================================
+
+  {% if charts %}
+      {% if charts.seasonal %}
+      var seasonalData = {{ charts.seasonal|safe }};
+      if (seasonalData && seasonalData.data && seasonalData.data.length > 0) {
+          Plotly.newPlot('seasonalChart', seasonalData.data, seasonalData.layout);
+      }
+      {% endif %}
+
+      {% if charts.category %}
+      var categoryData = {{ charts.category|safe }};
+      if (categoryData && categoryData.data && categoryData.data.length > 0) {
+          Plotly.newPlot('categoryChart', categoryData.data, categoryData.layout);
+      }
+      {% endif %}
+
+      {% if charts.district %}
+      var districtData = {{ charts.district|safe }};
+      if (districtData && districtData.data && districtData.data.length > 0) {
+          Plotly.newPlot('districtChart', districtData.data, districtData.layout);
+      }
+      {% endif %}
+  {% endif %}
+
+  // ==========================================
+  // RESIZE HANDLER
+  // ==========================================
+
+  window.addEventListener('resize', function() {
+      {% if charts %}
+          {% if charts.seasonal %}
+          if (document.getElementById('seasonalChart')) {
+              Plotly.Plots.resize('seasonalChart');
+          }
+          {% endif %}
+          {% if charts.category %}
+          if (document.getElementById('categoryChart')) {
+              Plotly.Plots.resize('categoryChart');
+          }
+          {% endif %}
+          {% if charts.district %}
+          if (document.getElementById('districtChart')) {
+              Plotly.Plots.resize('districtChart');
+          }
+          {% endif %}
+      {% endif %}
+  });
+</script>
 {% endblock %}
