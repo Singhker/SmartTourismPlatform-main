@@ -1,0 +1,135 @@
+{% extends "base.html" %} {% block title %}Admin Dashboard{% endblock %} {%
+block content %}
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-shield-lock-fill text-primary"></i> Admin Dashboard</h2>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn-outline-danger">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </a>
+  </div>
+  <p class="text-muted">
+    Welcome, Administrator! Manage your tourism platform data below.
+  </p>
+
+  <div class="row g-4 mt-3">
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Tourist Places</h5>
+          <p class="display-4">{{ stats.tourist_places }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='tourist_places') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Visitor Statistics</h5>
+          <p class="display-4">{{ stats.visitor_statistics }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='visitor_statistics') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Reviews</h5>
+          <p class="display-4">{{ stats.reviews }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='reviews') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Hotels</h5>
+          <p class="display-4">{{ stats.hotels }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='hotels') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row g-4 mt-2">
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Restaurants</h5>
+          <p class="display-4">{{ stats.restaurants }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='restaurants') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Events</h5>
+          <p class="display-4">{{ stats.events }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='events') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Weather</h5>
+          <p class="display-4">{{ stats.weather }}</p>
+          <a
+            href="{{ url_for('admin_view_table', table_name='weather') }}"
+            class="btn btn-outline-primary btn-sm"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5>Data Curation</h5>
+          <p class="display-4">🔧</p>
+          <a
+            href="{{ url_for('curation') }}"
+            class="btn btn-outline-success btn-sm"
+            >Go</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+    <a href="{{ url_for('curation') }}" class="btn btn-outline-success">
+      <i class="bi bi-brush"></i> Data Curation
+    </a>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn-outline-danger">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </a>
+  </div>
+</div>
+{% endblock %}

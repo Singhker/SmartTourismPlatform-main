@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for
+from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for, session
 import pandas as pd
 import sqlite3
 import json
@@ -106,7 +106,106 @@ def get_weather_data(place_id=None):
     return get_db_data(query)
 
 # =============================================================================
-# Routes
+# Admin Authentication
+# =============================================================================
+
+
+# Admin password (change this to something secure)
+ADMIN_PASSWORD = "admin123"
+
+
+def admin_required():
+    """Check if admin is logged in."""
+    if not session.get('admin_logged_in'):
+        return False
+    return True
+
+
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    """Admin login page."""
+    if request.method == 'POST':
+        password = request.form.get('password', '')
+        if password == ADMIN_PASSWORD:
+            session['admin_logged_in'] = True
+            return redirect(url_for('admin_dashboard'))
+        else:
+            return render_template('admin_login.html', error="Invalid password. Please try again.")
+    return render_template('admin_login.html', error=None)
+
+
+@app.route('/admin/logout')
+def admin_logout():
+    """Admin logout."""
+    session.pop('admin_logged_in', None)
+    return redirect(url_for('index'))
+
+# =============================================================================
+# Admin Routes (Protected)
+# =============================================================================
+
+
+@app.route('/admin')
+def admin_dashboard():
+    """Simple admin dashboard."""
+    if not admin_required():
+        return redirect(url_for('admin_login'))
+
+    conn = get_db_connection()
+    tables = ['tourist_places', 'visitor_statistics',
+              'reviews', 'hotels', 'restaurants', 'events', 'weather']
+    stats = {}
+    for table in tables:
+        cursor = conn.execute(f"SELECT COUNT(*) as count FROM {table}")
+        stats[table] = cursor.fetchone()[0]
+    conn.close()
+    return render_template('admin.html', stats=stats)
+
+
+@app.route('/admin/view/<table_name>')
+def admin_view_table(table_name):
+    """View data from a specific table."""
+    if not admin_required():
+        return redirect(url_for('admin_login'))
+
+    # Validate table name to prevent SQL injection
+    allowed_tables = ['tourist_places', 'visitor_statistics',
+                      'reviews', 'hotels', 'restaurants', 'events', 'weather']
+    if table_name not in allowed_tables:
+        return "Invalid table name", 400
+
+    df = get_db_data(f"SELECT * FROM {table_name} LIMIT 100")
+    return render_template('admin_table.html',
+                           table_name=table_name,
+                           columns=df.columns.tolist() if not df.empty else [],
+                           rows=df.to_dict('records') if not df.empty else []
+                           )
+
+
+@app.route('/admin/delete/<table_name>/<id_column>/<id_value>')
+def admin_delete_row(table_name, id_column, id_value):
+    """Delete a row from a table."""
+    if not admin_required():
+        return redirect(url_for('admin_login'))
+
+    allowed_tables = ['tourist_places', 'visitor_statistics',
+                      'reviews', 'hotels', 'restaurants', 'events', 'weather']
+    if table_name not in allowed_tables:
+        return "Invalid table name", 400
+
+    conn = get_db_connection()
+    try:
+        conn.execute(
+            f"DELETE FROM {table_name} WHERE {id_column} = ?", (id_value,))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('admin_view_table', table_name=table_name))
+    except Exception as e:
+        conn.close()
+        return f"Error deleting: {str(e)}", 500
+
+# =============================================================================
+# Main Routes
 # =============================================================================
 
 
@@ -126,9 +225,9 @@ def index():
     total_reviews = safe_int(
         reviews_df.iloc[0]['count']) if not reviews_df.empty else 0
 
-    # Get popular places
+    # Get popular places with district
     popular_df = get_db_data("""
-        SELECT p.place_id, p.place_name, p.image_url, 
+        SELECT p.place_id, p.place_name, p.district, p.image_url, 
                AVG(v.visitor_satisfaction) as avg_satisfaction,
                SUM(v.total_visitors) as total_visitors
         FROM tourist_places p
@@ -167,7 +266,6 @@ def index():
 
     visitor_chart = None
     if not visitor_trend.empty:
-        # Ensure numeric
         visitor_trend['total_visitors'] = visitor_trend['total_visitors'].fillna(
             0).astype(int)
         fig = px.line(visitor_trend, x='month_name', y='total_visitors',
@@ -191,59 +289,63 @@ def index():
 @app.route('/places')
 def places():
     """Tourist places list."""
-    page = request.args.get('page', 1, type=int)
-    per_page = app.config['ITEMS_PER_PAGE']
-    search = request.args.get('search', '')
-    district = request.args.get('district', '')
-    category = request.args.get('category', '')
+    try:
+        page = request.args.get('page', 1, type=int)
+        per_page = app.config['ITEMS_PER_PAGE']
+        search = request.args.get('search', '')
+        district = request.args.get('district', '')
+        category = request.args.get('category', '')
 
-    query = "SELECT * FROM tourist_places WHERE 1=1"
-    params = []
+        query = "SELECT * FROM tourist_places WHERE 1=1"
+        params = []
 
-    if search:
-        query += " AND place_name LIKE ?"
-        params.append(f"%{search}%")
+        if search:
+            query += " AND place_name LIKE ?"
+            params.append(f"%{search}%")
 
-    if district:
-        query += " AND district = ?"
-        params.append(district)
+        if district:
+            query += " AND district = ?"
+            params.append(district)
 
-    if category:
-        query += " AND category = ?"
-        params.append(category)
+        if category:
+            query += " AND category = ?"
+            params.append(category)
 
-    # Get total count for pagination
-    count_query = query.replace("SELECT *", "SELECT COUNT(*) as count")
-    conn = get_db_connection()
-    total = conn.execute(count_query, params).fetchone()['count']
-    conn.close()
+        # Get total count for pagination
+        count_query = query.replace("SELECT *", "SELECT COUNT(*) as count")
+        conn = get_db_connection()
+        total = conn.execute(count_query, params).fetchone()['count']
+        conn.close()
 
-    # Get paginated results
-    query += " ORDER BY popularity_level DESC, place_name LIMIT ? OFFSET ?"
-    params.extend([per_page, (page - 1) * per_page])
+        # Get paginated results
+        query += " ORDER BY popularity_level DESC, place_name LIMIT ? OFFSET ?"
+        params.extend([per_page, (page - 1) * per_page])
 
-    places_df = get_db_data(query, tuple(params))
+        places_df = get_db_data(query, tuple(params))
 
-    # Get districts for filter
-    districts_df = get_db_data(
-        "SELECT DISTINCT district FROM tourist_places ORDER BY district")
-    categories_df = get_db_data(
-        "SELECT DISTINCT category FROM tourist_places ORDER BY category")
+        # Get districts for filter
+        districts_df = get_db_data(
+            "SELECT DISTINCT district FROM tourist_places ORDER BY district")
+        categories_df = get_db_data(
+            "SELECT DISTINCT category FROM tourist_places ORDER BY category")
 
-    return render_template('places.html',
-                           places=places_df.to_dict(
-                               'records') if not places_df.empty else [],
-                           total=total,
-                           page=page,
-                           pages=(total + per_page - 1) // per_page,
-                           search=search,
-                           district=district,
-                           category=category,
-                           districts=districts_df['district'].tolist(
-                           ) if not districts_df.empty else [],
-                           categories=categories_df['category'].tolist(
-                           ) if not categories_df.empty else []
-                           )
+        return render_template('places.html',
+                               places=places_df.to_dict(
+                                   'records') if not places_df.empty else [],
+                               total=total,
+                               page=page,
+                               pages=(total + per_page - 1) // per_page,
+                               search=search,
+                               district=district,
+                               category=category,
+                               districts=districts_df['district'].tolist(
+                               ) if not districts_df.empty else [],
+                               categories=categories_df['category'].tolist(
+                               ) if not categories_df.empty else []
+                               )
+    except Exception as e:
+        import traceback
+        return f"<pre>{traceback.format_exc()}</pre>", 500
 
 
 @app.route('/place/<place_id>')
@@ -551,13 +653,16 @@ def quality_report():
                            dataset=dataset
                            )
 
+# =============================================================================
+# API Routes
+# =============================================================================
+
 
 @app.route('/api/places')
 def api_places():
     """API endpoint for places."""
     limit = request.args.get('limit', 100, type=int)
     df = get_db_data(f"SELECT * FROM tourist_places LIMIT {limit}")
-    # Convert any None to None (JSON will handle)
     return jsonify(df.to_dict('records'))
 
 

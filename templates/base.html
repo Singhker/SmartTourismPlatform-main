@@ -64,6 +64,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <!-- Home -->
             <li class="nav-item">
               <a
                 class="nav-link {% if request.endpoint == 'index' %}active{% endif %}"
@@ -72,6 +73,8 @@
                 <i class="bi bi-house"></i> Home
               </a>
             </li>
+
+            <!-- Places -->
             <li class="nav-item">
               <a
                 class="nav-link {% if request.endpoint == 'places' %}active{% endif %}"
@@ -80,6 +83,8 @@
                 <i class="bi bi-geo-alt"></i> Places
               </a>
             </li>
+
+            <!-- Analytics -->
             <li class="nav-item">
               <a
                 class="nav-link {% if request.endpoint == 'analytics' %}active{% endif %}"
@@ -88,6 +93,8 @@
                 <i class="bi bi-graph-up"></i> Analytics
               </a>
             </li>
+
+            <!-- Features Dropdown -->
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -95,10 +102,14 @@
                 id="featuresDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
                 <i class="bi bi-grid"></i> Features
               </a>
-              <ul class="dropdown-menu dropdown-menu-end">
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="featuresDropdown"
+              >
                 <li>
                   <a
                     class="dropdown-item"
@@ -132,6 +143,24 @@
                 </li>
               </ul>
             </li>
+
+            <!-- Admin -->
+            <li class="nav-item">
+              {% if session.get('admin_logged_in') %}
+              <a
+                class="nav-link text-warning"
+                href="{{ url_for('admin_dashboard') }}"
+              >
+                <i class="bi bi-shield-lock-fill"></i> Admin
+              </a>
+              {% else %}
+              <a class="nav-link" href="{{ url_for('admin_login') }}">
+                <i class="bi bi-shield-lock"></i> Admin
+              </a>
+              {% endif %}
+            </li>
+
+            <!-- Dark Mode Toggle -->
             <li class="nav-item">
               <button
                 id="darkModeToggle"
@@ -276,7 +305,7 @@
     </button>
 
     <!-- ==========================================
-    BOOTSTRAP JS
+    BOOTSTRAP JS (Required for dropdowns)
     ========================================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -77,6 +77,26 @@ endblock %} {% block extra_css %}
     color: #6c757d;
     margin-top: 5px;
   }
+
+  /* Location badge style */
+  .location-badge {
+    background: #f0f4ff;
+    color: #0d6efd;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    display: inline-block;
+  }
+
+  .location-badge i {
+    margin-right: 4px;
+  }
+
+  /* Dark mode support for location badge */
+  body.dark-mode .location-badge {
+    background: #1a2a4e;
+    color: #6dafff;
+  }
 </style>
 {% endblock %} {% block content %}
 
@@ -150,9 +170,6 @@ HERO SECTION
 
       <div class="col-lg-6">
         <div class="hero-image-container shadow-lg">
-          <!-- ==========================================
-                    YOUR LOCAL IMAGE - UPDATE THE FILENAME BELOW
-                    ========================================== -->
           <img
             src="{{ url_for('static', filename='images/loktak-lake-hero.jpg') }}"
             class="img-fluid w-100"
@@ -296,7 +313,7 @@ VISITOR TRENDS CHART
 {% endif %}
 
 <!-- ==========================================
-POPULAR PLACES
+POPULAR PLACES - WITH LOCATION ICON FIX
 ========================================== -->
 <section class="container mb-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
@@ -319,9 +336,15 @@ POPULAR PLACES
             <h5 class="card-title fw-bold">{{ place.place_name }}</h5>
             <span class="badge bg-primary rounded-pill">#{{ loop.index }}</span>
           </div>
+
+          <!-- ===== LOCATION WITH ICON - FIXED ===== -->
           <p class="card-text text-muted small">
-            <i class="bi bi-geo-alt"></i> {{ place.district }}
+            <i class="bi bi-geo-alt text-primary"></i>
+            {% if place.district %} {{ place.district }} {% else %}
+            <span class="text-muted">Location not available</span>
+            {% endif %}
           </p>
+
           <div class="mb-2">
             <span class="badge bg-primary"
               >{{ place.total_visitors|default(0)|int }} visitors</span
