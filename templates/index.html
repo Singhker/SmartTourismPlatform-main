@@ -1,116 +1,239 @@
-{% extends "base.html" %} {% block title %}Home - Smart Tourism Platform{%
-endblock %} {% block content %}
+{% extends "base.html" %} {% block title %}Smart Tourism - Discover Manipur{%
+endblock %} {% block extra_css %}
+<style>
+  /* Additional page-specific styles */
+  .hero-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
 
-<!-- ========== HERO SECTION ========== -->
+  .hero-image-container img {
+    transition: transform 0.5s ease;
+  }
+
+  .hero-image-container:hover img {
+    transform: scale(1.02);
+  }
+
+  .floating-badge {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid #0d6efd;
+  }
+
+  .testimonial-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+  }
+
+  .testimonial-card .rating {
+    color: #ffc107;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .quick-stat-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+
+  .quick-stat-box:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    border-color: #0d6efd;
+  }
+
+  .quick-stat-box .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0d6efd;
+  }
+
+  .quick-stat-box .stat-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 5px;
+  }
+</style>
+{% endblock %} {% block content %}
+
+<!-- ==========================================
+HERO SECTION
+========================================== -->
 <section class="hero-section">
   <div class="container">
-    <div class="row align-items-center">
+    <div class="row align-items-center g-4">
       <div class="col-lg-6">
-        <span class="badge-ai mb-3">🚀 AI-Powered Tourism Analytics</span>
+        <span class="badge-ai floating-badge"
+          >🚀 AI-Powered Tourism Analytics</span
+        >
         <h1 class="display-3 fw-bold">
-          Discover the <span class="text-primary">Hidden Gems</span> of Manipur
+          Discover the <span class="text-primary">Hidden Gems</span><br />
+          of Manipur
         </h1>
-        <p class="lead">
+        <p class="lead text-muted">
           AI-powered tourism analytics, real-time visitor insights, and
-          personalized recommendations for the perfect travel experience.
+          personalized recommendations for the perfect travel experience in the
+          Jewel of India.
         </p>
+
+        <!-- CTA Buttons -->
         <div class="mt-4 d-flex gap-3 flex-wrap">
-          <a href="{{ url_for('places') }}" class="btn btn-primary btn-lg px-4"
-            >Explore Places</a
-          >
+          <a href="{{ url_for('places') }}" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-compass"></i> Explore Places
+          </a>
           <a
             href="{{ url_for('analytics') }}"
             class="btn btn-outline-primary btn-lg px-4"
-            >View Analytics</a
           >
+            <i class="bi bi-graph-up"></i> View Analytics
+          </a>
         </div>
-        <div class="mt-4 d-flex gap-5 flex-wrap">
+
+        <!-- Stats -->
+        <div class="mt-4 d-flex gap-4 flex-wrap">
           <div>
-            <strong class="fs-3">70+</strong>
-            <span class="text-muted">Destinations</span>
+            <strong class="fs-3 text-primary">70+</strong>
+            <span class="text-muted d-block small">Destinations</span>
           </div>
           <div>
-            <strong class="fs-3">{{ total_reviews }}</strong>
-            <span class="text-muted">Reviews</span>
+            <strong class="fs-3 text-primary"
+              >{{ total_visitors|default(0)|int }}</strong
+            >
+            <span class="text-muted d-block small">Total Visitors</span>
           </div>
           <div>
-            <strong class="fs-3">95%</strong>
-            <span class="text-muted">Satisfaction</span>
+            <strong class="fs-3 text-primary"
+              >{{ total_reviews|default(0)|int }}</strong
+            >
+            <span class="text-muted d-block small">Reviews</span>
           </div>
+          <div>
+            <strong class="fs-3 text-primary">95%</strong>
+            <span class="text-muted d-block small">Satisfaction</span>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-3">
+          <small class="text-muted">
+            <i class="bi bi-shield-check text-success"></i> Trusted by 10,000+
+            travelers
+            <span class="mx-2">•</span>
+            <i class="bi bi-database text-primary"></i> Real-time data
+          </small>
         </div>
       </div>
-      <div class="col-lg-6 text-center">
-        <img
-          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop"
-          class="img-fluid rounded-4 shadow-lg"
-          alt="Manipur Tourism"
-          style="max-height: 400px; width: 100%; object-fit: cover"
-        />
+
+      <div class="col-lg-6">
+        <div class="hero-image-container shadow-lg">
+          <!-- ==========================================
+                    YOUR LOCAL IMAGE - UPDATE THE FILENAME BELOW
+                    ========================================== -->
+          <img
+            src="{{ url_for('static', filename='images/loktak-lake-hero.jpg') }}"
+            class="img-fluid w-100"
+            alt="Loktak Lake, Manipur"
+            style="height: 400px; object-fit: cover"
+          />
+          <div
+            class="position-absolute bottom-0 start-0 p-3 bg-dark bg-opacity-50 text-white w-100"
+          >
+            <small><i class="bi bi-geo-alt"></i> Loktak Lake, Manipur</small>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== FEATURE CARDS ========== -->
+<!-- ==========================================
+FEATURE CARDS
+========================================== -->
 <section class="container mb-5">
   <div class="row g-4">
-    <div class="col-md-3">
-      <div class="card feature-card h-100 shadow-sm border-0">
-        <div class="card-body text-center">
+    <div class="col-md-3 col-sm-6">
+      <div class="card feature-card h-100 shadow-sm border-0 text-center">
+        <div class="card-body">
           <div class="card-icon">📍</div>
-          <h5>Explore Places</h5>
-          <p class="text-muted">
+          <h5 class="fw-bold">Explore Places</h5>
+          <p class="text-muted small">
             Discover 70+ tourist destinations with detailed information
           </p>
           <a
             href="{{ url_for('places') }}"
-            class="btn btn-outline-primary btn-sm"
+            class="btn btn-outline-primary btn-sm rounded-pill"
             >Explore</a
           >
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card feature-card h-100 shadow-sm border-0">
-        <div class="card-body text-center">
+    <div class="col-md-3 col-sm-6">
+      <div class="card feature-card h-100 shadow-sm border-0 text-center">
+        <div class="card-body">
           <div class="card-icon">📊</div>
-          <h5>Analytics</h5>
-          <p class="text-muted">
+          <h5 class="fw-bold">Analytics</h5>
+          <p class="text-muted small">
             Visitor trends, seasonal patterns, and district insights
           </p>
           <a
             href="{{ url_for('analytics') }}"
-            class="btn btn-outline-success btn-sm"
+            class="btn btn-outline-success btn-sm rounded-pill"
             >View</a
           >
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card feature-card h-100 shadow-sm border-0">
-        <div class="card-body text-center">
+    <div class="col-md-3 col-sm-6">
+      <div class="card feature-card h-100 shadow-sm border-0 text-center">
+        <div class="card-body">
           <div class="card-icon">🤖</div>
-          <h5>AI Recommendations</h5>
-          <p class="text-muted">
+          <h5 class="fw-bold">AI Recommendations</h5>
+          <p class="text-muted small">
             Get personalized place recommendations powered by ML
           </p>
           <a
             href="{{ url_for('recommendations') }}"
-            class="btn btn-outline-warning btn-sm"
+            class="btn btn-outline-warning btn-sm rounded-pill"
             >Try</a
           >
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card feature-card h-100 shadow-sm border-0">
-        <div class="card-body text-center">
+    <div class="col-md-3 col-sm-6">
+      <div class="card feature-card h-100 shadow-sm border-0 text-center">
+        <div class="card-body">
           <div class="card-icon">🔮</div>
-          <h5>Visitor Prediction</h5>
-          <p class="text-muted">Forecast visitor counts for any destination</p>
+          <h5 class="fw-bold">Visitor Prediction</h5>
+          <p class="text-muted small">
+            Forecast visitor counts for any destination
+          </p>
           <a
             href="{{ url_for('visitor_prediction') }}"
-            class="btn btn-outline-danger btn-sm"
+            class="btn btn-outline-danger btn-sm rounded-pill"
             >Predict</a
           >
         </div>
@@ -119,29 +242,31 @@ endblock %} {% block content %}
   </div>
 </section>
 
-<!-- ========== STATS SECTION ========== -->
+<!-- ==========================================
+QUICK STATS
+========================================== -->
 <section class="container mb-5">
   <div class="stats-section">
-    <div class="row">
-      <div class="col-md-3">
+    <div class="row g-3">
+      <div class="col-md-3 col-6">
         <div class="stat-item">
           <div class="stat-number">70+</div>
           <div class="stat-label">Tourist Places</div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="stat-item">
-          <div class="stat-number">{{ total_visitors }}</div>
+          <div class="stat-number">{{ total_visitors|default(0)|int }}</div>
           <div class="stat-label">Total Visitors</div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="stat-item">
-          <div class="stat-number">{{ total_reviews }}</div>
+          <div class="stat-number">{{ total_reviews|default(0)|int }}</div>
           <div class="stat-label">Reviews</div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="stat-item">
           <div class="stat-number">24/7</div>
           <div class="stat-label">Data Insights</div>
@@ -151,33 +276,55 @@ endblock %} {% block content %}
   </div>
 </section>
 
-<!-- ========== VISITOR CHART ========== -->
+<!-- ==========================================
+VISITOR TRENDS CHART
+========================================== -->
 {% if visitor_chart %}
 <section class="container mb-5">
   <div class="card shadow-sm border-0">
     <div class="card-body">
-      <h5 class="card-title">Visitor Trends</h5>
-      <div id="visitorChart"></div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="card-title fw-bold">
+          <i class="bi bi-graph-up text-primary"></i> Visitor Trends
+        </h5>
+        <span class="badge bg-primary">Real-time</span>
+      </div>
+      <div id="visitorChart" style="height: 350px"></div>
     </div>
   </div>
 </section>
 {% endif %}
 
-<!-- ========== POPULAR PLACES ========== -->
+<!-- ==========================================
+POPULAR PLACES
+========================================== -->
 <section class="container mb-5">
-  <h3 class="mb-4"><i class="bi bi-fire"></i> Popular Destinations</h3>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">
+      <i class="bi bi-fire text-danger"></i> Popular Destinations
+    </h3>
+    <a
+      href="{{ url_for('places') }}"
+      class="btn btn-outline-primary btn-sm rounded-pill"
+      >View All</a
+    >
+  </div>
+
   <div class="row g-4">
-    {% for place in popular_places %}
-    <div class="col-md-4">
+    {% if popular_places %} {% for place in popular_places %}
+    <div class="col-md-4 col-lg-4">
       <div class="card place-card h-100 shadow-sm border-0">
         <div class="card-body">
-          <h5 class="card-title">{{ place.place_name }}</h5>
+          <div class="d-flex justify-content-between align-items-start">
+            <h5 class="card-title fw-bold">{{ place.place_name }}</h5>
+            <span class="badge bg-primary rounded-pill">#{{ loop.index }}</span>
+          </div>
           <p class="card-text text-muted small">
             <i class="bi bi-geo-alt"></i> {{ place.district }}
           </p>
           <div class="mb-2">
             <span class="badge bg-primary"
-              >{{ place.total_visitors or 0 }} visitors</span
+              >{{ place.total_visitors|default(0)|int }} visitors</span
             >
             {% if place.avg_satisfaction %}
             <span class="badge bg-success"
@@ -185,85 +332,147 @@ endblock %} {% block content %}
             >
             {% endif %}
           </div>
+          <div class="progress mb-2" style="height: 4px">
+            <div
+              class="progress-bar bg-primary"
+              style="width: {{ (place.total_visitors|default(0)|int / 50000 * 100)|round|int if place.total_visitors|default(0)|int > 0 else 0 }}%;"
+            ></div>
+          </div>
           <a
             href="{{ url_for('place_detail', place_id=place.place_id) }}"
-            class="btn btn-outline-primary btn-sm"
-            >View Details</a
+            class="btn btn-outline-primary btn-sm rounded-pill"
           >
+            <i class="bi bi-eye"></i> View Details
+          </a>
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <div class="col-12">
+      <div class="alert alert-info text-center">
+        <i class="bi bi-info-circle"></i> No popular places data available yet.
+      </div>
+    </div>
+    {% endif %}
   </div>
 </section>
 
-<!-- ========== RECENT REVIEWS & EVENTS ========== -->
+<!-- ==========================================
+RECENT REVIEWS & UPCOMING EVENTS
+========================================== -->
 <section class="container mb-5">
   <div class="row g-4">
+    <!-- Recent Reviews -->
     <div class="col-md-6">
-      <div class="card shadow-sm border-0">
+      <div class="card shadow-sm border-0 h-100">
         <div class="card-body">
-          <h5><i class="bi bi-chat-dots"></i> Recent Reviews</h5>
-          {% for review in recent_reviews[:3] %}
-          <div class="border-bottom py-2">
-            <strong>{{ review.reviewer_name }}</strong>
-            <span class="text-warning">⭐ {{ review.overall_rating }}</span>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold">
+              <i class="bi bi-chat-dots text-primary"></i> Recent Reviews
+            </h5>
+            <span class="badge bg-success">Real</span>
+          </div>
+          {% if recent_reviews %} {% for review in recent_reviews[:4] %}
+          <div class="testimonial-card mb-2">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>{{ review.reviewer_name }}</strong>
+                <div class="rating">⭐ {{ review.overall_rating }}</div>
+              </div>
+              <small class="text-muted">{{ review.visit_date }}</small>
+            </div>
             <p class="mb-0 text-muted small">
-              {{ review.review_text[:100] }}...
+              {{ review.review_text[:120] }}...
             </p>
-            <small class="text-muted">{{ review.place_name }}</small>
+            <small class="text-primary">{{ review.place_name }}</small>
           </div>
           {% endfor %}
+          <a href="#" class="btn btn-outline-primary btn-sm rounded-pill mt-2"
+            >View All Reviews</a
+          >
+          {% else %}
+          <div class="text-muted text-center py-3">
+            <i class="bi bi-chat-dots fs-4 d-block"></i>
+            <small>No reviews yet</small>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
+
+    <!-- Upcoming Events -->
     <div class="col-md-6">
-      <div class="card shadow-sm border-0">
+      <div class="card shadow-sm border-0 h-100">
         <div class="card-body">
-          <h5><i class="bi bi-calendar"></i> Upcoming Events</h5>
-          {% for event in upcoming_events[:3] %}
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold">
+              <i class="bi bi-calendar-event text-warning"></i> Upcoming Events
+            </h5>
+            <span class="badge bg-warning text-dark">Upcoming</span>
+          </div>
+          {% if upcoming_events %} {% for event in upcoming_events[:4] %}
           <div class="border-bottom py-2">
-            <strong>{{ event.event_name }}</strong>
-            <span class="badge bg-info">{{ event.start_date }}</span>
-            <p class="mb-0 text-muted small">{{ event.venue }}</p>
-            <small class="text-muted">{{ event.place_name }}</small>
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>{{ event.event_name }}</strong>
+                <div>
+                  <span class="badge bg-info">{{ event.start_date }}</span>
+                  <span class="badge bg-secondary"
+                    >{{ event.event_category }}</span
+                  >
+                </div>
+                <p class="mb-0 text-muted small">{{ event.venue }}</p>
+              </div>
+            </div>
+            <small class="text-primary">{{ event.place_name }}</small>
           </div>
           {% endfor %}
+          <a href="#" class="btn btn-outline-primary btn-sm rounded-pill mt-2"
+            >View All Events</a
+          >
+          {% else %}
+          <div class="text-muted text-center py-3">
+            <i class="bi bi-calendar-event fs-4 d-block"></i>
+            <small>No upcoming events</small>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== HOW IT WORKS ========== -->
+<!-- ==========================================
+HOW IT WORKS
+========================================== -->
 <section class="container mb-5">
   <div class="how-it-works">
-    <h3 class="text-center mb-4">How It Works</h3>
+    <h3 class="text-center fw-bold mb-4">How It Works</h3>
     <div class="row g-4">
-      <div class="col-md-3 text-center">
+      <div class="col-md-3 col-6 text-center">
         <div class="step-number">1</div>
-        <h6>Explore Places</h6>
+        <h6 class="fw-bold">Explore Places</h6>
         <p class="text-muted small">
           Browse 70+ tourist destinations across Manipur
         </p>
       </div>
-      <div class="col-md-3 text-center">
+      <div class="col-md-3 col-6 text-center">
         <div class="step-number">2</div>
-        <h6>Get Insights</h6>
+        <h6 class="fw-bold">Get Insights</h6>
         <p class="text-muted small">
           View visitor trends, analytics, and satisfaction scores
         </p>
       </div>
-      <div class="col-md-3 text-center">
+      <div class="col-md-3 col-6 text-center">
         <div class="step-number">3</div>
-        <h6>AI Recommendations</h6>
+        <h6 class="fw-bold">AI Recommendations</h6>
         <p class="text-muted small">
           Get personalized suggestions based on your preferences
         </p>
       </div>
-      <div class="col-md-3 text-center">
+      <div class="col-md-3 col-6 text-center">
         <div class="step-number">4</div>
-        <h6>Plan Your Trip</h6>
+        <h6 class="fw-bold">Plan Your Trip</h6>
         <p class="text-muted small">
           Make data-driven decisions for the perfect travel experience
         </p>
@@ -272,10 +481,103 @@ endblock %} {% block content %}
   </div>
 </section>
 
-<!-- ========== CHARTS JAVASCRIPT ========== -->
+<!-- ==========================================
+WHY CHOOSE US
+========================================== -->
+<section class="container mb-5">
+  <h3 class="text-center fw-bold mb-4">Why Choose Smart Tourism?</h3>
+  <div class="row g-4">
+    <div class="col-md-3 col-6 text-center">
+      <i class="bi bi-robot display-4 text-primary"></i>
+      <h6 class="fw-bold mt-2">AI-Powered</h6>
+      <p class="text-muted small">
+        Machine learning for recommendations and predictions
+      </p>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+      <i class="bi bi-graph-up-arrow display-4 text-success"></i>
+      <h6 class="fw-bold mt-2">Data-Driven</h6>
+      <p class="text-muted small">Real-time analytics and visitor insights</p>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+      <i class="bi bi-shield-check display-4 text-info"></i>
+      <h6 class="fw-bold mt-2">Curated Data</h6>
+      <p class="text-muted small">Clean, validated, and integrated datasets</p>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+      <i class="bi bi-phone display-4 text-warning"></i>
+      <h6 class="fw-bold mt-2">Mobile Ready</h6>
+      <p class="text-muted small">Responsive design for all devices</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+CALL TO ACTION
+========================================== -->
+<section class="container mb-5">
+  <div
+    class="bg-primary text-white p-5 rounded-4 text-center"
+    style="background: linear-gradient(135deg, #0d6efd, #0a58ca) !important"
+  >
+    <h3 class="fw-bold">Ready to Explore Manipur?</h3>
+    <p class="mb-4 opacity-75">
+      Start your journey with data-driven insights and personalized
+      recommendations.
+    </p>
+    <a href="{{ url_for('places') }}" class="btn btn-light btn-lg px-5 fw-bold">
+      <i class="bi bi-compass"></i> Start Exploring
+    </a>
+  </div>
+</section>
+
+{% endblock %} {% block extra_js %}
+<!-- ==========================================
+CHART RENDER
+========================================== -->
 {% if visitor_chart %}
 <script>
+  // Render the visitor chart
   var visitorData = {{ visitor_chart|safe }};
   Plotly.newPlot('visitorChart', visitorData.data, visitorData.layout);
+
+  // Make chart responsive
+  window.addEventListener('resize', function() {
+      Plotly.Plots.resize('visitorChart');
+  });
 </script>
-{% endif %} {% endblock %}
+{% endif %}
+
+<!-- ==========================================
+SCROLL ANIMATIONS
+========================================== -->
+<script>
+  // Animate elements when they come into view
+  document.addEventListener("DOMContentLoaded", function () {
+    var animatedElements = document.querySelectorAll(
+      ".feature-card, .place-card, .stat-item, .quick-stat-box",
+    );
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
+    animatedElements.forEach(function (el) {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      observer.observe(el);
+    });
+  });
+</script>
+{% endblock %}
