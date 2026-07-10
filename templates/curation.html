@@ -7,13 +7,10 @@ content %}
     <div class="col-md-6">
       <form method="GET" class="d-flex gap-2">
         <select name="dataset" class="form-select">
-          <option value="tourist_places">Tourist Places</option>
-          <option value="visitor_statistics">Visitor Statistics</option>
-          <option value="reviews">Reviews</option>
-          <option value="hotels">Hotels</option>
-          <option value="restaurants">Restaurants</option>
-          <option value="events">Events</option>
-          <option value="weather">Weather</option>
+          <option value="">-- Select a dataset --</option>
+          {% for ds in datasets %}
+          <option value="{{ ds }}">{{ ds|replace('_', ' ')|title }}</option>
+          {% endfor %}
         </select>
         <button type="submit" class="btn btn-primary">Load</button>
       </form>
@@ -36,7 +33,6 @@ content %}
       <p><strong>Total Rows:</strong> {{ report.total_rows }}</p>
       <p><strong>Total Columns:</strong> {{ report.total_columns }}</p>
 
-      <!-- FIXED: Using values()|sum instead of sum -->
       {% if report.missing %}
       <p><strong>Missing Values:</strong> {{ report.missing.values()|sum }}</p>
       {% endif %}
@@ -121,8 +117,13 @@ content %}
     </div>
   </div>
 
+  {% elif error %}
+  <div class="alert alert-danger">{{ error }}</div>
   {% else %}
-  <div class="alert alert-info">Select a dataset to analyze.</div>
+  <div class="alert alert-info">
+    <i class="bi bi-info-circle"></i> Select a dataset from the dropdown above
+    and click "Load" to analyze.
+  </div>
   {% endif %}
 
   <a href="{{ url_for('places') }}" class="btn btn-outline-secondary mt-3">

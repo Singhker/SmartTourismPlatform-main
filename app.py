@@ -1,8 +1,11 @@
-from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for, session
+from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for, session, Response
 import pandas as pd
 import sqlite3
 import json
 import os
+import csv
+import io
 from datetime import datetime, timedelta
 import plotly
 import plotly.express as px
@@ -106,6 +109,19 @@ def get_weather_data(place_id=None):
     return get_db_data(query)
 
 # =============================================================================
+# CSV Upload Configuration
+# =============================================================================
+
+
+# Allowed file extensions
+ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls'}
+
+
+def allowed_file(filename):
+    """Check if the file has an allowed extension."""
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+# =============================================================================
 # Admin Authentication
 # =============================================================================
 
@@ -203,6 +219,201 @@ def admin_delete_row(table_name, id_column, id_value):
     except Exception as e:
         conn.close()
         return f"Error deleting: {str(e)}", 500
+
+# =============================================================================
+# CSV Upload Routes
+# =============================================================================
+
+
+@app.route('/admin/upload', methods=['GET', 'POST'])
+def admin_upload():
+    """Upload CSV file to database."""
+    if not admin_required():
+        return redirect(url_for('admin_login'))
+
+    if request.method == 'POST':
+        # Check if file was uploaded
+        if 'csv_file' not in request.files:
+            return render_template('admin_upload.html', error="No file selected")
+
+        file = request.files['csv_file']
+        table_name = request.form.get('table_name', '')
+
+        if file.filename == '':
+            return render_template('admin_upload.html', error="No file selected")
+
+        if not allowed_file(file.filename):
+            return render_template('admin_upload.html', error="Invalid file type. Please upload CSV, XLSX, or XLS files.")
+
+        if not table_name:
+            return render_template('admin_upload.html', error="Please select a table to import data into.")
+
+        # Save file temporarily
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+
+        try:
+            # Import the CSV file
+            from database.import_csv import import_csv_to_table
+            count = import_csv_to_table(filepath, table_name)
+
+            # Clean up - remove temp file
+            os.remove(filepath)
+
+            if count > 0:
+                return render_template('admin_upload.html',
+                                       success=f"Successfully imported {count} rows into {table_name}",
+                                       table_name=table_name
+                                       )
+            else:
+                return render_template('admin_upload.html',
+                                       error="No data was imported. Please check the file format."
+                                       )
+        except Exception as e:
+            # Clean up on error
+            if os.path.exists(filepath):
+                os.remove(filepath)
+            return render_template('admin_upload.html', error=f"Error importing file: {str(e)}")
+
+    # GET request - show upload form
+    tables = ['tourist_places', 'visitor_statistics',
+              'reviews', 'hotels', 'restaurants', 'events', 'weather']
+    return render_template('admin_upload.html', tables=tables)
+
+
+@app.route('/admin/download-template/<table_name>')
+def admin_download_template(table_name):
+    """Download a blank CSV template for a table."""
+    if not admin_required():
+        return redirect(url_for('admin_login'))
+
+    # Define column headers for each table
+    templates = {
+        'tourist_places': [
+            'Place_ID', 'Place_Name', 'District', 'Category', 'Description',
+            'Latitude', 'Longitude', 'Address', 'Entry_Fee_INR', 'Opening_Time',
+            'Closing_Time', 'Best_Season', 'Visit_Duration_Hours', 'Popularity_Level',
+            'Family_Friendly', 'Adventure_Level', 'Accessibility', 'Parking_Available',
+            'Washroom_Available', 'Wheelchair_Accessible', 'Official_Website',
+            'Image_URL', 'Status', 'Created_Date', 'Updated_Date'
+        ],
+        'visitor_statistics': [
+            'Record_ID', 'Place_ID', 'Year', 'Month_Number', 'Month_Name',
+            'Season', 'Domestic_Visitors', 'Foreign_Visitors', 'Total_Visitors',
+            'Male_Visitors', 'Female_Visitors', 'Children_Visitors',
+            'Senior_Citizen_Visitors', 'Student_Visitors', 'Group_Visitors',
+            'Solo_Visitors', 'Average_Visit_Duration_Hours', 'Average_Spending_INR',
+            'Weather_Condition', 'Special_Event', 'Festival_Season',
+            'Visitor_Satisfaction', 'Revenue_INR', 'Growth_Percentage',
+            'Remarks', 'Created_Date', 'Updated_Date'
+        ],
+        'reviews': [
+            'Review_ID', 'Place_ID', 'Reviewer_Name', 'Reviewer_Type',
+            'Age_Group', 'Gender', 'Nationality', 'Visit_Date',
+            'Travel_Month', 'Travel_Season', 'Travel_Mode', 'Travel_Group',
+            'Visit_Purpose', 'Overall_Rating', 'Cleanliness_Rating',
+            'Accessibility_Rating', 'Safety_Rating', 'Facilities_Rating',
+            'Value_For_Money_Rating', 'Recommendation_Score', 'Review_Title',
+            'Review_Text', 'Review_Length', 'Sentiment', 'Likes',
+            'Helpful_Votes', 'Verified_Visitor', 'Review_Status',
+            'Created_Date', 'Updated_Date'
+        ],
+        'hotels': [
+            'Hotel_ID', 'Place_ID', 'Hotel_Name', 'Hotel_Type', 'Star_Rating',
+            'Average_Rating', 'Total_Reviews', 'Price_Per_Night_INR',
+            'Distance_From_Place_KM', 'District', 'Address', 'Latitude',
+            'Longitude', 'Check_In_Time', 'Check_Out_Time', 'Total_Rooms',
+            'Available_Rooms', 'Room_Type', 'Air_Conditioning', 'Free_WiFi',
+            'Parking', 'Restaurant', 'Room_Service', 'Swimming_Pool', 'Gym',
+            'Spa', 'Pet_Friendly', 'Family_Friendly', 'Wheelchair_Accessible',
+            'Airport_Shuttle', 'Breakfast_Included', 'Cancellation_Policy',
+            'Phone_Number', 'Email', 'Official_Website', 'Image_URL',
+            'Status', 'Created_Date', 'Updated_Date'
+        ],
+        'restaurants': [
+            'Restaurant_ID', 'Place_ID', 'Restaurant_Name', 'Restaurant_Type',
+            'Cuisine', 'Average_Rating', 'Total_Reviews',
+            'Average_Cost_For_Two_INR', 'Distance_From_Place_KM', 'District',
+            'Address', 'Latitude', 'Longitude', 'Opening_Time', 'Closing_Time',
+            'Seating_Capacity', 'Indoor_Seating', 'Outdoor_Seating',
+            'Takeaway', 'Home_Delivery', 'Online_Booking', 'Vegetarian',
+            'Vegan', 'Non_Vegetarian', 'Local_Manipuri_Food', 'Parking',
+            'Wheelchair_Accessible', 'Family_Friendly', 'Payment_Method',
+            'Phone_Number', 'Email', 'Official_Website', 'Image_URL',
+            'Status', 'Created_Date', 'Updated_Date'
+        ],
+        'events': [
+            'Event_ID', 'Place_ID', 'Event_Name', 'Event_Category', 'District',
+            'Venue', 'Description', 'Organizer', 'Contact_Person',
+            'Phone_Number', 'Email', 'Official_Website', 'Latitude',
+            'Longitude', 'Start_Date', 'End_Date', 'Start_Time', 'End_Time',
+            'Duration_Days', 'Season', 'Expected_Visitors',
+            'Registration_Required', 'Entry_Fee_INR', 'Maximum_Capacity',
+            'Remaining_Capacity', 'Age_Restriction', 'Suitable_For',
+            'Food_Available', 'Parking_Available', 'Wheelchair_Accessible',
+            'Emergency_Medical_Service', 'Security_Available', 'Event_Status',
+            'Image_URL', 'Created_Date', 'Updated_Date'
+        ],
+        'weather': [
+            'Weather_ID', 'Place_ID', 'Year', 'Month_Number', 'Month_Name',
+            'Season', 'Average_Temperature_C', 'Minimum_Temperature_C',
+            'Maximum_Temperature_C', 'Humidity_Percentage', 'Rainfall_mm',
+            'Wind_Speed_kmph', 'Weather_Condition', 'Air_Quality_Index',
+            'UV_Index', 'Visibility_KM', 'Sunrise_Time', 'Sunset_Time',
+            'Tourism_Suitability', 'Weather_Warning', 'Created_Date',
+            'Updated_Date'
+        ]
+    }
+
+    if table_name not in templates:
+        return "Invalid table name", 400
+
+    # Create CSV content
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(templates[table_name])
+
+    # Add a sample row with placeholder values
+    sample_row = [f"Sample_{i+1}" for i in range(len(templates[table_name]))]
+    writer.writerow(sample_row)
+
+    # Create response
+    response = Response(output.getvalue(), mimetype='text/csv')
+    response.headers['Content-Disposition'] = f'attachment; filename={table_name}_template.csv'
+    return response
+
+# =============================================================================
+# Export Routes
+# =============================================================================
+
+
+@app.route('/admin/export/<table_name>')
+def admin_export(table_name):
+    """Export table data as CSV."""
+    if not admin_required():
+        return redirect(url_for('admin_login'))
+
+    allowed_tables = ['tourist_places', 'visitor_statistics',
+                      'reviews', 'hotels', 'restaurants', 'events', 'weather']
+    if table_name not in allowed_tables:
+        return "Invalid table name", 400
+
+    df = get_db_data(f"SELECT * FROM {table_name}")
+
+    if df.empty:
+        return "No data to export", 404
+
+    # Create CSV response
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(df.columns.tolist())
+    for row in df.values:
+        writer.writerow(row)
+
+    response = Response(output.getvalue(), mimetype='text/csv')
+    response.headers['Content-Disposition'] = f'attachment; filename={table_name}_{datetime.now().strftime("%Y%m%d")}.csv'
+    return response
 
 # =============================================================================
 # Main Routes
@@ -555,7 +766,7 @@ def visitor_prediction():
 @app.route('/curation')
 def curation():
     """Data curation dashboard."""
-    dataset = request.args.get('dataset', 'tourist_places')
+    dataset = request.args.get('dataset', '')  # Default to blank
 
     dataset_mapping = {
         'tourist_places': 'tourist_places',
@@ -566,6 +777,14 @@ def curation():
         'events': 'events',
         'weather': 'weather'
     }
+
+    # If no dataset selected, show empty state
+    if not dataset:
+        return render_template('curation.html',
+                               datasets=dataset_mapping.keys(),
+                               selected='',
+                               report=None
+                               )
 
     table_name = dataset_mapping.get(dataset, 'tourist_places')
     df = get_db_data(f"SELECT * FROM {table_name}")

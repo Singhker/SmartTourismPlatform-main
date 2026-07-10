@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block title %}Data Statistics{% endblock %} {%
+block content %}
+<div class="container py-4">
+  <h2><i class="bi bi-graph-up"></i> Data Statistics</h2>
+
+  <div class="row g-4 mt-3">
+    <div class="col-md-3">
+      <div class="card shadow-sm bg-primary text-white">
+        <div class="card-body text-center">
+          <h6>Total Records</h6>
+          <p class="display-4">{{ stats.values()|sum }}</p>
+          <small>Across all tables</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm bg-success text-white">
+        <div class="card-body text-center">
+          <h6>Tourist Places</h6>
+          <p class="display-4">{{ stats.tourist_places }}</p>
+          <small>Destinations</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm bg-info text-white">
+        <div class="card-body text-center">
+          <h6>Total Visitors</h6>
+          <p class="display-4">{{ "{:,}".format(stats.total_visitors) }}</p>
+          <small>All time</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm bg-warning text-dark">
+        <div class="card-body text-center">
+          <h6>Avg Rating</h6>
+          <p class="display-4">{{ "%.1f"|format(stats.avg_rating) }}</p>
+          <small>From reviews</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-3">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>Top District</h5>
+          <p class="display-4">{{ stats.top_district }}</p>
+          <small>Most places</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>Table Breakdown</h5>
+          <ul class="list-group">
+            {% for table, count in stats.items() %} {% if table not in
+            ['total_visitors', 'avg_rating', 'top_district'] %}
+            <li class="list-group-item d-flex justify-content-between">
+              {{ table|replace('_', ' ')|title }}
+              <span class="badge bg-primary">{{ count }}</span>
+            </li>
+            {% endif %} {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-primary">
+      <i class="bi bi-arrow-left"></i> Back to Dashboard
+    </a>
+    <a
+      href="{{ url_for('admin_export', table_name='tourist_places') }}"
+      class="btn btn-outline-success"
+    >
+      <i class="bi bi-download"></i> Export Data
+    </a>
+  </div>
+</div>
+{% endblock %}

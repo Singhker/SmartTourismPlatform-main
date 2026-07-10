@@ -3,25 +3,39 @@ block content %}
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-shield-lock-fill text-primary"></i> Admin Dashboard</h2>
-    <a href="{{ url_for('admin_logout') }}" class="btn btn-outline-danger">
-      <i class="bi bi-box-arrow-right"></i> Logout
-    </a>
+    <div>
+      <a href="{{ url_for('admin_upload') }}" class="btn btn-success me-2">
+        <i class="bi bi-upload"></i> Upload CSV
+      </a>
+      <a href="{{ url_for('admin_logout') }}" class="btn btn-outline-danger">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </a>
+    </div>
   </div>
   <p class="text-muted">
     Welcome, Administrator! Manage your tourism platform data below.
   </p>
 
+  <!-- Stats Cards with Export Buttons -->
   <div class="row g-4 mt-3">
     <div class="col-md-3">
       <div class="card shadow-sm">
         <div class="card-body text-center">
           <h5>Tourist Places</h5>
           <p class="display-4">{{ stats.tourist_places }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='tourist_places') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='tourist_places') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='tourist_places') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -30,11 +44,19 @@ block content %}
         <div class="card-body text-center">
           <h5>Visitor Statistics</h5>
           <p class="display-4">{{ stats.visitor_statistics }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='visitor_statistics') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='visitor_statistics') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='visitor_statistics') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -43,11 +65,19 @@ block content %}
         <div class="card-body text-center">
           <h5>Reviews</h5>
           <p class="display-4">{{ stats.reviews }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='reviews') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='reviews') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='reviews') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -56,26 +86,43 @@ block content %}
         <div class="card-body text-center">
           <h5>Hotels</h5>
           <p class="display-4">{{ stats.hotels }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='hotels') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='hotels') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='hotels') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="row g-4 mt-2">
     <div class="col-md-3">
       <div class="card shadow-sm">
         <div class="card-body text-center">
           <h5>Restaurants</h5>
           <p class="display-4">{{ stats.restaurants }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='restaurants') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='restaurants') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='restaurants') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -84,11 +131,19 @@ block content %}
         <div class="card-body text-center">
           <h5>Events</h5>
           <p class="display-4">{{ stats.events }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='events') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='events') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='events') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -97,11 +152,19 @@ block content %}
         <div class="card-body text-center">
           <h5>Weather</h5>
           <p class="display-4">{{ stats.weather }}</p>
-          <a
-            href="{{ url_for('admin_view_table', table_name='weather') }}"
-            class="btn btn-outline-primary btn-sm"
-            >View</a
-          >
+          <div class="d-grid gap-2">
+            <a
+              href="{{ url_for('admin_view_table', table_name='weather') }}"
+              class="btn btn-outline-primary btn-sm"
+              >View</a
+            >
+            <a
+              href="{{ url_for('admin_export', table_name='weather') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Export CSV
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -112,9 +175,65 @@ block content %}
           <p class="display-4">🔧</p>
           <a
             href="{{ url_for('curation') }}"
-            class="btn btn-outline-success btn-sm"
-            >Go</a
+            class="btn btn-outline-success btn-sm w-100"
+            >Go to Curation</a
           >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Export All Button -->
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5><i class="bi bi-database"></i> Bulk Export</h5>
+          <p class="text-muted small">Export all tables as CSV files</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a
+              href="{{ url_for('admin_export', table_name='tourist_places') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Places
+            </a>
+            <a
+              href="{{ url_for('admin_export', table_name='visitor_statistics') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Visitors
+            </a>
+            <a
+              href="{{ url_for('admin_export', table_name='reviews') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Reviews
+            </a>
+            <a
+              href="{{ url_for('admin_export', table_name='hotels') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Hotels
+            </a>
+            <a
+              href="{{ url_for('admin_export', table_name='restaurants') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Restaurants
+            </a>
+            <a
+              href="{{ url_for('admin_export', table_name='events') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Events
+            </a>
+            <a
+              href="{{ url_for('admin_export', table_name='weather') }}"
+              class="btn btn-outline-success btn-sm"
+            >
+              <i class="bi bi-download"></i> Weather
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -127,8 +246,8 @@ block content %}
     <a href="{{ url_for('curation') }}" class="btn btn-outline-success">
       <i class="bi bi-brush"></i> Data Curation
     </a>
-    <a href="{{ url_for('admin_logout') }}" class="btn btn-outline-danger">
-      <i class="bi bi-box-arrow-right"></i> Logout
+    <a href="{{ url_for('admin_upload') }}" class="btn btn-outline-primary">
+      <i class="bi bi-upload"></i> Upload CSV
     </a>
   </div>
 </div>
