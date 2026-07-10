@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+import os
+content = '''{% extends "base.html" %}
 
 {% block title %}Tourist Places - Smart Tourism Platform{% endblock %}
 
@@ -170,4 +171,11 @@
     padding: 4px 10px;
 }
 </style>
-{% endblock %}
+{% endblock %}'''
+
+os.makedirs('templates', exist_ok=True)
+with open('templates/places.html', 'w', encoding='utf-8') as f:
+    f.write(content)
+print('✅ places.html created successfully!')
+print('📁 File location: templates/places.html')
+print('📊 File size:', len(content), 'characters')

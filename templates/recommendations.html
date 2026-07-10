@@ -1,170 +1,109 @@
-{% extends "base.html" %} {% block title %}Recommendations - Smart Tourism
-Platform{% endblock %} {% block content %}
+{% extends "base.html" %}
+
+{% block title %}Recommendations - Smart Tourism Platform{% endblock %}
+
+{% block content %}
 <div class="container py-4">
-  <h2 class="mb-4"><i class="bi bi-star"></i> Place Recommendations</h2>
-  <p class="text-muted">
-    Find similar tourist places based on content and visitor preferences.
-  </p>
+    <h2 class="mb-4"><i class="bi bi-star"></i> Place Recommendations</h2>
+    <p class="text-muted">Find similar tourist places based on content and visitor preferences.</p>
 
-  <!-- Selection Form -->
-  <div class="row mb-4">
-    <div class="col-md-8">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <form method="GET" class="row g-3">
-            <div class="col-md-8">
-              <label for="place_id" class="form-label"
-                >Select a Tourist Place</label
-              >
-              <select
-                name="place_id"
-                id="place_id"
-                class="form-select"
-                required
-              >
-                <option value="">-- Select a place --</option>
-                {% for place in places %}
-                <option
-                  value="{{ place.place_id }}"
-                  {%
-                  if
-                  place.place_id=""
-                  ="selected_place"
-                  %}selected{%
-                  endif
-                  %}
-                >
-                  {{ place.place_name }}
-                </option>
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <form method="GET" class="row g-3">
+                        <div class="col-md-8">
+                            <label for="place_id" class="form-label">Select a Tourist Place</label>
+                            <select name="place_id" id="place_id" class="form-select" required>
+                                <option value="">-- Select a place --</option>
+                                {% for place in places %}
+                                <option value="{{ place.place_id }}" {% if place.place_id == selected_place %}selected{% endif %}>
+                                    {{ place.place_name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-search"></i> Find Similar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 bg-light">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">How it works</h6>
+                    <small>
+                        Using content-based filtering, the system compares 
+                        place descriptions, categories, districts, and 
+                        features to find the most similar tourist 
+                        attractions.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if selected_place %}
+        {% if recommendations and recommendations|length > 0 %}
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h4>Similar Places</h4>
+                    <p class="text-muted">Showing {{ recommendations|length }} recommendations</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                {% for rec in recommendations %}
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ rec.place_name }}</h5>
+                            <p class="card-text small text-muted">
+                                <span class="badge bg-primary">{{ rec.place_id }}</span>
+                            </p>
+                            <div class="mb-2">
+                                <span class="badge bg-success">Similarity: {{ "%.2f"|format(rec.similarity_score|default(0)) }}</span>
+                            </div>
+                            <a href="{{ url_for('place_detail', place_id=rec.place_id) }}" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-eye"></i> View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
-              </select>
             </div>
-            <div class="col-md-4 d-flex align-items-end">
-              <button type="submit" class="btn btn-primary w-100">
-                <i class="bi bi-search"></i> Find Similar
-              </button>
+
+        {% else %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle"></i> 
+                        No similar places found for the selected location.
+                    </div>
+                </div>
             </div>
-          </form>
+        {% endif %}
+    {% else %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> 
+                    Select a tourist place from the dropdown above to get recommendations.
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 bg-light">
-        <div class="card-body text-center">
-          <h6 class="text-muted">How it works</h6>
-          <small>
-            Using content-based filtering, the system compares place
-            descriptions, categories, districts, and features to find the most
-            similar tourist attractions.
-          </small>
+    {% endif %}
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <a href="{{ url_for('places') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Browse All Places
+            </a>
         </div>
-      </div>
     </div>
-  </div>
-
-  <!-- Results -->
-  {% if selected_place %} {% if recommendations and recommendations|length > 0
-  %}
-  <div class="row mb-4">
-    <div class="col-md-12">
-      <h4>Similar Places</h4>
-      <p class="text-muted">
-        Showing {{ recommendations|length }} recommendations
-      </p>
-    </div>
-  </div>
-
-  <div class="row g-4">
-    {% for rec in recommendations %}
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0">
-        <div class="card-body">
-          <h5 class="card-title">{{ rec.place_name }}</h5>
-          <p class="card-text small text-muted">
-            <span class="badge bg-primary">{{ rec.place_id }}</span>
-          </p>
-          <div class="mb-2">
-            <span class="badge bg-success"
-              >Similarity: {{ "%.2f"|format(rec.similarity_score|default(0))
-              }}</span
-            >
-          </div>
-          <p class="card-text small">
-            <i class="bi bi-geo-alt"></i> District: {% if rec.district %} {{
-            rec.district }} {% else %}
-            <span class="text-muted">N/A</span>
-            {% endif %}
-          </p>
-          <a
-            href="{{ url_for('place_detail', place_id=rec.place_id) }}"
-            class="btn btn-outline-primary btn-sm"
-          >
-            <i class="bi bi-eye"></i> View Details
-          </a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-
-  <!-- Summary -->
-  <div class="row mt-4">
-    <div class="col-md-12">
-      <div class="card shadow-sm border-0 bg-light">
-        <div class="card-body">
-          <h6>Summary</h6>
-          <ul class="list-unstyled">
-            <li>
-              <strong>Selected Place:</strong>
-              {% for place in places %} {% if place.place_id == selected_place
-              %} {{ place.place_name }} {% endif %} {% endfor %}
-            </li>
-            <li>
-              <strong>Number of Recommendations:</strong> {{
-              recommendations|length }}
-            </li>
-            <li>
-              <strong>Top Similarity Score:</strong>
-              {% if recommendations %} {{
-              "%.2f"|format(recommendations[0].similarity_score|default(0)) }}
-              {% else %} 0.00 {% endif %}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {% else %}
-  <!-- No recommendations found -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="alert alert-warning">
-        <i class="bi bi-exclamation-triangle"></i>
-        No similar places found for the selected location. Try selecting a
-        different place or ensure the recommendation model is trained.
-      </div>
-    </div>
-  </div>
-  {% endif %} {% else %}
-  <!-- Initial state - no place selected -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="alert alert-info">
-        <i class="bi bi-info-circle"></i>
-        Select a tourist place from the dropdown above to get recommendations.
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- Back to Places -->
-  <div class="row mt-4">
-    <div class="col-md-12">
-      <a href="{{ url_for('places') }}" class="btn btn-outline-secondary">
-        <i class="bi bi-arrow-left"></i> Browse All Places
-      </a>
-    </div>
-  </div>
 </div>
 {% endblock %}
