@@ -1,0 +1,327 @@
+{% extends "base.html" %} {% block title %}{{ place.place_name }} - Smart
+Tourism Platform{% endblock %} {% block content %}
+<div class="container py-4">
+  <!-- Place Header -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h2>{{ place.place_name }}</h2>
+      <p class="text-muted">
+        <i class="bi bi-geo-alt"></i> {{ place.district }} •
+        <span class="badge bg-primary">{{ place.category }}</span>
+        <span class="badge bg-secondary">{{ place.popularity_level }}</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Place Details -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Description</h5>
+          <p>{{ place.description }}</p>
+          <hr />
+          <div class="row g-3">
+            <div class="col-md-4">
+              <strong>Address</strong>
+              <p class="text-muted">{{ place.address }}</p>
+            </div>
+            <div class="col-md-4">
+              <strong>Best Season</strong>
+              <p class="text-muted">{{ place.best_season }}</p>
+            </div>
+            <div class="col-md-4">
+              <strong>Entry Fee</strong>
+              <p class="text-muted">₹{{ place.entry_fee_inr or 0 }}</p>
+            </div>
+            <div class="col-md-4">
+              <strong>Opening Time</strong>
+              <p class="text-muted">{{ place.opening_time or 'N/A' }}</p>
+            </div>
+            <div class="col-md-4">
+              <strong>Closing Time</strong>
+              <p class="text-muted">{{ place.closing_time or 'N/A' }}</p>
+            </div>
+            <div class="col-md-4">
+              <strong>Visit Duration</strong>
+              <p class="text-muted">
+                {{ place.visit_duration_hours or 0 }} hours
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="row g-2">
+            <div class="col-md-3">
+              <span class="badge bg-success"
+                >Parking: {{ place.parking_available }}</span
+              >
+            </div>
+            <div class="col-md-3">
+              <span class="badge bg-info"
+                >Washrooms: {{ place.washroom_available }}</span
+              >
+            </div>
+            <div class="col-md-3">
+              <span class="badge bg-warning"
+                >Wheelchair: {{ place.wheelchair_accessible }}</span
+              >
+            </div>
+            <div class="col-md-3">
+              <span class="badge bg-secondary">Status: {{ place.status }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Quick Info</h5>
+          <p>
+            <strong>Coordinates:</strong> {{ place.latitude }}, {{
+            place.longitude }}
+          </p>
+          {% if place.official_website and place.official_website != 'NULL' %}
+          <p>
+            <a
+              href="{{ place.official_website }}"
+              target="_blank"
+              class="btn btn-outline-primary btn-sm"
+              >Official Website</a
+            >
+          </p>
+          {% endif %}
+          <hr />
+          <h6>Recommended For</h6>
+          <p>
+            {% if place.family_friendly == 'Yes' %}👨‍👩‍👧‍👦 Family {% endif %} {% if
+            place.adventure_level == 'High' %}🧗‍♂️ Adventure {% endif %} {% if
+            place.adventure_level == 'Medium' %}🚶 Moderate {% endif %} {% if
+            place.accessibility == 'Excellent' %}♿ Excellent Access {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visitor Trends -->
+  {% if visitor_chart %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Visitor Trends</h5>
+          <div id="visitorChart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Satisfaction Trends -->
+  {% if satisfaction_chart %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Visitor Satisfaction</h5>
+          <div id="satisfactionChart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Recommendations -->
+  {% if recommendations %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Similar Places You May Like</h5>
+          <div class="row g-3">
+            {% for rec in recommendations %}
+            <div class="col-md-3">
+              <a
+                href="{{ url_for('place_detail', place_id=rec.place_id) }}"
+                class="text-decoration-none"
+              >
+                <div class="card h-100">
+                  <div class="card-body text-center">
+                    <h6>{{ rec.place_name }}</h6>
+                    <span class="badge bg-primary"
+                      >Similarity: {{ "%.2f"|format(rec.similarity_score)
+                      }}</span
+                    >
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Hotels -->
+  {% if hotels %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5><i class="bi bi-building"></i> Nearby Hotels</h5>
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Hotel</th>
+                  <th>Rating</th>
+                  <th>Price/Night</th>
+                  <th>Distance</th>
+                  <th>Amenities</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for hotel in hotels[:10] %}
+                <tr>
+                  <td>{{ hotel.hotel_name }}</td>
+                  <td>⭐ {{ hotel.average_rating }}</td>
+                  <td>₹{{ hotel.price_per_night_inr }}</td>
+                  <td>{{ hotel.distance_from_place_km }} km</td>
+                  <td>
+                    {% if hotel.free_wifi == 'Yes' %}WiFi {% endif %} {% if
+                    hotel.parking == 'Yes' %}🅿️ {% endif %} {% if
+                    hotel.restaurant == 'Yes' %}🍽️ {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Restaurants -->
+  {% if restaurants %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5><i class="bi bi-egg-fried"></i> Nearby Restaurants</h5>
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Restaurant</th>
+                  <th>Cuisine</th>
+                  <th>Rating</th>
+                  <th>Cost/Two</th>
+                  <th>Distance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for restaurant in restaurants[:10] %}
+                <tr>
+                  <td>{{ restaurant.restaurant_name }}</td>
+                  <td>{{ restaurant.cuisine }}</td>
+                  <td>⭐ {{ restaurant.average_rating }}</td>
+                  <td>₹{{ restaurant.average_cost_for_two_inr }}</td>
+                  <td>{{ restaurant.distance_from_place_km }} km</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Events -->
+  {% if events %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5><i class="bi bi-calendar-event"></i> Events & Festivals</h5>
+          <div class="row g-3">
+            {% for event in events %}
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h6>{{ event.event_name }}</h6>
+                  <p class="small text-muted">
+                    {{ event.start_date }} - {{ event.end_date }}
+                  </p>
+                  <p class="small">{{ event.description[:100] }}...</p>
+                  <span class="badge bg-info">{{ event.event_category }}</span>
+                  <span class="badge bg-secondary"
+                    >Expected: {{ event.expected_visitors }}</span
+                  >
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Reviews -->
+  {% if reviews %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>
+            <i class="bi bi-chat-dots"></i> Visitor Reviews ({{ reviews|length
+            }})
+          </h5>
+          {% for review in reviews[:10] %}
+          <div class="border-bottom py-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>{{ review.reviewer_name }}</strong>
+                <span class="text-warning">⭐ {{ review.overall_rating }}</span>
+                <span
+                  class="badge {% if review.sentiment == 'Positive' %}bg-success{% elif review.sentiment == 'Negative' %}bg-danger{% else %}bg-secondary{% endif %}"
+                >
+                  {{ review.sentiment }}
+                </span>
+              </div>
+              <small class="text-muted">{{ review.visit_date }}</small>
+            </div>
+            <p class="mb-0">{{ review.review_text }}</p>
+            <small class="text-muted">
+              <i class="bi bi-hand-thumbs-up"></i> {{ review.likes or 0 }} •
+              Helpful: {{ review.helpful_votes or 0 }} • {% if
+              review.verified_visitor == 'Yes' %}✅ Verified{% endif %}
+            </small>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% if visitor_chart %}
+<script>
+  var visitorData = {{ visitor_chart|safe }};
+  Plotly.newPlot('visitorChart', visitorData.data, visitorData.layout);
+</script>
+{% endif %} {% if satisfaction_chart %}
+<script>
+  var satisfactionData = {{ satisfaction_chart|safe }};
+  Plotly.newPlot('satisfactionChart', satisfactionData.data, satisfactionData.layout);
+</script>
+{% endif %} {% endblock %}

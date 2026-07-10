@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block title %}Visitor Prediction - Smart Tourism Platform{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4"><i class="bi bi-bar-chart"></i> Visitor Prediction</h2>
+    <p class="text-muted">Forecast visitor counts for any tourist place in Manipur.</p>
+
+    <!-- Prediction Form -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <form method="GET" class="row g-3">
+                        <div class="col-md-6">
+                            <label for="place_id" class="form-label">Select Tourist Place</label>
+                            <select name="place_id" id="place_id" class="form-select" required>
+                                <option value="">-- Select a place --</option>
+                                {% for place in places %}
+                                <option value="{{ place.place_id }}" {% if place.place_id == selected_place %}selected{% endif %}>
+                                    {{ place.place_name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="months" class="form-label">Forecast Months</label>
+                            <select name="months" id="months" class="form-select">
+                                {% for m in [3, 6, 9, 12] %}
+                                <option value="{{ m }}" {% if m == request.args.get('months', 6)|int %}selected{% endif %}>{{ m }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-eye"></i> Predict
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 bg-light">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">How it works</h6>
+                    <small>
+                        The model uses historical visitor data, 
+                        seasonal patterns, weather conditions, 
+                        and special events to predict future 
+                        visitor counts.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    {% if forecasts %}
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h5>Forecast Results</h5>
+                    {% if forecast_chart %}
+                    <div id="forecastChart" style="height:400px;"></div>
+                    <script>
+                        var forecastData = {{ forecast_chart|safe }};
+                        Plotly.newPlot('forecastChart', forecastData.data, forecastData.layout);
+                    </script>
+                    {% else %}
+                    <p class="text-muted">No chart data available</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forecast Table -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h5>Detailed Forecast</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Year</th>
+                                    <th>Predicted Visitors</th>
+                                    <th>Weather</th>
+                                    <th>Temperature (°C)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for forecast in forecasts %}
+                                <tr>
+                                    <td>
+                                        {% set month_names = ['January', 'February', 'March', 'April', 'May', 'June', 
+                                            'July', 'August', 'September', 'October', 'November', 'December'] %}
+                                        {{ month_names[forecast.month - 1] }}
+                                    </td>
+                                    <td>{{ forecast.year }}</td>
+                                    <td>
+                                        <strong>{{ forecast.predicted_visitors|default(0)|int }}</strong>
+                                    </td>
+                                    <td>
+                                        <span class="badge 
+                                            {% if forecast.weather == 'Clear' or forecast.weather == 'Sunny' %}bg-success
+                                            {% elif forecast.weather == 'Rainy' or forecast.weather == 'Heavy Rain' %}bg-primary
+                                            {% elif forecast.weather == 'Cloudy' %}bg-secondary
+                                            {% else %}bg-warning{% endif %}">
+                                            {{ forecast.weather }}
+                                        </span>
+                                    </td>
+                                    <td>{{ forecast.temperature|default(0) }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Statistics -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Total Predicted</h6>
+                    <p class="display-6">
+                        {{ forecasts|map(attribute='predicted_visitors')|select('defined')|sum|default(0)|int }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Average Monthly</h6>
+                    <p class="display-6">
+                        {% set total = forecasts|map(attribute='predicted_visitors')|select('defined')|sum|default(0)|int %}
+                        {% set count = forecasts|length %}
+                        {{ (total / count)|round|int if count > 0 else 0 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Peak Month</h6>
+                    <p class="display-6">
+                        {% set max_forecast = forecasts|sort(attribute='predicted_visitors', reverse=True)|first %}
+                        {% if max_forecast %}
+                            {% set month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %}
+                            {{ month_names[max_forecast.month - 1] }} {{ max_forecast.year }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Forecast Period</h6>
+                    <p class="display-6">{{ forecasts|length }} months</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% elif selected_place %}
+    <!-- No data for selected place -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> 
+                No forecast data available for this place. Make sure visitor statistics and weather data are imported.
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <!-- Initial state - no place selected -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> 
+                Select a tourist place from the dropdown above to see visitor predictions.
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Back to Places -->
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ url_for('places') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back to Places
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

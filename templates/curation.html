@@ -1,0 +1,276 @@
+{% extends "base.html" %} {% block title %}Data Curation - Smart Tourism
+Platform{% endblock %} {% block content %}
+<div class="container py-4">
+  <h2 class="mb-4"><i class="bi bi-brush"></i> Data Curation Dashboard</h2>
+
+  <!-- Dataset Selector -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <form method="GET" class="d-flex gap-2">
+        <select
+          name="dataset"
+          class="form-select"
+          onchange="this.form.submit()"
+        >
+          {% for ds in datasets %}
+          <option
+            value="{{ ds }}"
+            {%
+            if
+            ds=""
+            ="selected"
+            %}selected{%
+            endif
+            %}
+          >
+            {{ ds|replace('_', ' ')|title }}
+          </option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Load</button>
+      </form>
+    </div>
+    <div class="col-md-6 text-end">
+      <a
+        href="{{ url_for('quality_report', dataset=selected) }}"
+        class="btn btn-outline-info"
+      >
+        <i class="bi bi-file-earmark-text"></i> Full Report
+      </a>
+    </div>
+  </div>
+
+  {% if report %}
+  <!-- Quality Score -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h3>Data Quality Score</h3>
+          <div
+            class="display-1 fw-bold {% if report.quality_score >= 90 %}text-success {% elif report.quality_score >= 75 %}text-primary {% elif report.quality_score >= 60 %}text-warning {% else %}text-danger{% endif %}"
+          >
+            {{ report.quality_score }}%
+          </div>
+          <h5>
+            <span class="badge bg-secondary">{{ report.quality_grade }}</span>
+          </h5>
+          <p class="text-muted">
+            {{ report.total_rows }} rows, {{ report.total_columns }} columns
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6>Missing Values</h6>
+          <p class="display-6">{{ report.missing|sum }}</p>
+          <small class="text-muted"
+            >{{ "%.1f"|format(report.missing_percentage|sum) }}%</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6>Duplicates</h6>
+          <p class="display-6">
+            {{ report.duplicate_info.exact_duplicate_count }}
+          </p>
+          <small class="text-muted">Exact duplicate rows</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6>Valid Rows</h6>
+          <p class="display-6">{{ report.validation.valid_rows }}</p>
+          <small class="text-muted">Rows with no missing values</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6>Errors</h6>
+          <p class="display-6">{{ report.validation.errors|length }}</p>
+          <small class="text-muted">Validation errors found</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fix Options -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Apply Curation Fixes</h5>
+          <form
+            method="POST"
+            action="{{ url_for('curation_fix') }}"
+            class="d-flex gap-3 flex-wrap"
+          >
+            <input type="hidden" name="dataset" value="{{ selected }}" />
+            <button
+              type="submit"
+              name="operation"
+              value="remove_duplicates"
+              class="btn btn-warning"
+            >
+              <i class="bi bi-trash"></i> Remove Duplicates
+            </button>
+            <button
+              type="submit"
+              name="operation"
+              value="handle_missing"
+              class="btn btn-info"
+            >
+              <i class="bi bi-pencil"></i> Fill Missing Values
+            </button>
+            <button
+              type="submit"
+              name="operation"
+              value="standardize"
+              class="btn btn-success"
+            >
+              <i class="bi bi-check2"></i> Standardize Data
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Missing Values Details -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Missing Values by Column</h5>
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Column</th>
+                  <th>Missing Count</th>
+                  <th>Missing Percentage</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for col, count in report.missing.items() %}
+                <tr>
+                  <td>{{ col }}</td>
+                  <td>{{ count }}</td>
+                  <td>
+                    {% set pct = (count / report.total_rows * 100) %}
+                    <div class="progress" style="height: 8px; width: 100px">
+                      <div
+                        class="progress-bar {% if pct > 20 %}bg-danger {% elif pct > 10 %}bg-warning {% else %}bg-success{% endif %}"
+                        style="width:{{ pct }}%"
+                      ></div>
+                    </div>
+                    {{ "%.1f"|format(pct) }}%
+                  </td>
+                  <td>
+                    {% if count > 0 %}
+                    <span class="badge bg-info">Need attention</span>
+                    {% else %}
+                    <span class="badge bg-success">Complete</span>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Validation Warnings -->
+  {% if report.validation.warnings %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Validation Warnings</h5>
+          <ul class="list-group">
+            {% for warning in report.validation.warnings %}
+            <li class="list-group-item list-group-item-warning">
+              {{ warning }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Validation Errors -->
+  {% if report.validation.errors %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Validation Errors</h5>
+          <ul class="list-group">
+            {% for error in report.validation.errors %}
+            <li class="list-group-item list-group-item-danger">{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Sample Data -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Sample Data (First 5 Rows)</h5>
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  {% for key in report.sample_rows[0].keys() %}
+                  <th>{{ key }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in report.sample_rows %}
+                <tr>
+                  {% for value in row.values() %}
+                  <td>{{ value }}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% else %}
+  <div class="alert alert-info">
+    <i class="bi bi-info-circle"></i> No data found or select a dataset to
+    analyze.
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

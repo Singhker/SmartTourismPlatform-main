@@ -1,0 +1,846 @@
+Weather_ID,Place_ID,Year,Month_Number,Month_Name,Season,Average_Temperature_C,Minimum_Temperature_C,Maximum_Temperature_C,Humidity_Percentage,Rainfall_mm,Wind_Speed_kmph,Weather_Condition,Air_Quality_Index,UV_Index,Visibility_KM,Sunrise_Time,Sunset_Time,Tourism_Suitability,Weather_Warning,Created_Date,Updated_Date
+WT000736,MP062,2023,4,April,Spring,24.2,14.4,30.2,59,50.7,4.3,Sunny,98,3,2.2,05:20 Ayuk,07:54 Nungthil,Good,No,16-10-2023,04-04-2026
+WT000839,MP070,2025,11,November,Autumn,17.7,10.1,24.3,58,0,4.6,Foggy,106,8,11.4,04:34 Ayuk,07:52 Nungthil,Good,No,08-01-2023,20-12-2026
+WT000384,MP032,2024,12,December,Winter,14.7,5.6,20.7,69,26.3,5.6,Rainy,96,3,11.6,04:42 Ayuk,05:30 Nungthil,Excellent,No,12-09-2023,19-01-2025
+WT000767,MP064,2023,11,November,Autumn,17.7,9.6,24,60,4.5,5.3,Partly Cloudy,88,9,9.3,05:24 Ayuk,05:28 Nungthil,Good,No,17-01-2024,02-12-2026
+WT000680,MP057,2024,8,August,Monsoon,26.1,16.2,31.1,82,213.7,6.3,Heavy Rain,141,9,9.2,06:12 Ayuk,05:08 Nungthil,Poor,Flood Warning,22-01-2023,20-02-2025
+WT000368,MP031,2024,8,August,Monsoon,25.2,16.6,32,79,193.9,8.1,Cloudy,102,4,8.6,04:58 Ayuk,07:27 Nungthil,Poor,No,12-10-2025,07-08-2026
+WT000283,MP024,2024,7,July,Monsoon,26.9,16.6,32.7,90,193.4,9.1,Rainy,106,5,4.4,06:55 Ayuk,07:54 Nungthil,Poor,No,07-10-2023,13-03-2026
+WT000555,MP047,2025,3,March,Spring,19.8,11.8,26.8,57,0,5.8,Rainy,51,5,9.7,06:29 Ayuk,05:39 Nungthil,Good,No,02-01-2024,01-01-2026
+WT000245,MP021,2024,5,May,Summer,24.7,14.6,33.2,77,99.2,7.2,,86,9,10.3,05:58 Ayuk,06:22 Nungthil,Moderate,,23-09-2024,07-07-2025
+WT000394,MP033,2023,10,October,Autumn,22.6,11.6,28.9,64,64.3,5.4,Heavy Rain,85,9,6.4,04:57 Ayuk,07:09 Nungthil,Good,No,13-08-2024,25-04-2025
+WT000535,MP045,2024,7,July,Monsoon,26.5,16.4,32,79,252,7.6,Clear,91,6,11.7,04:14 Ayuk,05:29 Nungthil,Poor,Flood Warning,17-11-2025,01-01-2026
+WT000765,MP064,2024,9,September,Monsoon,24.8,13.9,30.9,77,117.9,6.6,Foggy,108,7,11.6,04:45 Ayuk,07:40 Nungthil,Poor,No,17-01-2025,07-05-2025
+WT000174,MP015,2024,6,June,Summer,25.8,18.6,32.9,84,199.5,7.3,Windy,146,10,9,05:21 Ayuk,07:42 Nungthil,Moderate,Flood Warning,20-10-2023,22-09-2026
+WT000766,MP064,2024,10,October,Autumn,20.5,11.9,29.2,70,37.3,3.7,Windy,81,5,6.8,04:50 Ayuk,06:09 Nungthil,Good,No,05-10-2023,10-10-2025
+WT000728,MP061,2024,8,August,Monsoon,26.1,16.3,29.8,86,192.6,7.6,Rainy,108,3,3.3,06:35 Ayuk,07:20 Nungthil,Poor,Flood Warning,23-07-2023,14-07-2026
+WT000841,MP001,2024,1,January,Winter,14.6,6.6,21.5,66,0,5.4,Windy,84,8,10.3,04:01 Ayuk,05:38 Nungthil,Excellent,No,14-05-2023,17-06-2025
+WT000468,MP039,2024,12,December,Winter,14.9,6.3,21.9,78,0,4.1,Cloudy,50,10,9.6,04:15 Ayuk,05:29 Nungthil,Excellent,No,25-04-2023,07-11-2026
+WT000370,MP031,2024,10,October,Autumn,23.1,13.9,27.2,80,64.7,5.3,,126,7,6.3,04:49 Ayuk,05:04 Nungthil,Good,,06-11-2025,25-03-2026
+WT000527,MP044,2024,11,November,Autumn,17.1,10.6,26.4,67,30.7,2.1,Rainy,113,4,7.8,04:12 Ayuk,06:10 Nungthil,Good,No,20-02-2023,18-11-2025
+WT000236,MP020,2025,8,August,Monsoon,25.2,15.7,30.3,79,222.8,6.1,Partly Cloudy,141,3,4.9,06:41 Ayuk,05:39 Nungthil,Poor,Flood Warning,23-02-2025,05-05-2025
+WT000597,MP050,2024,9,September,Monsoon,25.3,16.5,31.2,71,150.8,8.5,Rainy,93,9,5.2,05:41 Ayuk,07:53 Nungthil,Poor,No,25-12-2023,03-09-2026
+WT000591,MP050,2023,3,March,Spring,20.9,9.8,27,62,47.2,7.9,Partly Cloudy,112,5,10.6,06:23 Ayuk,07:43 Nungthil,Good,No,09-02-2024,23-03-2025
+WT000334,MP028,2025,10,October,Autumn,21.9,12.7,29,69,72.7,3.8,Clear,144,5,10.5,04:20 Ayuk,05:14 Nungthil,Good,No,07-12-2023,22-08-2025
+WT000780,MP065,2023,12,December,Winter,13.3,7.4,21.1,71,24.3,5.2,Rainy,82,8,5.3,04:51 Ayuk,05:05 Nungthil,Excellent,No,24-10-2023,22-07-2026
+WT000377,MP032,2023,5,May,Summer,24.6,17.1,34.1,76,62.8,7.7,Rainy,118,3,7.1,04:29 Ayuk,05:23 Nungthil,Moderate,No,13-03-2025,14-02-2026
+WT000748,MP063,2025,4,April,Spring,23.2,13.6,30,66,37,5,Windy,101,3,7,06:57 Ayuk,05:32 Nungthil,Good,No,18-02-2025,16-12-2026
+WT000242,MP021,2025,2,February,Winter,17.3,8.9,24.6,72,0,6.7,Sunny,83,8,6.5,05:57 Ayuk,05:29 Nungthil,Excellent,No,25-06-2023,22-11-2026
+WT000004,MP001,2025,4,April,Spring,23,12.6,30.9,63,22,6.6,Partly Cloudy,67,4,7.6,05:32 Ayuk,05:43 Nungthil,Good,No,05-10-2023,12-10-2025
+WT000487,MP041,2025,7,July,Monsoon,25.2,18.1,30.6,85,233.6,9.3,Partly Cloudy,117,9,4.5,04:02 Ayuk,05:15 Nungthil,Poor,Flood Warning,24-07-2025,06-07-2026
+WT000825,MP069,2025,9,September,Monsoon,23.8,15.6,29.2,77,121,5.6,Heavy Rain,125,4,8.7,05:46 Ayuk,07:30 Nungthil,Poor,No,11-02-2024,12-08-2025
+WT000567,MP048,2023,3,March,Spring,20.7,12.5,29.2,66,31.8,5.5,Cloudy,70,5,10.3,06:31 Ayuk,05:59 Nungthil,Good,No,23-11-2023,21-12-2025
+WT000150,MP013,2025,6,June,Summer,25.8,17,34.6,83,600,7.8,Rainy,144,9,10.7,05:33 Ayuk,05:18 Nungthil,Moderate,No,07-11-2024,14-04-2026
+WT000520,MP044,2024,4,April,Spring,21.8,14.2,31.5,70,67.6,6.3,Sunny,118,6,4.7,04:46 Ayuk,05:57 Nungthil,Good,No,24-02-2023,16-07-2025
+WT000279,MP024,2024,3,March,Spring,19,10.7,29.2,52,55.8,6.3,Cloudy,68,3,6.5,04:12 Ayuk,06:17 Nungthil,Good,No,05-07-2024,21-09-2026
+WT000386,MP033,2025,2,February,Winter,14.7,8,25.1,57,50.4,6.7,Windy,135,9,6,06:00 Ayuk,07:39 Nungthil,Excellent,No,22-01-2024,03-05-2025
+WT000710,MP060,2025,2,February,Winter,15.2,8.5,23,71,0,7,Rainy,81,7,9,04:13 Ayuk,07:44 Nungthil,Excellent,No,02-11-2023,10-02-2025
+WT000264,MP022,2025,12,December,Winter,14.2,7.6,21.9,70,1.5,6.1,Partly Cloudy,139,9,5.5,05:16 Ayuk,05:28 Nungthil,Excellent,No,19-09-2023,07-10-2026
+WT000819,MP069,2025,3,March,Spring,21.2,10.9,27.8,63,17,5.1,Clear,99,7,7.6,06:19 Ayuk,05:00 Nungthil,Good,No,19-08-2025,12-06-2025
+WT000164,MP014,2025,8,August,Monsoon,26.4,15.8,30.4,94,178.9,6.3,Clear,78,9,4.1,06:39 Ayuk,05:09 Nungthil,Poor,Flood Warning,23-08-2023,03-11-2025
+WT000142,MP012,2024,10,October,Autumn,20.9,12.9,28.1,70,65.6,7,Sunny,142,6,4.7,04:24 Ayuk,06:11 Nungthil,Good,No,13-09-2024,07-04-2026
+WT000750,MP063,2023,6,June,Summer,27.4,19.4,33.2,87,126.5,9.1,Foggy,113,4,2.2,05:25 Ayuk,07:14 Nungthil,Moderate,No,01-07-2025,15-02-2025
+WT000064,MP006,2025,4,April,Spring,22.9,14.9,30,64,73.7,4.3,Partly Cloudy,87,8,3.9,06:37 Ayuk,05:57 Nungthil,Good,No,21-11-2025,16-03-2026
+WT000276,MP023,2024,12,December,Winter,14.6,7.6,20.3,76,28.6,6.6,Cloudy,106,4,10.5,06:45 Ayuk,05:53 Nungthil,Excellent,No,22-03-2025,18-09-2026
+WT000654,MP055,2023,6,June,Summer,26.9,19.4,34.4,84,187.7,6.2,Clear,90,4,2.2,06:39 Ayuk,05:28 Nungthil,Moderate,Heavy Rain Alert,02-11-2023,15-08-2025
+WT000096,MP008,2024,12,December,Winter,13.1,8.4,20.4,68,0,6.6,Heavy Rain,126,9,2.7,05:00 Ayuk,05:27 Nungthil,Excellent,No,03-03-2025,25-08-2026
+WT000406,MP034,2023,10,October,Autumn,20.8,13.3,29,71,76.6,6.5,Partly Cloudy,84,9,7.7,04:28 Ayuk,07:02 Nungthil,Good,No,20-09-2023,17-12-2026
+WT000152,MP013,2025,8,August,Monsoon,26.1,16.3,31.5,79,181.9,9.2,Sunny,110,7,9.2,04:22 Ayuk,06:07 Nungthil,Poor,No,02-06-2025,03-12-2026
+WT000739,MP062,2024,7,July,Monsoon,26.3,16,32.5,93,197.7,8.6,Windy,55,7,10.9,05:05 Ayuk,07:32 Nungthil,Poor,Heavy Rain Alert,13-06-2025,20-11-2026
+WT000763,MP064,2023,7,July,Monsoon,25.8,17.9,32.2,87,212.6,6,Clear,87,3,5.3,05:51 Ayuk,06:21 Nungthil,Poor,Flood Warning,25-11-2023,09-06-2025
+WT000574,MP048,2024,10,October,Autumn,21,13.1,27.3,66,49.3,6.7,Sunny,110,4,8.7,05:11 Ayuk,07:05 Nungthil,Good,No,09-08-2024,20-09-2025
+WT000414,MP035,2023,6,June,Summer,26.2,19.4,33,77,120.7,9.8,Foggy,69,10,10,05:00 Ayuk,06:15 Nungthil,Moderate,No,19-07-2023,25-02-2025
+WT000193,MP017,2023,1,January,Winter,14.6,7.6,21.2,65,5.8,6.7,Windy,138,9,2,04:08 Ayuk,05:46 Nungthil,Excellent,No,02-08-2025,14-07-2026
+WT000253,MP022,2023,1,January,Winter,13.7,9.3,22.7,63,24.2,5.1,Cloudy,133,3,5.4,06:56 Ayuk,05:22 Nungthil,Excellent,No,17-08-2023,22-12-2026
+WT000665,MP056,2023,5,May,Summer,25.4,16.9,32.2,74,82.3,6.2,Sunny,79,3,3.5,06:51 Ayuk,06:20 Nungthil,Moderate,No,10-04-2024,19-04-2026
+WT000127,MP011,2023,7,July,Monsoon,26.7,16.6,30.9,82,229.8,6.4,Partly Cloudy,118,3,11.8,04:31 Ayuk,06:44 Nungthil,Poor,Flood Warning,10-02-2024,09-03-2026
+WT000028,MP003,2023,4,April,Spring,23.7,13.2,31.4,71,79.1,5.3,Clear,114,8,2.3,05:21 Ayuk,07:17 Nungthil,Good,No,09-04-2025,06-11-2026
+WT000801,MP067,2023,9,September,Monsoon,25.1,13.7,30,87,106.3,8.1,Rainy,102,9,6.7,04:38 Ayuk,07:38 Nungthil,Poor,No,08-03-2024,21-11-2026
+WT000306,MP026,2023,6,June,Summer,28.4,17.7,34.1,82,151.3,9.8,Foggy,141,8,8.7,06:17 Ayuk,06:53 Nungthil,Moderate,No,19-09-2023,17-12-2025
+WT000677,MP057,2024,5,May,Summer,26.7,16,31.9,79,37.6,6,Sunny,69,7,4.7,06:05 Ayuk,05:32 Nungthil,Moderate,No,08-09-2024,19-07-2025
+WT000119,MP010,2024,11,November,Autumn,16.6,11.3,25,69,39.4,3.4,Partly Cloudy,57,7,8.5,06:03 Ayuk,05:23 Nungthil,Good,No,25-05-2025,09-10-2025
+WT000020,MP002,2023,8,August,monson,25.5,15.3,31.9,92,249,7.2,Sunny,70,6,9.8,05:48 Ayuk,07:38 Nungthil,Poor,Flood Warning,07-02-2024,21-05-2025
+WT000113,MP010,2023,5,May,Summer,25.3,16.3,32.8,65,90.3,8.2,Windy,107,6,7.6,04:47 Ayuk,07:38 Nungthil,Moderate,No,19-12-2025,10-09-2026
+WT000633,MP053,2025,9,September,Monsoon,24.3,13.6,30.2,80,102.4,5.3,Heavy Rain,60,6,2.6,05:37 Ayuk,05:50 Nungthil,Poor,No,09-04-2024,02-08-2025
+WT000390,MP033,2023,6,June,Summer,26,17.5,33.8,70,-10,6.5,Heavy Rain,75,9,9,06:19 Ayuk,05:10 Nungthil,Moderate,Heavy Rain Alert,22-04-2024,13-08-2025
+WT000496,MP042,2023,4,April,Spring,22.5,15.3,30.7,58,14.2,6.9,Foggy,148,7,10.9,05:40 Ayuk,05:26 Nungthil,Good,No,19-05-2024,03-05-2025
+WT000325,MP028,2024,1,January,Winter,14.8,8.6,20.5,66,45.5,8,Clear,86,6,11.1,06:35 Ayuk,07:17 Nungthil,Excellent,No,11-11-2025,11-03-2026
+WT000789,MP066,2023,9,September,Monsoon,24.3,15.2,31.3,79,127.3,6.5,Sunny,148,7,8.4,06:14 Ayuk,05:06 Nungthil,Poor,No,09-07-2024,16-09-2026
+WT000669,MP056,2025,9,September,Monsoon,25.7,14.5,28.9,86,149.5,6.3,Heavy Rain,142,6,10.5,04:58 Ayuk,06:14 Nungthil,Poor,No,24-12-2023,20-01-2026
+WT000346,MP029,2023,10,October,Autumn,20.6,12.2,27.9,77,24.4,5,Partly Cloudy,146,9,9.6,06:58 Ayuk,06:51 Nungthil,Good,No,21-11-2023,17-06-2025
+WT000387,MP033,2023,3,March,Spring,20.5,11.8,28.7,66,15.2,5.7,Foggy,61,7,6.8,05:40 Ayuk,05:31 Nungthil,Good,No,19-02-2024,13-04-2025
+WT000147,MP013,2023,3,March,Spring,18.7,12,28.5,53,54.7,6.3,Sunny,101,8,3.7,04:59 Ayuk,07:47 Nungthil,Good,No,20-07-2024,22-01-2026
+WT000488,MP041,2024,8,August,Monsoon,25,17.2,31.5,86,175.4,7.5,Heavy Rain,113,8,6.7,06:04 Ayuk,07:10 Nungthil,Poor,Flood Warning,07-10-2023,03-04-2025
+WT000685,MP058,2023,1,January,Winter,13.6,8.7,22.1,73,31.1,6,Clear,101,4,2.4,06:36 Ayuk,06:15 Nungthil,Excellent,No,09-12-2023,10-02-2025
+WT000224,MP019,2024,8,August,Monsoon,27.1,17.2,32,92,172,7.6,Foggy,135,7,5.6,04:46 Ayuk,06:02 Nungthil,Poor,Flood Warning,07-11-2023,15-10-2026
+WT000418,MP035,2023,10,October,Autumn,20.8,13.4,29.5,73,46.3,4.5,Clear,147,5,8.8,04:23 Ayuk,06:14 Nungthil,Good,No,19-07-2023,14-03-2025
+WT000280,MP024,2023,4,April,Spring,21.8,13.2,29.8,71,73.4,7.7,Cloudy,117,6,4.3,04:31 Ayuk,07:30 Nungthil,Good,No,19-02-2025,02-09-2025
+WT000195,MP017,2025,3,March,Spring,19.5,10.4,29,57,27,7.3,Partly Cloudy,123,3,7.6,06:30 Ayuk,05:02 Nungthil,Good,No,21-08-2023,23-03-2025
+WT000141,MP012,2025,9,September,Monsoon,25.4,14.3,28.5,86,128.6,5.9,Clear,129,5,8.4,06:44 Ayuk,06:17 Nungthil,Poor,No,15-02-2024,08-12-2026
+WT000293,MP025,2024,5,May,Summer,26.5,17,32.6,65,99.6,8.8,Clear,137,7,11.5,06:53 Ayuk,06:09 Nungthil,Moderate,No,09-05-2024,01-08-2025
+WT000203,MP017,2023,11,November,Autumn,18.4,10.7,25.4,56,23.6,4.6,Clear,84,9,3.5,04:48 Ayuk,06:23 Nungthil,Good,No,25-05-2025,06-01-2026
+WT000182,MP016,2024,2,February,Winter,16.4,9.5,25.5,70,9.7,8,Foggy,55,5,2.3,04:04 Ayuk,06:00 Nungthil,Excellent,No,24-03-2025,20-08-2026
+WT000365,MP031,2025,5,May,Summer,26.1,16,31.6,67,79.7,6.2,,118,3,2.7,04:08 Ayuk,07:55 Nungthil,Moderate,,15-10-2025,12-01-2026
+WT000733,MP062,2025,1,January,Winter,15,7.2,23,59,57.1,5.4,Clear,81,4,8.7,05:14 Ayuk,06:33 Nungthil,Excellent,No,14-05-2023,21-09-2025
+WT000583,MP049,2025,7,July,Monsoon,26.1,16.2,31.7,82,219.9,6.4,Clear,65,8,6.1,05:41 Ayuk,06:36 Nungthil,Poor,Flood Warning,10-05-2025,05-11-2025
+WT000272,MP023,2024,8,August,Monsoon,24.9,17.9,29.8,82,238.8,9.6,Cloudy,86,6,10.5,05:05 Ayuk,07:37 Nungthil,Poor,Flood Warning,24-05-2023,07-02-2025
+WT000202,MP017,2024,10,October,Autumn,23,13.1,28.7,76,49.7,4.8,Foggy,150,7,4,06:30 Ayuk,05:14 Nungthil,Good,No,11-01-2025,09-06-2026
+WT000088,MP008,2023,4,April,Spring,24,13.2,31.7,53,45.4,4.6,Partly Cloudy,99,9,9.5,05:37 Ayuk,05:32 Nungthil,Good,No,25-02-2025,05-11-2026
+WT000053,MP005,2024,5,May,Summer,27.3,16.4,33.1,63,90.3,8.5,Foggy,87,10,3.8,05:09 Ayuk,05:09 Nungthil,Moderate,No,05-02-2023,09-01-2025
+WT000327,MP028,2024,3,March,Spring,20.6,10.2,27.7,54,22.6,6.4,Foggy,58,8,10.6,06:22 Ayuk,05:21 Nungthil,Good,No,19-02-2024,15-07-2026
+WT000631,MP053,2023,7,July,Monsoon,27.1,16.4,32.6,90,235.7,9.7,Windy,70,3,8.7,06:21 Ayuk,07:44 Nungthil,Poor,Flood Warning,04-07-2024,23-08-2026
+WT000011,MP001,2023,11,November,Autumn,18.9,10.7,23.6,68,45.1,3.9,Sunny,88,9,4.6,06:12 Ayuk,07:39 Nungthil,Good,No,10-11-2025,13-06-2025
+WT000727,MP061,2023,7,July,Monsoon,27.4,15.7,31.9,83,223.9,6.8,Rainy,73,7,7.8,04:37 Ayuk,06:41 Nungthil,Poor,Flood Warning,25-11-2023,22-04-2026
+WT000416,MP035,2024,8,August,Monsoon,26.6,16.9,31.8,92,188.9,8.6,Sunny,55,10,10.3,05:46 Ayuk,06:06 Nungthil,Poor,Heavy Rain Alert,20-01-2025,01-08-2026
+WT000270,MP023,2025,6,June,Summer,27.1,18.5,34.6,74,600,7.7,Rainy,132,9,7.3,06:13 Ayuk,06:33 Nungthil,Moderate,No,11-12-2025,02-04-2025
+WT000802,MP067,2023,10,October,Autumn,22.8,12.5,28.4,75,73.5,4.9,Partly Cloudy,130,5,10,04:28 Ayuk,06:24 Nungthil,Good,No,22-03-2023,02-12-2025
+WT000657,MP055,2025,9,September,Monsoon,25.3,16.2,30.4,76,138.8,6.2,Clear,67,3,5.3,04:49 Ayuk,07:42 Nungthil,Poor,No,11-10-2024,11-04-2025
+WT000090,MP008,2023,6,June,Summer,27.3,19.2,32.8,74,195.9,8.1,Sunny,77,9,6.5,05:09 Ayuk,05:24 Nungthil,Moderate,Heavy Rain Alert,14-03-2023,09-01-2025
+WT000773,MP065,2024,5,May,Summer,24.6,15.8,32.2,74,102.4,7.2,Clear,139,8,10.3,06:21 Ayuk,07:42 Nungthil,Moderate,No,14-05-2025,22-10-2026
+WT000544,MP046,2023,4,April,Spring,22.5,15.3,31.3,54,34.6,6.1,Heavy Rain,99,9,6.4,06:00 Ayuk,05:32 Nungthil,Good,No,04-05-2025,09-05-2025
+WT000617,MP052,2025,5,May,Summer,24.8,17,33.7,76,93.2,6.1,Partly Cloudy,68,10,2.9,04:33 Ayuk,07:04 Nungthil,Moderate,No,15-07-2024,17-12-2026
+WT000212,MP018,2023,8,August,Monsoon,27,15.5,30.2,84,172.2,8.9,Sunny,111,7,8,05:38 Ayuk,06:05 Nungthil,Poor,Flood Warning,14-08-2025,12-10-2025
+WT000391,MP033,2023,7,July,Monsoon,25.8,18.4,32.4,81,226.4,6.5,Sunny,94,5,3.4,05:25 Ayuk,06:11 Nungthil,Poor,Flood Warning,09-07-2023,08-11-2026
+WT000724,MP061,2025,4,April,Spring,24,14.5,32.1,55,64,4.7,Heavy Rain,88,4,10.3,05:07 Ayuk,06:59 Nungthil,Good,No,04-12-2025,21-11-2026
+WT000181,MP016,2024,1,January,Winter,15.9,7.3,22.4,58,61.7,7.3,Heavy Rain,143,3,6.8,04:35 Ayuk,06:39 Nungthil,Excellent,No,24-02-2024,05-03-2026
+WT000144,MP012,2025,12,December,Winter,14.1,7,21.9,76,0,3.2,Clear,70,10,8.8,05:48 Ayuk,06:22 Nungthil,Excellent,No,07-09-2023,22-08-2025
+WT000578,MP049,2025,2,February,Winter,14.7,9.3,25.1,73,0,4.4,Rainy,107,7,11.8,04:20 Ayuk,06:28 Nungthil,Excellent,No,10-10-2025,13-10-2025
+WT000017,MP002,2025,5,May,Summer,25.1,16.4,33.2,61,106.9,7.2,Cloudy,81,6,4.9,04:28 Ayuk,07:35 Nungthil,Moderate,No,19-01-2024,01-10-2025
+WT000641,MP054,2023,5,May,Summer,27,17.4,34,68,70,7.3,Heavy Rain,119,5,5.1,05:18 Ayuk,05:10 Nungthil,Moderate,No,13-08-2025,04-03-2026
+WT000441,MP037,2025,9,September,Monsoon,23.6,14.8,29.9,80,119,8,Heavy Rain,66,5,9.3,05:55 Ayuk,06:27 Nungthil,Poor,No,01-11-2024,11-12-2026
+WT000436,MP037,2023,4,April,Spring,24.3,15.2,30.8,66,13.2,5.5,Partly Cloudy,123,3,8.9,06:44 Ayuk,06:48 Nungthil,Good,No,21-04-2025,18-06-2025
+WT000167,MP014,2024,11,November,Autumn,16.8,10.9,25.5,73,5.8,3.6,Heavy Rain,137,6,8,06:37 Ayuk,07:03 Nungthil,Good,No,14-07-2023,23-10-2026
+WT000545,MP046,2024,5,May,Summer,25.5,16.1,32.9,63,46.3,7.4,Cloudy,87,4,3.9,06:50 Ayuk,05:19 Nungthil,Moderate,No,20-12-2025,13-01-2025
+WT000209,MP018,2025,5,May,Summer,25.9,15,32.9,61,109.4,8.8,Windy,95,4,3.8,05:40 Ayuk,05:51 Nungthil,Moderate,No,12-09-2023,14-10-2026
+WT000133,MP012,2023,1,January,Winter,16.1,8.5,21.1,76,30.8,8.3,Heavy Rain,72,9,9.6,04:03 Ayuk,05:16 Nungthil,Excellent,No,04-06-2024,14-05-2025
+WT000362,MP031,2023,2,February,Winter,15.4,9.6,23.6,59,0,7.1,Windy,77,7,3.1,05:53 Ayuk,05:58 Nungthil,Excellent,No,24-03-2023,19-08-2025
+WT000432,MP036,2023,12,December,Winter,14.8,7.6,21.7,68,0,3.7,Sunny,132,10,10,04:45 Ayuk,06:15 Nungthil,Excellent,No,13-12-2023,01-08-2025
+WT000319,MP027,2025,7,July,Monsoon,25.9,17.5,30.9,89,251,9.1,Partly Cloudy,56,8,8.5,06:57 Ayuk,06:13 Nungthil,Poor,Flood Warning,10-05-2024,12-12-2025
+WT000464,MP039,2025,8,August,Monsoon,27.5,17.3,30.5,92,202.2,7.3,Cloudy,71,10,6.9,05:56 Ayuk,07:00 Nungthil,Poor,Flood Warning,07-07-2025,13-09-2025
+WT000338,MP029,2023,2,February,Winter,15.3,9.4,24.7,73,34.4,6.9,Windy,94,7,7.9,04:08 Ayuk,06:38 Nungthil,Excellent,No,23-06-2025,06-12-2026
+WT000077,MP007,2024,5,May,Summer,25.8,16.8,33.8,64,89.4,8.1,Partly Cloudy,53,5,7.9,05:37 Ayuk,06:15 Nungthil,Moderate,No,18-01-2025,17-08-2025
+WT000159,MP014,2024,3,March,Spring,21.2,9.6,28,67,25.1,5.7,Clear,81,8,3.5,05:37 Ayuk,05:26 Nungthil,Good,No,19-03-2025,14-08-2025
+WT000590,MP050,2024,2,February,Winter,16.3,8.5,24.5,60,37.6,5.5,Sunny,89,7,6.8,05:15 Ayuk,05:24 Nungthil,Excellent,No,20-04-2024,05-12-2025
+WT000333,MP028,2025,9,September,Monsoon,24.4,15.2,30.9,71,165.9,5.9,Foggy,81,6,2.3,04:07 Ayuk,06:54 Nungthil,Poor,No,08-03-2023,09-10-2026
+WT000035,MP003,2023,11,November ,Autumn,18.8,9.8,23.9,62,56.9,4.5,Heavy Rain ,86,8,2.6,04:14 Ayuk,05:53 Nungthil,Good,No,14-05-2023,08-10-2026
+WT000646,MP054,2025,10,October,Autumn,20.6,12.1,28.1,63,9,4.3,Heavy Rain,69,6,5.4,06:50 Ayuk,05:16 Nungthil,Good,No,15-12-2024,25-11-2026
+WT000180,MP015,2023,12,December,Winter,13,6,21.8,78,38.8,3.2,Windy,120,6,6.3,06:50 Ayuk,06:25 Nungthil,Excellent,No,15-02-2023,04-09-2025
+WT000687,MP058,2025,3,March,Spring,20.8,11.8,27.4,64,12.1,6.6,Cloudy,141,5,11.6,05:03 Ayuk,05:31 Nungthil,Good,No,07-05-2024,04-07-2025
+WT000504,MP042,2025,12,December,Winter,13.9,7.1,20.9,71,40.9,3.9,Windy,134,10,3.8,05:33 Ayuk,05:54 Nungthil,Excellent,No,11-06-2024,18-01-2026
+WT000684,MP057,2023,12,December,Winter,12.6,8,21.5,60,42.1,5.2,Partly Cloudy,105,7,3.4,05:03 Ayuk,07:02 Nungthil,Excellent,No,15-11-2024,24-02-2026
+WT000109,MP010,2024,1,January,Winter,14.8,7.2,22.8,69,0,8.6,Cloudy,142,10,6.6,05:55 Ayuk,05:39 Nungthil,Excellent,No,04-09-2023,02-08-2026
+WT000695,MP058,2023,11,November,Autumn,18.3,10,24.8,58,36.1,2.2,Foggy,137,5,5.7,04:05 Ayuk,05:38 Nungthil,Good,No,02-07-2024,09-05-2026
+WT000106,MP009,2024,10,October,Autumn,22.6,12.5,28.1,74,12.6,4.4,Clear,95,9,3.6,04:29 Ayuk,07:02 Nungthil,Good,No,19-07-2024,03-08-2025
+WT000318,MP027,2023,6,June,Summer,26.4,16.8,34.4,83,165,8.4,Cloudy,122,4,2.8,06:18 Ayuk,06:18 Nungthil,Moderate,Flood Warning,13-07-2025,19-07-2026
+WT000587,MP049,2025,11,November,Autumn,17.8,8.8,24.8,57,3.3,6,Rainy,77,9,2.6,06:23 Ayuk,06:53 Nungthil,Good,No,15-07-2025,14-12-2026
+WT000622,MP052,2024,10,October,Autumn,22.7,13.2,29,79,17.6,5.9,Sunny,93,3,2.6,04:56 Ayuk,07:28 Nungthil,Good,No,24-01-2023,24-11-2025
+WT000595,MP050,2023,7,July,Monsoon,27.5,16.8,31.5,92,242.3,7.4,Cloudy,127,5,9.4,05:49 Ayuk,05:56 Nungthil,Poor,Flood Warning,07-07-2023,04-04-2025
+WT000744,MP062,2023,12,December,Winter,13.7,6.6,20,62,23.6,5.1,Clear,74,8,8,06:37 Ayuk,07:15 Nungthil,Excellent,No,05-10-2025,02-05-2026
+WT000092,MP008,2025,8,August,Monsoon,24.5,16.6,30.8,82,171.5,6.8,Foggy,70,6,6.5,04:55 Ayuk,06:39 Nungthil,Poor,Heavy Rain Alert,22-04-2023,22-10-2026
+WT000405,MP034,2023,9,September,Monsoon,23.8,14.8,28.8,72,156.8,5.1,Heavy Rain,52,5,11.9,04:26 Ayuk,06:45 Nungthil,Poor,No,18-08-2023,03-04-2025
+WT000036,MP003,2025,12,December,Winter,15.1,6.8,22.3,67,4.5,5.5,Rainy,73,8,10.8,05:56 Ayuk,05:07 Nungthil,Excellent,No,16-08-2023,04-10-2026
+WT000439,MP037,2024,7,July,Monsoon,27.8,17.9,32.3,84,193.8,6.2,Cloudy,78,3,6.1,05:35 Ayuk,07:15 Nungthil,Poor,Heavy Rain Alert,20-07-2025,23-05-2026
+WT000094,MP008,2025,10,October,Autumn,22.4,13.2,27.9,64,80.7,6.2,Rainy,118,10,8.1,04:09 Ayuk,06:38 Nungthil,Good,No,14-09-2025,07-04-2025
+WT000586,MP049,2023,10,October,Autumn,22.5,13,28.5,65,64.4,5.5,Windy,88,8,4.7,05:32 Ayuk,07:49 Nungthil,Good,No,15-01-2025,12-04-2025
+WT000263,MP022,2024,11,November,Autumn,17.5,9.3,26.4,55,32.8,2.6,Foggy,126,9,7,04:27 Ayuk,07:44 Nungthil,Good,No,09-02-2025,23-02-2025
+WT000070,MP006,2025,10,October,Autumn,20.8,14,28.4,67,21.5,6.4,Windy,89,8,2.4,04:19 Ayuk,07:45 Nungthil,Good,No,09-03-2023,05-02-2025
+WT000479,MP040,2024,11,November,Autumn,18,10.6,26.3,57,22.1,2.8,Sunny,108,8,11.6,06:30 Ayuk,05:29 Nungthil,Good,No,07-04-2024,12-02-2025
+WT000734,MP062,2023,2,February,Winter,15.7,8.2,25.3,73,8.9,4.8,Cloudy,66,9,11.2,06:24 Ayuk,07:06 Nungthil,Excellent,No,15-02-2024,21-03-2025
+WT000589,MP050,2023,1,January,Winter,14.6,9.1,22.8,72,6.6,5.4,Sunny,123,5,4.6,04:53 Ayuk,07:20 Nungthil,Excellent,No,08-08-2025,25-01-2025
+WT000604,MP051,2025,4,April,Spring,22,14.6,29.6,65,35,7.1,Sunny,52,5,8.4,05:35 Ayuk,06:40 Nungthil,Good,No,03-11-2024,16-03-2026
+WT000442,MP037,2023,10,October,Autumn,22,13.8,27.1,66,56.1,6.2,Windy,140,9,6.7,04:50 Ayuk,06:11 Nungthil,Good,No,15-03-2024,15-04-2026
+WT000257,MP022,2024,5,May,Summer,24.9,16.9,33,78,62.3,8,Cloudy,139,4,10.4,06:56 Ayuk,06:24 Nungthil,Moderate,No,09-08-2023,06-09-2025
+WT000628,MP053,2023,4,April,Spring,23.4,14.2,32.4,59,22.9,6.3,Heavy Rain,133,10,5.3,04:43 Ayuk,05:25 Nungthil,Good,No,09-02-2023,18-05-2025
+WT000434,MP037,2023,2,February,Winter,16.9,7.6,23.7,62,43.3,5.1,Cloudy,106,5,4.2,04:41 Ayuk,06:03 Nungthil,Excellent,No,17-11-2025,13-05-2025
+WT000666,MP056,2023,6,June,Summer,25.8,18.7,32.7,76,128.8,9,Clear,91,7,3.3,06:10 Ayuk,05:23 Nungthil,Moderate,No,14-01-2025,25-07-2025
+WT000585,MP049,2024,9,September,Monsoon,25.7,15.5,29.2,74,131.3,5.8,Foggy,64,3,12,06:05 Ayuk,07:04 Nungthil,Poor,No,23-10-2025,04-05-2026
+WT000521,MP044,2025,5,May,Summer,25.7,15.5,33.7,70,97.8,5.1,Rainy,59,8,3.6,04:04 Ayuk,05:23 Nungthil,Moderate,No,16-02-2025,01-01-2026
+WT000398,MP034,2025,2,February,Winter,15.2,8.4,23.5,56,33.4,5.4,Partly Cloudy,61,4,8.5,06:07 Ayuk,06:43 Nungthil,Excellent,No,01-05-2025,07-06-2025
+WT000559,MP047,2025,7,July,Monsoon,27.1,15.6,31.2,79,228.6,9.2,Partly Cloudy,87,10,7.4,06:44 Ayuk,05:56 Nungthil,Poor,Flood Warning,23-05-2023,14-04-2026
+WT000707,MP059,2023,11,November,Autumn,18.2,9.3,24.7,57,7.8,2.6,Rainy,136,10,9.8,05:05 Ayuk,07:06 Nungthil,Good,No,18-05-2023,18-05-2026
+WT000570,MP048,2024,6,June,Summer,26.3,18.1,32.8,80,143.1,8.6,Sunny,123,9,5,05:17 Ayuk,06:52 Nungthil,Moderate,No,09-05-2023,01-07-2026
+WT000269,MP023,2024,5,May,Summer,25.7,17.3,32.9,66,99.6,6,Windy,64,9,8,05:51 Ayuk,07:18 Nungthil,Moderate,No,05-01-2024,18-08-2026
+WT000228,MP019,2025,12,December,Winter,15.5,8.2,20.3,76,10.3,3.6,Partly Cloudy,120,7,4.3,04:46 Ayuk,07:04 Nungthil,Excellent,No,02-07-2023,01-01-2026
+WT000781,MP066,2025,1,January,Winter,16.2,7.9,22.4,69,4.2,6,Rainy,137,10,6.8,05:37 Ayuk,05:44 Nungthil,Excellent,No,23-10-2025,06-08-2026
+WT000726,MP061,2025,6,June,Summer,27.5,16.6,32.8,82,176.3,6.2,Cloudy,58,6,10.8,05:50 Ayuk,05:19 Nungthil,Moderate,Heavy Rain Alert,07-01-2025,10-10-2025
+WT000256,MP022,2024,4,April,Spring,24.1,14.7,32.1,55,27.5,5.9,Heavy Rain,117,7,6.7,06:33 Ayuk,06:52 Nungthil,Good,No,08-11-2023,17-06-2026
+WT000510,MP043,2024,6,June,Summer,26.4,17.2,32.9,86,-10,7,Cloudy,100,8,7.1,04:15 Ayuk,06:27 Nungthil,Moderate,Heavy Rain Alert,11-05-2024,15-09-2026
+WT000289,MP025,2024,1,January,Winter,16,7.9,22.4,73,0,5.6,Heavy Rain,118,3,10.8,05:44 Ayuk,05:10 Nungthil,Excellent,No,16-03-2024,05-04-2025
+WT000787,MP066,2023,7,July,Monsoon,26.9,15.5,30.8,76,247.5,7.2,Rainy,69,4,2.1,06:14 Ayuk,05:41 Nungthil,Poor,Flood Warning,17-11-2025,07-07-2026
+WT000374,MP032,2024,2,February,Winter,16.3,9.9,24.3,63,28.7,5.4,Clear,50,5,2.6,04:44 Ayuk,05:55 Nungthil,Excellent,No,23-04-2024,19-07-2026
+WT000184,MP016,2025,4,April,Spring,21.6,13.1,32,63,80.1,4.9,Foggy,78,5,11,05:23 Ayuk,07:49 Nungthil,Good,No,17-07-2024,22-09-2025
+WT000358,MP030,2024,10,October,Autumn,21.1,11.6,27,62,68.1,3.6,Cloudy,119,4,2.7,04:16 Ayuk,06:14 Nungthil,Good,No,21-06-2025,10-03-2025
+WT000573,MP048,2023,9,September,Monsoon,25.1,14,29.5,85,147.8,6.5,Partly Cloudy,122,9,10.9,06:13 Ayuk,07:27 Nungthil,Poor,No,02-11-2024,18-10-2026
+WT000671,MP056,2023,11,November,Autumn,17.7,11.5,23.6,67,37.4,4.1,Windy,54,9,6.7,04:45 Ayuk,05:38 Nungthil,Good,No,05-02-2025,06-12-2026
+WT000452,MP038,2025,8,August,Monsoon,25.3,17.1,30.6,94,211.7,8.2,Sunny,81,5,6.1,04:58 Ayuk,06:08 Nungthil,Poor,Flood Warning,08-09-2023,24-09-2026
+WT000048,MP004,2024,12,December,Winter,13.6,7.3,20.7,62,0,6.6,Foggy,100,8,9.3,05:05 Ayuk,06:40 Nungthil,Excellent,No,09-09-2024,09-04-2025
+WT000158,MP014,2024,2,February,Winter,14.7,8.4,22.7,67,11.5,7.2,Foggy,104,3,5.8,06:36 Ayuk,06:56 Nungthil,Excellent,No,05-07-2025,17-12-2025
+WT000564,MP047,2024,12,December,Winter,12.5,7.8,20.6,78,0,3.5,Windy,65,5,3.1,06:30 Ayuk,06:40 Nungthil,Excellent,No,24-04-2025,18-11-2026
+WT000540,MP045,2024,12,December,Winter,14.2,6.9,19.6,72,0,4.2,Rainy,57,5,5.4,05:00 Ayuk,06:10 Nungthil,Excellent,No,18-02-2025,03-05-2025
+WT000344,MP029,2025,8,August,Monsoon,24.8,17.5,30.7,80,235,6.2,Heavy Rain,83,4,9.2,06:23 Ayuk,05:30 Nungthil,Poor,Flood Warning,06-04-2024,16-11-2025
+WT000501,MP042,2023,9,September,Monsoon,24.8,16.4,30.7,74,106.2,8.9,Cloudy,52,6,2.9,05:17 Ayuk,05:46 Nungthil,Poor,No,03-07-2025,17-12-2025
+WT000832,MP070,2023,4,April,Spring,22.4,14.2,31.6,65,37.7,6.6,Partly Cloudy,96,7,8.3,04:35 Ayuk,05:32 Nungthil,Good,No,02-10-2024,14-10-2025
+WT000516,MP043,2024,12,December,Winter,13.1,6.2,21.2,70,51.2,3.4,Partly Cloudy,119,8,7.4,04:26 Ayuk,05:23 Nungthil,Excellent,No,18-04-2023,23-02-2026
+WT000620,MP052,2024,8,August,Monsoon,26.7,17.3,31.2,94,195.1,7.6,Foggy,122,7,7.3,04:20 Ayuk,07:26 Nungthil,Poor,Heavy Rain Alert,13-05-2023,09-03-2025
+WT000532,MP045,2023,4,April,Spring,23.5,12.8,30.2,55,67,7.9,Foggy,68,8,5.5,05:31 Ayuk,07:23 Nungthil,Good,No,13-04-2023,06-07-2026
+WT000798,MP067,2025,6,June,Summer,27.8,17.5,35,85,189.7,8.5,Rainy,52,8,10.7,04:55 Ayuk,07:47 Nungthil,Moderate,Heavy Rain Alert,22-10-2024,16-01-2025
+WT000095,MP008,2025,11,November,Autumn,17,8.7,26.2,55,0,3.5,Partly Cloudy,72,4,6.4,06:53 Ayuk,06:00 Nungthil,Good,No,16-05-2025,17-12-2025
+WT000782,MP066,2025,2,February,Winter,14.8,9.7,23.5,61,54.1,6.7,Partly Cloudy,53,4,2.2,04:24 Ayuk,07:49 Nungthil,Excellent,No,10-11-2023,07-07-2026
+WT000105,MP009,2024,9,September,Monsoon,23.9,15.7,29.1,78,90.8,5.5,Partly Cloudy,95,10,10.1,06:26 Ayuk,06:26 Nungthil,Moderate,No,25-02-2023,06-08-2026
+WT000097,MP009,2024,1,January,Winter,16,8.4,21.1,64,9.9,5.1,Windy,90,6,6.9,06:00 Ayuk,05:51 Nungthil,Excellent,No,14-07-2025,25-01-2026
+WT000514,MP043,2025,10,October,Autumn,21,12.2,28.9,62,43.7,4.2,Sunny,148,5,2.1,05:44 Ayuk,06:22 Nungthil,Good,No,17-06-2023,08-04-2026
+WT000462,MP039,2024,6,June,Summer,27.5,17.7,32.6,71,132.3,8.7,Rainy,90,10,10.9,05:15 Ayuk,05:31 Nungthil,Moderate,No,11-04-2025,05-09-2025
+WT000030,MP003,2023,6,June,Summer,25.5,17.5,32.6,73,600,7.6,Cloudy,127,8,3.3,06:54 Ayuk,05:05 Nungthil,Moderate,No,19-11-2023,25-12-2025
+WT000731,MP061,2024,11,November,Autumn,17.1,10.2,24.2,56,2.5,4.6,Windy,62,10,5.4,04:07 Ayuk,05:49 Nungthil,Good,No,02-03-2023,21-02-2025
+WT000177,MP015,2025,9,September,Monsoon,25.4,16.1,30.2,74,111.7,5.8,Partly Cloudy,135,3,4.5,05:01 Ayuk,05:45 Nungthil,Poor,No,23-03-2024,13-07-2026
+WT000658,MP055,2025,10,October,Autumn,22.6,11.8,29.2,64,81.3,3.1,Heavy Rain,135,9,12,05:35 Ayuk,05:29 Nungthil,Good,No,04-09-2023,14-02-2025
+WT000716,MP060,2024,8,August,Monsoon,24.8,17.1,30.2,86,219.4,9.2,Cloudy,128,6,9,04:50 Ayuk,06:38 Nungthil,Poor,Flood Warning,07-10-2023,23-11-2026
+WT000303,MP026,2024,3,March,Spring,21.2,12.3,29,54,0,6.8,Rainy,141,3,10,06:13 Ayuk,05:34 Nungthil,Good,No,09-04-2023,08-09-2025
+WT000467,MP039,2024,11,November,Autumn,18.3,8.7,26.2,57,29.2,3.1,Heavy Rain,86,5,8.7,05:56 Ayuk,06:17 Nungthil,Good,No,25-03-2025,09-05-2025
+WT000455,MP038,2025,11,November,Autumn,16.6,10.2,26.2,64,0,4.8,Sunny,128,7,4.9,04:19 Ayuk,05:44 Nungthil,Good,No,07-10-2024,07-02-2026
+WT000445,MP038,2024,1,January,Winter,13.6,8.7,22.9,64,0,8.7,Windy,81,3,7.7,06:34 Ayuk,06:26 Nungthil,Excellent,No,08-02-2024,07-05-2026
+WT000238,MP020,2023,10,October,Autumn,22.5,13.5,28.7,75,78.6,6.1,Sunny,93,4,11.7,05:20 Ayuk,05:48 Nungthil,Good,No,01-03-2025,20-04-2025
+WT000262,MP022,2023,10,October,Autumn,21,14.2,26.6,81,22.4,6.6,Windy,68,8,11.9,05:56 Ayuk,05:37 Nungthil,Good,No,05-03-2024,06-06-2026
+WT000034,MP003,2024,10,October,Autumn,21.8,11.9,28.5,74,21.5,4.7,Partly Cloudy,76,3,4.8,06:12 Ayuk,07:12 Nungthil,Good,No,04-11-2025,23-07-2025
+WT000037,MP004,2025,1,January,Winter,15.7,7.5,22.7,66,28,7.2,Heavy Rain,103,8,6.7,04:54 Ayuk,06:12 Nungthil,Excellent,No,24-08-2024,17-11-2026
+WT000060,MP005,2023,12,December,Winter,14.5,6.1,19.7,67,39.6,3.7,Foggy,91,3,7.7,04:18 Ayuk,06:42 Nungthil,Excellent,No,06-05-2024,03-12-2026
+WT000689,MP058,2023,5,May,Summer,26.6,14.6,34.2,73,111.1,5.9,Sunny,124,5,9.7,04:40 Ayuk,06:20 Nungthil,Moderate,No,16-02-2025,25-03-2025
+WT000102,MP009,2023,6,June,Summer,26.5,18.8,33.3,70,132.2,7.2,Partly Cloudy,146,3,8.7,06:12 Ayuk,06:00 Nungthil,Moderate,No,09-08-2025,24-07-2025
+WT000602,MP051,2024,2,February,Winter,16.7,9.6,23.5,60,38.5,7.7,Clear,94,10,9.7,04:18 Ayuk,07:04 Nungthil,Excellent,No,06-01-2024,24-07-2026
+WT000258,MP022,2024,6,June,Summer,26.9,18.7,32.9,82,187.9,7.1,Windy,134,7,5.8,05:14 Ayuk,07:11 Nungthil,Moderate,No,13-11-2023,25-02-2025
+WT000207,MP018,2024,3,March,Spring,20,12,28.1,50,54.3,5.6,Clear,104,6,10.7,04:40 Ayuk,05:30 Nungthil,Good,No,18-07-2025,23-06-2025
+WT000281,MP024,2023,5,May,Summer,24.9,17.5,34,66,87.4,5.2,Foggy,110,6,11.5,06:31 Ayuk,06:07 Nungthil,Moderate,No,13-10-2023,17-12-2025
+WT000057,MP005,2025,9,September,Monsoon,26.5,14.2,28.7,80,124.3,6.9,Heavy Rain,58,3,3.5,04:51 Ayuk,06:11 Nungthil,Poor,No,18-05-2024,18-10-2026
+WT000019,MP002,2023,7,July,Monsoon,26.5,17.2,31,93,260.8,9,Sunny,147,10,3.2,04:47 Ayuk,05:56 Nungthil,Poor,Flood Warning,07-07-2024,15-02-2026
+WT000811,MP068,2025,7,July,Monsoon,27.8,16.2,32.5,80,228.7,8.8,Clear,84,4,10.8,04:34 Ayuk,06:41 Nungthil,Poor,Flood Warning,25-03-2023,21-03-2026
+WT000730,MP061,2025,10,October,Autumn,22.9,14.1,28.8,75,59.8,6.3,Rainy,69,7,11,04:17 Ayuk,07:40 Nungthil,Good,No,16-11-2024,17-04-2026
+WT000332,MP028,2023,8,August,Monsoon,27.3,16.7,30.2,90,223.9,6.7,Rainy,50,8,3.4,05:08 Ayuk,05:38 Nungthil,Poor,Flood Warning,09-01-2025,11-11-2025
+WT000823,MP069,2023,7,July,Monsoon,25.5,18.3,30.6,90,215,6.4,Clear,100,8,7,06:04 Ayuk,06:08 Nungthil,Poor,Flood Warning,16-12-2025,01-10-2025
+WT000508,MP043,2023,4,April,Spring,23.4,14.2,29.8,68,6.9,7.7,Rainy,99,9,3.3,06:40 Ayuk,05:39 Nungthil,Good,No,03-11-2025,04-10-2026
+WT000601,MP051,2024,1,January,Winter,15.1,7.6,22.9,64,40.1,5.5,Partly Cloudy,111,9,11.5,05:38 Ayuk,06:52 Nungthil,Excellent,No,20-10-2025,18-12-2026
+WT000104,MP009,2023,8,August,Monsoon,27.1,17.9,32,95,229.9,7.8,Rainy,54,5,11,06:01 Ayuk,05:56 Nungthil,Poor,Flood Warning,08-09-2023,01-11-2025
+WT000547,MP046,2024,7,July,Monsoon,25.9,17.7,30.9,84,266.3,7,Cloudy,64,6,6.5,04:43 Ayuk,05:25 Nungthil,Poor,Flood Warning,02-05-2025,01-09-2025
+WT000649,MP055,2023,1,January,Winter,15.8,9,21.6,64,6.6,8.4,Sunny,93,10,11.8,06:58 Ayuk,06:31 Nungthil,Excellent,No,04-04-2024,20-07-2026
+WT000221,MP019,2025,5,May,Summer,26.1,16,32.4,71,61.5,7.7,Sunny,100,3,7.5,04:23 Ayuk,06:56 Nungthil,Moderate,No,22-03-2024,06-06-2026
+WT000835,MP070,2025,7,July,Monsoon,27.3,18.5,32.3,91,226.4,8.8,Partly Cloudy,146,9,11.4,05:16 Ayuk,05:27 Nungthil,Poor,Flood Warning,03-09-2024,06-12-2026
+WT000190,MP016,2023,10,October,Autumn,21.9,12,28.4,68,40.5,6.1,Partly Cloudy,106,6,2.9,05:18 Ayuk,06:33 Nungthil,Good,No,15-04-2023,19-05-2025
+WT000031,MP003,2024,7,July,Monsoon,25.7,17.3,33.4,94,216,7.4,Cloudy,73,9,4.7,06:45 Ayuk,07:49 Nungthil,Poor,Flood Warning,18-02-2025,09-08-2025
+WT000411,MP035,2025,3,March,Spring,21.4,11.1,28,50,16.9,6.5,Heavy Rain,76,4,3.2,04:37 Ayuk,05:47 Nungthil,Good,No,06-04-2024,08-07-2026
+WT000069,MP006,2025,9,September,Monsoon,26.4,15.5,30.2,82,100,8.4,Clear,87,10,10,04:19 Ayuk,06:59 Nungthil,Moderate,No,16-04-2023,04-07-2025
+WT000815,MP068,2023,11,November,Autumn,19.4,10.1,24.4,65,0,2,Clear,124,7,8.2,05:03 Ayuk,05:01 Nungthil,Good,No,13-05-2024,06-11-2026
+WT000364,MP031,2023,4,April,Spring,21.5,14.5,31.6,62,14.4,6.2,Windy,52,7,2.4,06:25 Ayuk,06:37 Nungthil,Good,No,20-12-2023,23-11-2025
+WT000624,MP052,2023,12,December,Winter,14.3,7,21,66,42.8,5.2,Foggy,87,5,7.6,04:23 Ayuk,07:13 Nungthil,Excellent,No,18-01-2024,23-05-2026
+WT000389,MP033,2024,5,May,Summer,24.5,17.1,32.8,76,78.9,7.4,Sunny,103,3,11.5,05:44 Ayuk,05:19 Nungthil,Moderate,No,18-02-2023,14-04-2025
+WT000723,MP061,2024,3,March,Spring,20.3,11.8,27.7,66,53.7,5.4,Rainy,69,9,5.2,06:48 Ayuk,07:44 Nungthil,Good,No,06-06-2023,18-11-2025
+WT000074,MP007,2024,2,February,Winter,16.1,9.7,24.7,66,39.4,5.7,Rainy,142,10,5.1,05:11 Ayuk,05:27 Nungthil,Excellent,No,10-02-2025,09-10-2026
+WT000703,MP059,2024,7,July,Monsoon,27.9,17.8,32.9,79,257.8,8.7,Partly Cloudy,136,10,11.7,04:45 Ayuk,07:44 Nungthil,Poor,Flood Warning,19-04-2023,25-02-2025
+WT000022,MP002,2023,10,October,Autumn,23.2,11.8,28.4,78,23.2,5.7,Cloudy,134,6,9.8,06:30 Ayuk,07:49 Nungthil,Good,No,03-01-2024,24-09-2026
+WT000638,MP054,2023,2,February,Winter,14.6,10.4,24.8,70,0,7.9,Partly Cloudy,107,5,2.6,04:16 Ayuk,06:08 Nungthil,Excellent,No,16-01-2024,08-09-2026
+WT000111,MP010,2023,3,March,Spring,18.8,12.1,28.1,51,43.2,4.7,Rainy,128,9,7.8,05:11 Ayuk,05:42 Nungthil,Good,No,16-07-2023,05-04-2025
+WT000014,MP002,2024,2,February,Winter,17.3,10.2,24.9,70,25.1,4.9,Foggy,140,7,2.6,05:27 Ayuk,07:59 Nungthil,Excellent,No,07-02-2024,09-11-2025
+WT000132,MP011,2025,12,December,Winter,14.3,7.9,21.2,68,0,5.4,Heavy Rain,137,3,5.6,04:02 Ayuk,06:35 Nungthil,Excellent,No,12-12-2025,12-12-2025
+WT000025,MP003,2025,1,January,Winter,14.65,23.3,6,73,34.2,6.6,Clear,88,6,4,05:42 Ayuk,06:39 Nungthil,Excellent,No,08-04-2024,14-09-2026
+WT000609,MP051,2025,9,September,Monsoon,24.2,14.6,30,83,143.5,5.3,Windy,129,9,5.5,06:08 Ayuk,05:11 Nungthil,Poor,No,20-09-2024,16-11-2025
+WT000554,MP047,2025,2,February,Winter,16.6,10,25.1,71,6.7,7.9,Windy,67,8,7.3,05:22 Ayuk,05:47 Nungthil,Excellent,No,14-07-2023,06-02-2025
+WT000674,MP057,2024,2,February,Winter,15,9.8,24.7,57,36.6,5,Windy,145,6,3.4,04:07 Ayuk,06:38 Nungthil,Excellent,No,22-07-2023,19-04-2026
+WT000824,MP069,2025,8,August,Monsoon,26,16.4,30.9,85,230.3,7.4,Windy,88,6,4.9,06:36 Ayuk,05:07 Nungthil,Poor,Flood Warning,24-09-2023,15-10-2025
+WT000682,MP057,2024,10,October,Autumn,22.6,12.9,29.2,81,39,6.8,Rainy,140,10,3,05:56 Ayuk,07:30 Nungthil,Good,No,23-01-2024,06-12-2025
+WT000541,MP046,2024,1,January,Winter,15.5,8.1,20.9,66,44.4,5.2,Foggy,111,8,5.1,05:07 Ayuk,05:52 Nungthil,Excellent,No,24-02-2023,08-10-2026
+WT000557,MP047,2025,5,May,Summer,26.2,16.7,32,65,110.7,5.7,Cloudy,62,3,3.5,06:27 Ayuk,05:01 Nungthil,Moderate,No,11-08-2023,24-08-2026
+WT000471,MP040,2024,3,March,Spring,21.4,10.9,27.8,65,0,4.1,Foggy,102,6,2.5,06:50 Ayuk,05:03 Nungthil,Good,No,24-07-2024,10-04-2025
+WT000197,MP017,2023,5,May,Summer,25.6,14.9,34,79,98.5,5.9,Heavy Rain,123,8,8.4,04:21 Ayuk,07:28 Nungthil,Moderate,No,01-07-2023,07-05-2026
+WT000301,MP026,2023,1,January,Winter,16.1,8.2,20.5,67,21.7,8.3,Heavy Rain,145,8,5.6,05:13 Ayuk,07:39 Nungthil,Excellent,No,05-05-2025,12-02-2025
+WT000740,MP062,2023,8,August,Monsoon,27.1,15.3,31.3,76,220.9,8.8,Clear,92,8,8.7,06:30 Ayuk,06:20 Nungthil,Poor,Flood Warning,22-07-2025,21-03-2026
+WT000538,MP045,2024,10,October,Autumn,23.1,14.5,28.5,69,34.6,3.3,Partly Cloudy,123,5,4.6,06:04 Ayuk,06:22 Nungthil,Good,No,20-01-2025,15-11-2026
+WT000542,MP046,2023,2,February,Winter,16.8,9.3,23.8,56,14.9,4.7,Foggy,145,8,9.1,05:28 Ayuk,05:20 Nungthil,Excellent,No,07-10-2024,06-05-2026
+WT000719,MP060,2023,11,November,Autumn,18.2,10.9,24.1,66,4.3,2.3,Cloudy,84,9,2.1,05:44 Ayuk,07:15 Nungthil,Good,No,06-01-2025,01-08-2026
+WT000752,MP063,2025,8,August,Monsoon,27,17.7,32.1,86,191.7,9.3,Heavy Rain,101,7,8.4,04:46 Ayuk,06:31 Nungthil,Poor,Heavy Rain Alert,23-07-2025,23-12-2025
+WT000045,MP004,2024,9,September,Monsoon,25.5,15.4,28.9,71,146.6,8.7,Windy,77,5,9,06:44 Ayuk,06:39 Nungthil,Poor,No,08-09-2024,21-07-2025
+WT000140,MP012,2025,8,August,monson,25.1,16.8,30.4,87,198.7,6.6,Cloudy,67,9,11.8,05:11 Ayuk,07:51 Nungthil,Poor,Flood Warning,08-05-2025,13-12-2026
+WT000560,MP047,2024,8,August,Monsoon,27.4,15.4,31.6,83,185.8,8.4,Clear,113,10,6.5,06:13 Ayuk,07:51 Nungthil,Poor,Flood Warning,18-10-2023,21-10-2026
+WT000086,MP008,2023,2,February,Winter,15.1,7.9,23,63,0,7.9,Foggy,84,9,8.7,04:12 Ayuk,07:07 Nungthil,Excellent,No,20-11-2025,14-05-2025
+WT000788,MP066,2023,8,August,Monsoon,26.4,15.5,30.1,92,183.9,7.1,Foggy,120,7,7,05:38 Ayuk,05:22 Nungthil,Poor,No,02-03-2024,08-03-2025
+WT000761,MP064,2025,5,May,Summer,25.6,14.5,32.4,71,98.6,6.8,Clear,142,10,3,06:21 Ayuk,05:45 Nungthil,Moderate,No,10-03-2024,16-12-2025
+WT000266,MP023,2025,2,February,Winter,16.7,9.6,24.3,55,16.3,5.6,Partly Cloudy,131,6,5,04:58 Ayuk,07:04 Nungthil,Excellent,No,21-07-2025,19-06-2025
+WT000725,MP061,2024,5,May,Summer,26.8,15.7,33.2,69,73.9,5.8,Windy,112,5,10.2,06:04 Ayuk,07:09 Nungthil,Moderate,No,11-04-2024,18-09-2026
+WT000429,MP036,2023,9,September,Monsoon,26,15.5,29.9,81,167.4,6.9,Clear,96,6,4.2,05:19 Ayuk,06:00 Nungthil,Poor,No,04-02-2025,01-08-2025
+WT000388,MP033,2025,4,April,Spring,21.6,15.4,31.4,60,75.6,5.2,Windy,69,7,6.8,06:49 Ayuk,05:22 Nungthil,Good,No,05-09-2024,16-10-2025
+WT000339,MP029,2024,3,March,Spring,21.4,10.1,27.1,54,24.9,7.8,Partly Cloudy,117,7,9.1,06:33 Ayuk,07:07 Nungthil,Good,No,21-02-2025,21-12-2025
+WT000553,MP047,2025,1,January,Winter,14.4,8.1,21.2,58,31.7,6.1,Sunny,146,4,3.1,05:30 Ayuk,06:27 Nungthil,Excellent,No,17-12-2024,11-12-2026
+WT000010,MP001,2024,10,October,Autumn,22.9,14.2,26.8,76,38.7,3.4,,150,7,4.3,05:02 Ayuk,06:30 Nungthil,Good,,02-09-2025,04-09-2026
+WT000569,MP048,2024,5,May,Summer,26.6,17.4,32.8,64,103.5,7.2,Cloudy,118,7,8.3,04:58 Ayuk,07:46 Nungthil,Moderate,No,17-12-2025,22-09-2026
+WT000561,MP047,2025,9,September,Monsoon,24.8,16.1,30,81,137.6,7.7,Partly Cloudy,139,8,3.5,06:24 Ayuk,07:36 Nungthil,Poor,No,12-11-2025,05-01-2026
+WT000230,MP020,2025,2,February,Winter,15.1,7.6,25.2,64,13.6,6,Heavy Rain,77,7,8.5,04:25 Ayuk,05:52 Nungthil,Excellent,No,11-05-2024,11-01-2025
+WT000661,MP056,2024,1,January,Winter,16.2,7.2,22.8,69,0,8.4,Sunny,138,3,5.7,06:54 Ayuk,07:11 Nungthil,Excellent,No,21-09-2023,03-05-2026
+WT000120,MP010,2025,12,December,Winter,13.3,6.6,19.7,60,50.5,6.2,Windy,139,8,8.2,04:42 Ayuk,07:15 Nungthil,Excellent,No,25-02-2025,10-03-2026
+WT000637,MP054,2023,1,January,Winter,14.3,7,22.1,63,2.6,6.7,Foggy,67,8,5.5,06:39 Ayuk,07:02 Nungthil,Excellent,No,04-11-2023,16-04-2025
+WT000225,MP019,2024,9,September,Monsoon,25.6,13.6,30,73,121.2,5.2,Partly Cloudy,98,8,7,05:21 Ayuk,05:09 Nungthil,Poor,No,24-07-2023,02-11-2026
+WT000797,MP067,2024,5,May,Summer,26.9,16.7,31.6,68,55.5,8.2,Rainy,80,7,10.8,05:27 Ayuk,07:29 Nungthil,Moderate,No,09-06-2023,19-11-2025
+WT000382,MP032,2025,10,October,Autumn,22.1,13.2,26.9,63,72.4,5.6,Rainy,116,3,11.7,06:52 Ayuk,07:35 Nungthil,Good,No,04-08-2024,25-04-2025
+WT000534,MP045,2024,6,June,Summer,28.3,18.2,35.3,75,157.8,6.1,Partly Cloudy,80,5,2.4,05:33 Ayuk,05:48 Nungthil,Moderate,Heavy Rain Alert,11-12-2024,11-07-2026
+WT000552,MP046,2025,12,December,Winter,13.9,6.6,19.8,76,19.8,6.7,Cloudy,107,7,4.9,04:54 Ayuk,05:41 Nungthil,Excellent,No,20-02-2023,18-06-2026
+WT000295,MP025,2024,7,July,Monsoon,25.3,16.7,31.4,86,205.3,9.4,Heavy Rain,140,10,4,05:03 Ayuk,05:25 Nungthil,Poor,Flood Warning,24-08-2023,05-02-2026
+WT000420,MP035,2025,12,December,Winter,14.6,8.3,21.7,65,11.5,6.1,Partly Cloudy,125,3,2.9,05:42 Ayuk,05:34 Nungthil,Excellent,No,21-12-2023,16-06-2025
+WT000235,MP020,2024,7,July,Monsoon,27.2,15.6,30.6,82,246.9,7,Partly Cloudy,80,10,3.8,05:00 Ayuk,07:48 Nungthil,Poor,Flood Warning,06-10-2024,07-02-2026
+WT000027,MP003,2024,3,March,Spring,18.6,11.6,26.5,64,47.7,6.2,Cloudy,111,4,5.4,04:15 Ayuk,05:32 Nungthil,Good,No,22-05-2023,02-05-2026
+WT000415,MP035,2024,7,July,Monsoon,25.6,16.9,31.9,90,243.7,9.4,Windy,90,6,3,06:03 Ayuk,05:08 Nungthil,Poor,Flood Warning,22-08-2023,12-10-2025
+WT000584,MP049,2025,8,August,Monsoon,27.4,16.1,32.3,82,219.1,9.5,Cloudy,74,8,10.4,05:55 Ayuk,07:59 Nungthil,Poor,Flood Warning,09-12-2025,13-12-2026
+WT000189,MP016,2025,9,September,Monsoon,24.5,15.4,29.4,83,163.4,7.2,Heavy Rain,54,9,2.6,05:16 Ayuk,07:43 Nungthil,Poor,No,15-10-2023,15-12-2026
+WT000745,MP063,2024,1,January,Winter,14.6,7.5,22.3,66,13,5.2,Clear,58,9,11,05:52 Ayuk,06:51 Nungthil,Excellent,No,01-11-2023,11-12-2025
+WT000068,MP006,2024,8,August,Monsoon,26.5,16.6,30.9,88,224.1,8,Rainy,91,6,6.6,05:11 Ayuk,05:29 Nungthil,Poor,Flood Warning,25-07-2023,10-05-2026
+WT000760,MP064,2025,4,April,Spring,24.1,14.3,30.2,61,55.6,5.9,Foggy,128,3,4.2,06:42 Ayuk,06:37 Nungthil,Good,No,18-06-2023,08-05-2026
+WT000331,MP028,2023,7,July,Monsoon,26.9,16,33.2,77,251.1,8.3,Foggy,131,3,8.1,04:46 Ayuk,06:29 Nungthil,Poor,Flood Warning,02-03-2023,06-09-2025
+WT000300,MP025,2025,12,December,Winter,13.6,7.3,20.4,60,0,3.2,Windy,126,6,6,06:13 Ayuk,07:50 Nungthil,Excellent,No,13-08-2025,20-04-2026
+WT000629,MP053,2025,5,May,Summer,27,14.5,33,62,67.1,6.2,Clear,147,8,5.6,05:04 Ayuk,07:57 Nungthil,Moderate,No,24-11-2025,17-03-2026
+WT000314,MP027,2024,2,February,Winter,16,9.1,25.2,66,33.5,7.6,Partly Cloudy,128,10,2.2,04:49 Ayuk,05:21 Nungthil,Excellent,No,04-12-2025,04-10-2025
+WT000357,MP030,2023,9,September,Monsoon,25,13.6,29.7,71,90.7,6.5,Cloudy,59,7,11.5,04:24 Ayuk,05:47 Nungthil,Moderate,No,21-02-2023,20-05-2025
+WT000399,MP034,2025,3,March,Spring,20.6,10.8,28.2,64,2.8,7.3,Partly Cloudy,123,5,4.7,05:16 Ayuk,06:00 Nungthil,Good,No,10-04-2024,16-04-2025
+WT000518,MP044,2023,2,February,Winter,16.1,7.6,23.9,57,42,4.9,Heavy Rain,80,8,10.6,04:02 Ayuk,07:58 Nungthil,Excellent,No,02-03-2024,16-09-2025
+WT000793,MP067,2025,1,January,Winter,14.2,8,21.6,62,22.2,8.8,Rainy,136,6,9,05:51 Ayuk,07:36 Nungthil,Excellent,No,12-01-2024,03-10-2025
+WT000065,MP006,2023,5,May,Summer,27.2,16.2,34.5,76,91.7,8.2,Windy,150,3,9.6,05:02 Ayuk,05:18 Nungthil,Moderate,No,17-10-2024,25-09-2026
+WT000363,MP031,2024,3,March,Spring,20.5,10.3,27.7,54,64.3,6,Cloudy,91,5,4.1,05:28 Ayuk,05:14 Nungthil,Good,No,16-04-2025,04-04-2026
+WT000372,MP031,2023,12,December,Winter,15.4,5.5,19.7,70,30.6,3.4,Foggy,122,5,8.5,04:13 Ayuk,06:21 Nungthil,Excellent,No,15-12-2024,17-12-2025
+WT000653,MP055,2025,5,May,Summer,25.4,16.9,34.3,71,54.4,5.5,Heavy Rain,71,3,2.2,04:52 Ayuk,07:44 Nungthil,Moderate,No,25-04-2025,08-10-2026
+WT000528,MP044,2024,12,December,Winter,13.2,6.6,19.6,79,8.1,6,Heavy Rain,98,9,7.7,05:01 Ayuk,06:48 Nungthil,Excellent,No,09-06-2023,06-02-2025
+WT000753,MP063,2024,9,September,Monsoon,25.9,14,28.9,80,97.8,6.5,Sunny,138,9,4.1,06:34 Ayuk,06:00 Nungthil,Moderate,No,06-05-2023,23-06-2026
+WT000426,MP036,2025,6,June,Summer,27.4,18.1,34.5,69,134.3,9.5,Sunny,118,5,3.3,06:06 Ayuk,05:51 Nungthil,Moderate,No,07-10-2025,24-08-2025
+WT000046,MP004,2023,10,October,Autumn,20.6,12.6,27.4,72,31.8,6,Windy,134,9,6,04:29 Ayuk,05:01 Nungthil,Good,No,12-02-2025,24-06-2025
+WT000126,MP011,2024,6,June,Summer,26.8,18.3,34,73,133.5,9.1,Foggy,112,8,2.4,05:56 Ayuk,05:19 Nungthil,Moderate,No,16-06-2025,21-12-2026
+WT000214,MP018,2023,10,October,Autumn,22.5,13.2,27.6,71,47.4,6,Foggy,54,5,9.8,04:20 Ayuk,07:47 Nungthil,Good,No,02-09-2023,20-12-2026
+WT000162,MP014,2025,6,June,Summer,26.8,19.3,33.9,83,186.7,8.5,Cloudy,64,9,7.9,06:09 Ayuk,06:34 Nungthil,Moderate,Flood Warning,13-07-2023,18-06-2026
+WT000529,MP045,2023,1,January,Winter,14.5,7.3,21.7,69,30,8.7,Sunny,68,3,2.1,04:00 Ayuk,05:31 Nungthil,Excellent,No,10-08-2025,17-12-2025
+WT000722,MP061,2025,2,February,Winter,14.9,9.5,25,65,27.2,7.4,Sunny,141,6,6.2,05:55 Ayuk,06:59 Nungthil,Excellent,No,14-06-2023,05-02-2026
+WT000513,MP043,2025,9,September,Monsoon,26.2,14.3,29.4,77,128.8,7.4,Sunny,137,9,8.5,04:12 Ayuk,05:51 Nungthil,Poor,No,07-07-2025,15-02-2026
+WT000371,MP031,2023,11,November,Autumn,16.9,11,25.2,73,44.1,4.9,Heavy Rain,149,6,7.6,06:08 Ayuk,07:20 Nungthil,Good,No,25-07-2024,24-08-2026
+WT000323,MP027,2024,11,November,Autumn,16.9,10.4,24.2,67,41.5,2.1,Partly Cloudy,72,4,9.1,05:12 Ayuk,07:42 Nungthil,Good,No,25-08-2025,13-10-2025
+WT000286,MP024,2025,10,October,Autumn,22.1,12.4,29.2,65,40.2,3.7,Partly Cloudy,81,6,11,05:52 Ayuk,07:10 Nungthil,Good,No,08-03-2024,08-10-2026
+WT000220,MP019,2023,4,April,Spring,21.8,12.5,31.2,54,23.4,5.5,Heavy Rain,91,4,3.7,05:08 Ayuk,07:40 Nungthil,Good,No,03-11-2023,08-12-2025
+WT000606,MP051,2025,6,June,Summer,27.4,17.9,34.5,77,170.4,8.1,Partly Cloudy,109,9,9,05:34 Ayuk,05:40 Nungthil,Moderate,No,25-08-2024,09-04-2026
+WT000240,MP020,2024,12,December,Winter,15.4,8.4,21.2,78,0,3.6,Heavy Rain,88,7,5.4,04:18 Ayuk,07:51 Nungthil,Excellent,No,05-08-2024,14-08-2025
+WT000397,MP034,2023,1,January,Winter,15.7,7.9,21.6,71,20.9,8.1,Heavy Rain,63,7,4.5,05:15 Ayuk,05:59 Nungthil,Excellent,No,09-12-2023,24-02-2025
+WT000522,MP044,2025,6,June,Summer,25.5,18.8,32.8,84,178.1,9.8,Heavy Rain,62,9,2.9,05:15 Ayuk,05:07 Nungthil,Moderate,Flood Warning,12-12-2024,23-01-2026
+WT000139,MP012,2025,7,July,Monsoon,25.1,17.4,31.3,88,256.4,9.6,Clear,90,9,11.8,06:26 Ayuk,07:44 Nungthil,Poor,Flood Warning,19-07-2024,05-12-2026
+WT000383,MP032,2025,11,November,Autumn,19.4,9.9,24.5,58,7.3,4.1,Partly Cloudy,98,6,4.4,06:09 Ayuk,07:35 Nungthil,Good,No,25-01-2025,25-03-2026
+WT000537,MP045,2025,9,September,Monsoon,25.4,16,29,88,102,8.5,Windy,82,9,5.9,04:12 Ayuk,07:10 Nungthil,Poor,No,21-12-2025,05-12-2026
+WT000108,MP009,2024,12,December,Winter,12.7,7.8,22.2,78,53.8,6.6,Heavy Rain,76,4,11.9,06:24 Ayuk,07:25 Nungthil,Excellent,No,03-02-2024,21-09-2026
+WT000476,MP040,2025,8,August,Monsoon,26.3,15.7,30.6,80,237.6,9.3,Cloudy,137,8,2.5,05:46 Ayuk,05:14 Nungthil,Poor,Flood Warning,19-02-2025,22-12-2025
+WT000754,MP063,2025,10,October,Autumn,21.1,13.5,27.6,64,38.8,6.2,Clear,84,6,5.1,04:06 Ayuk,06:43 Nungthil,Good,No,01-10-2024,25-02-2026
+WT000771,MP065,2023,3,March,Spring,19.9,9.7,26.8,50,43.3,7.3,Windy,129,6,7.4,05:15 Ayuk,06:18 Nungthil,Good,No,20-05-2023,10-02-2025
+WT000444,MP037,2024,12,December,Winter,13.3,6,20.5,62,0,5.4,Foggy,140,7,10.7,05:27 Ayuk,06:26 Nungthil,Excellent,No,02-06-2025,16-01-2026
+WT000354,MP030,2023,6,June,Summer,25.9,16.6,34,83,174.9,7.4,Heavy Rain,98,8,5,05:44 Ayuk,06:53 Nungthil,Moderate,No,13-06-2025,03-12-2025
+WT000198,MP017,2023,6,June,Summer,25.7,18.9,32.9,69,164,8.3,Cloudy,103,4,6.7,06:23 Ayuk,07:27 Nungthil,Moderate,No,06-08-2024,13-12-2026
+WT000762,MP064,2025,6,June,Summer,26,19,34.4,77,136.3,6.4,Sunny,124,4,10.6,04:12 Ayuk,06:31 Nungthil,Moderate,No,15-02-2024,23-06-2025
+WT000453,MP038,2024,9,September,Monsoon,25.5,13.9,30.1,81,118.6,5.3,Clear,95,6,4.3,06:22 Ayuk,06:20 Nungthil,Poor,No,17-04-2024,13-01-2025
+WT000474,MP040,2023,6,June,Summer,28.5,18.3,34.9,80,129.7,8,Clear,114,7,8,04:18 Ayuk,05:33 Nungthil,Moderate,No,14-03-2025,13-05-2026
+WT000056,MP005,2023,8,August,Monsoon,26,16.4,31.8,95,186.8,6.7,Clear,104,6,7.5,04:15 Ayuk,06:46 Nungthil,Poor,Heavy Rain Alert,16-11-2024,04-11-2026
+WT000297,MP025,2024,9,September,Monsoon,25.4,15,29,82,108.3,6.5,Cloudy,52,9,11.4,05:38 Ayuk,06:52 Nungthil,Poor,No,04-04-2024,06-09-2026
+WT000043,MP004,2023,7,July,Monsoon,27.3,16.9,32.9,89,243.9,9.4,Rainy,119,10,3,05:02 Ayuk,06:15 Nungthil,Poor,Flood Warning,19-12-2023,05-01-2025
+WT000403,MP034,2023,7,July,Monsoon,27.1,18,32.1,88,261,8.8,Foggy,105,5,4.3,05:21 Ayuk,06:17 Nungthil,Poor,Flood Warning,25-06-2023,09-10-2026
+WT000163,MP014,2024,7,July,Monsoon,27.3,16.3,31.2,87,242.8,6.7,Clear,88,10,2,06:48 Ayuk,07:57 Nungthil,Poor,Flood Warning,21-09-2024,12-08-2026
+WT000083,MP007,2023,11,November,Autumn,17.5,9.5,24.9,73,47.8,3.3,Rainy,57,3,10.9,04:31 Ayuk,06:44 Nungthil,Good,No,18-06-2024,19-04-2025
+WT000605,MP051,2023,5,May,Summer,25.3,16.6,34,75,45.6,8.4,Sunny,91,5,3.4,06:13 Ayuk,06:16 Nungthil,Moderate,No,04-04-2024,09-09-2026
+WT000469,MP040,2025,1,January,Winter,16.3,7.7,22.3,69,17,8.4,Clear,76,5,5.6,05:27 Ayuk,06:26 Nungthil,Excellent,No,13-04-2023,02-07-2026
+WT000640,MP054,2023,4,April,Spring,21.6,13.7,31.2,64,49,5,Cloudy,129,5,6.7,06:39 Ayuk,07:32 Nungthil,Good,No,14-09-2024,16-07-2026
+WT000044,MP004,2023,8,August,Monsoon,25.4,17.4,30.5,92,181.5,6.3,Partly Cloudy,96,9,10.5,05:34 Ayuk,05:13 Nungthil,Poor,Flood Warning,06-07-2023,25-03-2025
+WT000360,MP030,2023,12,December,Winter,13.1,7.4,21.1,61,52.9,6.1,Foggy,106,10,4.7,04:14 Ayuk,07:01 Nungthil,Excellent,No,17-09-2025,01-02-2025
+WT000556,MP047,2023,4,April,Spring,22.3,14.7,32.2,56,16,4.8,Clear,120,6,10.5,06:27 Ayuk,07:08 Nungthil,Good,No,12-05-2024,19-03-2026
+WT000800,MP067,2024,8,August,Monsoon,27.2,15.4,31.7,82,178.5,6.6,Heavy Rain,106,5,4.4,06:44 Ayuk,06:18 Nungthil,Poor,Flood Warning,16-03-2023,18-06-2025
+WT000039,MP004,2024,3,March,Spring,20,10.8,28.9,60,18.9,7.6,Heavy Rain,124,6,9.3,04:34 Ayuk,06:45 Nungthil,Good,No,03-09-2023,17-11-2026
+WT000632,MP053,2024,8,August,Monsoon,27.3,15.5,30.3,89,193.9,7.4,Windy,51,10,10.6,05:05 Ayuk,06:24 Nungthil,Poor,Heavy Rain Alert,25-08-2025,12-07-2025
+WT000608,MP051,2025,8,August,Monsoon,25.1,17,32.4,89,174.3,8.2,Rainy,148,8,7.8,04:56 Ayuk,07:33 Nungthil,Poor,Flood Warning,05-06-2025,05-04-2025
+WT000078,MP007,2023,6,June,Summer,27.2,18.2,34.2,86,161.4,9,Foggy,83,9,9,04:09 Ayuk,07:47 Nungthil,Moderate,Flood Warning,22-09-2025,07-01-2026
+WT000691,MP058,2024,7,July,Monsoon,25,18,31,80,209.4,8.1,Foggy,89,3,4.5,06:56 Ayuk,06:29 Nungthil,Poor,Flood Warning,15-03-2023,03-01-2025
+WT000473,MP040,2025,5,May,Summer,25.9,15.5,32.7,71,53.9,6.7,Foggy,125,8,9.7,04:09 Ayuk,06:56 Nungthil,Moderate,No,15-03-2024,18-11-2026
+WT000843,MP021,2023,1,January,Winter,16,7,20.6,59,27.3,7.7,Foggy,100,5,10,06:55 Ayuk,07:16 Nungthil,Excellent,No,02-07-2025,22-08-2026
+WT000598,MP050,2024,10,October,Autumn,22.7,11.8,26.9,65,35.6,5,Heavy Rain,134,3,6.4,06:41 Ayuk,07:43 Nungthil,Good,No,05-07-2023,22-07-2026
+WT000717,MP060,2025,9,September,Monsoon,25,14,30.6,72,150.1,8.6,Windy,102,9,2.9,05:30 Ayuk,06:39 Nungthil,Poor,No,08-10-2025,25-04-2025
+WT000114,MP010,2023,6,June,Summer,25.9,19.3,33.6,76,186.8,6.6,Sunny,60,5,9.8,06:30 Ayuk,06:45 Nungthil,Moderate,No,08-11-2025,16-07-2026
+WT000729,MP061,2024,9,September,Monsoon,23.9,16.5,28.9,83,159.2,8.6,Rainy,132,6,4.6,04:01 Ayuk,06:10 Nungthil,Poor,No,16-04-2023,03-03-2025
+WT000071,MP006,2025,11,November,Autumn,19.3,10.5,25.8,58,26.9,2.1,Windy,134,10,2.2,04:09 Ayuk,07:16 Nungthil,Good,No,17-07-2023,15-12-2025
+WT000067,MP006,2023,7,July,Monsoon,27.7,17.7,33.1,90,216.6,9.2,Foggy,124,4,10.1,05:55 Ayuk,05:38 Nungthil,Poor,Flood Warning,09-08-2024,19-02-2025
+WT000492,MP041,2023,12,December,Winter,13.6,8.5,20.1,61,52,6.7,Clear,89,6,9.6,04:36 Ayuk,05:40 Nungthil,Excellent,No,19-08-2024,01-05-2025
+WT000796,MP067,2025,4,April,Spring,22.1,14.7,31.6,61,69.8,5.6,Heavy Rain,130,3,10.1,04:57 Ayuk,06:38 Nungthil,Good,No,14-04-2025,13-06-2026
+WT000322,MP027,2023,10,October,Autumn,23,14.1,27.7,74,12.5,6.5,Foggy,141,9,7.6,04:27 Ayuk,05:04 Nungthil,Good,No,04-02-2023,17-12-2025
+WT000329,MP028,2024,5,May,Summer,24.9,16.5,33.2,73,48.6,6.6,Windy,100,3,7.4,05:37 Ayuk,06:44 Nungthil,Moderate,No,14-03-2025,02-07-2026
+WT000029,MP003,2023,5,May,Summer,26.9,15.8,31.9,75,82.4,6.8,Heavy Rain,102,9,6.1,06:50 Ayuk,05:23 Nungthil,Moderate,No,25-12-2025,21-05-2025
+WT000743,MP062,2025,11,November,Autumn,17,10.7,24.8,62,0,5.5,Windy,76,5,11.6,06:20 Ayuk,07:17 Nungthil,Good,No,22-05-2024,03-08-2026
+WT000670,MP056,2024,10,October,Autumn,23.5,12.1,28,66,66.2,3.2,Foggy,94,7,8,04:58 Ayuk,05:38 Nungthil,Good,No,11-12-2024,14-06-2026
+WT000284,MP024,2023,8,August,Monsoon,26.6,15.3,32.3,91,190,8.8,Sunny,149,8,8.3,04:59 Ayuk,07:31 Nungthil,Poor,No,21-05-2023,21-12-2026
+WT000231,MP020,2023,3,March,Spring,20.4,10.7,27.3,54,13.9,7.4,Rainy,111,5,3.7,05:49 Ayuk,07:15 Nungthil,Good,No,16-03-2024,04-06-2025
+WT000194,MP017,2023,2,February,Winter,15.8,9.1,23.4,65,52.4,4.5,Partly Cloudy,103,4,5.4,04:45 Ayuk,07:51 Nungthil,Excellent,No,05-05-2023,22-12-2025
+WT000459,MP039,2025,3,March,Spring,19.6,10.7,29.4,60,0.1,5.1,Clear,80,6,8.4,05:30 Ayuk,05:01 Nungthil,Good,No,15-01-2024,21-07-2025
+WT000082,MP007,2024,10,October,Autumn,23.2,12.7,27,79,27.4,3.5,Rainy,97,5,11.8,04:48 Ayuk,07:02 Nungthil,Good,No,23-05-2024,05-01-2025
+WT000489,MP041,2025,9,September,Monsoon,26.1,14.9,30.2,85,133.2,6.8,Sunny,117,9,10.8,05:11 Ayuk,06:04 Nungthil,Poor,No,07-09-2023,11-01-2026
+WT000271,MP023,2025,7,July,Monsoon,27.2,17.2,31.1,87,254.5,7.7,Cloudy,115,4,3.2,04:14 Ayuk,07:01 Nungthil,Poor,Flood Warning,10-12-2025,01-03-2025
+WT000651,MP055,2023,3,March,Spring,21.4,11.8,29.3,52,54.8,6.5,Heavy Rain,150,9,8.6,04:53 Ayuk,07:11 Nungthil,Good,No,07-06-2025,10-11-2026
+WT000662,MP056,2023,2,February,Winter,15.2,9.3,24.4,73,48,4.3,Partly Cloudy,124,5,9.6,06:00 Ayuk,06:38 Nungthil,Excellent,No,24-11-2025,25-09-2026
+WT000072,MP006,2024,12,December,Winter,12.7,7.1,21.6,77,10.4,4.2,Sunny,58,7,10.5,05:10 Ayuk,07:33 Nungthil,Excellent,No,21-05-2025,20-05-2026
+WT000822,MP069,2023,6,June,Summer,27.7,17.1,33.2,79,164.2,9.2,Heavy Rain,98,10,6.2,05:44 Ayuk,07:25 Nungthil,Moderate,No,13-05-2024,01-09-2025
+WT000015,MP002,2023,3,Marchh,Spring,19.4,10.8,29.1,51,33,5.3,Rainy,56,3,4.1,04:45 Ayuk,06:13 Nungthil,Good,No,14-08-2024,08-03-2025
+WT000317,MP027,2023,5,May,Summer,25.2,15.2,33.1,68,64.7,5.1,Clear,61,7,10.6,04:46 Ayuk,06:44 Nungthil,Moderate,No,12-10-2024,09-06-2025
+WT000002,MP001,2025,2,February,Winter,17.3,7.7,23.1,59,32.4,4.7,Clear,81,7,5.4,05:31 Ayuk,06:48 Nungthil,Excellent,No,11-05-2025,15-06-2025
+WT000259,MP022,2024,7,July,Monsoon,27.9,17.4,31.9,85,267.4,8.9,Rainy,62,7,7.1,05:01 Ayuk,05:19 Nungthil,Poor,Flood Warning,07-09-2025,22-07-2026
+WT000341,MP029,2024,5,May,Summer,24.6,17.1,33.3,62,90.5,6.3,Heavy Rain,68,5,9.1,05:48 Ayuk,05:51 Nungthil,Moderate,No,10-06-2025,03-08-2026
+WT000456,MP038,2023,12,December,Winter,13.8,7.4,20.9,71,16.7,3.2,Windy,79,8,9.5,06:05 Ayuk,07:12 Nungthil,Excellent,No,18-03-2025,24-12-2026
+WT000778,MP065,2025,10,October,Autumn,21.8,14.1,27.3,72,71.4,6.5,Cloudy,107,9,10.7,05:22 Ayuk,05:42 Nungthil,Good,No,24-10-2025,13-07-2026
+WT000679,MP057,2023,7,July,Monsoon,27.9,16.7,32.9,88,260.7,7.4,Windy,124,6,9.7,05:37 Ayuk,05:41 Nungthil,Poor,Flood Warning,08-06-2023,10-06-2025
+WT000249,MP021,2023,9,September,Monsoon,25.5,16.4,30.4,81,162.3,6.9,Cloudy,91,3,9.3,06:38 Ayuk,05:43 Nungthil,Poor,No,22-12-2024,24-01-2025
+WT000672,MP056,2023,12,December,Winter,12.7,6.2,19.8,72,44.5,6,Windy,149,7,11.5,05:35 Ayuk,05:35 Nungthil,Excellent,No,11-11-2025,11-07-2026
+WT000210,MP018,2024,6,June,Summer,27.5,17.8,32.8,83,166.6,8.9,Clear,115,5,9.8,04:45 Ayuk,06:17 Nungthil,Moderate,Flood Warning,09-03-2023,21-12-2025
+WT000655,MP055,2025,7,July,Monsoon,27.7,17.9,33.3,93,252.6,8.3,Rainy,135,7,9.7,05:37 Ayuk,07:45 Nungthil,Poor,Flood Warning,07-01-2023,07-05-2025
+WT000792,MP066,2024,12,December,Winter,13.9,6.8,21.7,61,0,3.5,Partly Cloudy,120,10,7.3,05:42 Ayuk,05:10 Nungthil,Excellent,No,14-10-2024,14-02-2025
+WT000234,MP020,2025,6,June,Summer,28.2,16.7,34,82,184.8,8.1,Cloudy,105,6,10.5,05:22 Ayuk,06:37 Nungthil,Moderate,No,10-08-2025,04-12-2026
+WT000080,MP007,2023,8,August,Monsoon,25.3,16.6,31.1,92,178.4,7,Sunny,86,3,7.5,04:19 Ayuk,06:54 Nungthil,Poor,Heavy Rain Alert,20-09-2024,22-07-2026
+WT000149,MP013,2024,5,May,Summer,27.4,16.8,33.2,62,37,7.6,Partly Cloudy,99,7,5.5,05:14 Ayuk,06:16 Nungthil,Moderate,No,15-07-2023,19-02-2026
+WT000524,MP044,2023,8,August,Monsoon,26.9,17.4,31.1,79,225.3,6.3,Heavy Rain,72,10,3.1,06:01 Ayuk,06:21 Nungthil,Poor,Flood Warning,19-05-2023,20-04-2026
+WT000424,MP036,2023,4,April,Spring,22.3,13.4,32.4,52,58,4.6,Heavy Rain,147,10,6.8,05:35 Ayuk,06:47 Nungthil,Good,No,17-01-2024,09-08-2026
+WT000359,MP030,2025,11,November,Autumn,17.2,11,24.8,66,30.9,4.7,Rainy,84,10,5.4,06:01 Ayuk,06:14 Nungthil,Good,No,14-02-2025,04-11-2026
+WT000267,MP023,2024,3,March,Spring,19.5,10.8,27.4,60,47.5,7.6,Cloudy,70,7,2.9,06:50 Ayuk,06:07 Nungthil,Good,No,11-09-2024,01-10-2025
+WT000413,MP035,2024,5,May,Summer,24.8,14.9,32.2,64,39.6,8.1,Windy,90,3,10.6,06:29 Ayuk,05:10 Nungthil,Moderate,No,09-12-2025,24-01-2025
+WT000211,MP018,2025,7,July,Monsoon,26.1,16.7,33.1,79,264.2,9.8,Partly Cloudy,113,7,3.8,06:45 Ayuk,05:08 Nungthil,Poor,Flood Warning,07-11-2023,04-11-2026
+WT000124,MP011,2024,4,April,Spring,21.8,14.2,31.2,58,9.5,4.1,Cloudy,130,7,3.2,05:48 Ayuk,06:33 Nungthil,Good,No,25-01-2023,24-01-2025
+WT000324,MP027,2024,12,December,Winter,14.9,5.5,22.2,66,52.8,6.6,Heavy Rain,105,3,5.7,06:13 Ayuk,06:44 Nungthil,Excellent,No,03-02-2023,24-02-2025
+WT000285,MP024,2024,9,September,Monsoon,24.8,14.5,29.2,88,153.4,6.3,Windy,51,7,3.6,04:02 Ayuk,05:24 Nungthil,Poor,No,09-12-2025,12-09-2026
+WT000252,MP021,2025,12,December,Winter,15.3,5.5,20.3,71,42.1,5.5,Partly Cloudy,109,5,5.2,04:26 Ayuk,07:34 Nungthil,Excellent,No,08-05-2024,15-10-2026
+WT000073,MP007,2023,1,January,Winter,15,8.8,22.9,63,0,7.8,Partly Cloudy,103,9,8,04:05 Ayuk,05:28 Nungthil,Excellent,No,19-04-2023,09-11-2026
+WT000412,MP035,2023,4,April,Spring,22.7,14.5,30.4,63,78.7,4.9,Cloudy,76,6,4.7,06:50 Ayuk,05:10 Nungthil,Good,No,01-03-2024,18-12-2025
+WT000201,MP017,2023,9,September,Monsoon,26,16.3,29.2,75,151.3,8.2,Partly Cloudy,125,4,8.2,04:40 Ayuk,06:59 Nungthil,Poor,No,14-03-2023,11-03-2026
+WT000292,MP025,2025,4,April,Spring,23.3,13.6,30.1,64,72.9,4.1,Clear,78,4,11.4,06:40 Ayuk,05:25 Nungthil,Good,No,01-08-2025,21-06-2025
+WT000353,MP030,2024,5,May,Summer,25.7,17.5,32.2,79,60.2,8.9,Sunny,98,10,3.1,05:00 Ayuk,07:43 Nungthil,Moderate,No,16-02-2024,17-06-2025
+WT000820,MP069,2023,4,April,Spring,24.4,15.2,30.9,71,21.6,5.5,Cloudy,86,10,9.1,06:47 Ayuk,05:40 Nungthil,Good,No,02-07-2023,24-03-2026
+WT000543,MP046,2024,3,March,Spring,20.1,11.1,28.1,63,64.5,6.8,Clear,132,4,3.6,05:06 Ayuk,06:18 Nungthil,Good,No,25-08-2024,15-05-2025
+WT000607,MP051,2023,7,July,Monsoon,25.9,16.3,33.1,76,212.1,6.3,Partly Cloudy,73,8,7.9,05:57 Ayuk,06:49 Nungthil,Poor,Flood Warning,03-05-2024,12-12-2025
+WT000769,MP065,2023,1,January,Winter,16.3,6.5,22.5,67,0,5.4,Windy,73,7,3.1,05:01 Ayuk,07:04 Nungthil,Excellent,No,17-12-2025,25-04-2025
+WT000497,MP042,2025,5,May,Summer,26.3,16.1,33.4,61,93.2,7.2,Sunny,86,9,9.3,06:34 Ayuk,06:51 Nungthil,Moderate,No,02-05-2025,04-07-2025
+WT000396,MP033,2024,12,December,Winter,14.5,6.2,20.1,73,5.6,5.2,Windy,91,6,11.3,04:01 Ayuk,07:31 Nungthil,Excellent,No,23-07-2024,20-04-2026
+WT000626,MP053,2024,2,February,Winter,16.5,9,23.8,66,32.5,7.1,Heavy Rain,127,6,10.9,06:28 Ayuk,06:27 Nungthil,Excellent,No,20-07-2025,23-06-2026
+WT000551,MP046,2023,11,November,Autumn,17.8,11.2,24.5,72,55.7,2.7,Sunny,145,10,5.6,05:46 Ayuk,07:18 Nungthil,Good,No,24-09-2024,01-12-2026
+WT000178,MP015,2024,10,October,Autumn,21.3,12.3,26.5,63,75.4,3.2,Cloudy,65,3,3.8,06:21 Ayuk,06:30 Nungthil,Good,No,12-03-2024,24-12-2025
+WT000470,MP040,2024,2,February,Winter,15.3,9.4,24.7,66,49.1,7.8,Partly Cloudy,102,8,5.6,06:03 Ayuk,05:53 Nungthil,Excellent,No,09-03-2023,07-09-2025
+WT000690,MP058,2024,6,June,Summer,28.4,19.3,33.6,68,161.4,6.9,Cloudy,128,10,11.7,04:05 Ayuk,07:43 Nungthil,Moderate,Heavy Rain Alert,04-01-2025,08-12-2026
+WT000191,MP016,2023,11,November,Autumn,16.7,10.8,25.7,60,48.9,2.1,Sunny,101,8,11.1,04:51 Ayuk,05:52 Nungthil,Good,No,06-07-2024,20-11-2026
+WT000410,MP035,2025,2,February,Winter,16.6,8.3,23.9,63,48.8,7.4,Windy,137,3,3.1,04:07 Ayuk,07:15 Nungthil,Excellent,No,21-09-2023,25-10-2026
+WT000634,MP053,2023,10,October,Autumn,21.4,11.9,28.8,77,66.1,3,Clear,131,5,4.2,04:24 Ayuk,06:15 Nungthil,Good,No,16-04-2025,10-08-2025
+WT000809,MP068,2025,5,May,Summer,27,14.9,32.6,61,112.7,6.4,Rainy,129,5,6.4,06:39 Ayuk,06:23 Nungthil,Moderate,No,13-10-2025,05-06-2025
+WT000229,MP020,2023,1,January,Winter,16.4,8.3,21.3,75,42.8,6.6,Clear,123,6,5.8,04:16 Ayuk,05:36 Nungthil,Excellent,No,22-02-2025,16-10-2026
+WT000515,MP043,2025,11,November ,Autumn,18.3,10.5,25,62,36,2.5,Sunny ,99,6,8.5,05:00 Ayuk,06:54 Nungthil,Good,No,16-12-2023,08-03-2026
+WT000759,MP064,2023,3,March,Spring,21.4,12,28,67,0,6,Sunny,93,8,2.8,04:23 Ayuk,07:48 Nungthil,Good,No,03-03-2024,13-04-2026
+WT000838,MP070,2023,10,October,Autumn,22.8,12.6,28.4,71,55,5.3,Heavy Rain,65,8,8.5,04:20 Ayuk,05:24 Nungthil,Good,No,19-05-2023,23-07-2026
+WT000401,MP034,2024,5,May,Summer,26.1,15.7,33.6,75,85.7,5.9,Rainy,95,6,11.3,05:47 Ayuk,06:12 Nungthil,Moderate,No,18-01-2024,22-04-2025
+WT000588,MP049,2024,12,December,Winter,12.9,8.1,22.3,78,0,3.9,Rainy,59,5,3.9,05:55 Ayuk,05:48 Nungthil,Excellent,No,24-12-2024,14-05-2025
+WT000016,MP002,2024,4,April,Spring,23.3,12.9,29.5,67,62,4.8,Cloudy,71,6,6.4,06:19 Ayuk,06:12 Nungthil,Good,No,24-04-2024,05-04-2026
+WT000477,MP040,2023,9,September,Monsoon,23.6,14.9,30,89,101.4,7.3,Heavy Rain,68,9,10,04:32 Ayuk,06:17 Nungthil,Poor,No,14-09-2025,23-06-2025
+WT000446,MP038,2025,2,February,Winter,17.1,9.4,23.9,57,43.4,5.7,Partly Cloudy,62,9,3.4,04:37 Ayuk,05:23 Nungthil,Excellent,No,24-02-2024,02-05-2025
+WT000700,MP059,2025,4,April,Spring,24,13,29.9,53,28.2,7.5,Cloudy,57,3,6.9,05:34 Ayuk,06:15 Nungthil,Good,No,08-12-2023,12-12-2025
+WT000261,MP022,2025,9,September,Monsoon,24.2,15.8,30.3,87,115.7,5.9,Heavy Rain,74,8,5.9,06:51 Ayuk,06:13 Nungthil,Poor,No,12-01-2023,15-01-2026
+WT000098,MP009,2025,2,February,Winter,15.5,9.9,22.9,67,44,6.4,Rainy,149,9,3.7,04:46 Ayuk,07:19 Nungthil,Excellent,No,10-02-2024,14-04-2026
+WT000443,MP037,2024,11,November,Autumn,18.8,10.4,26.2,69,0,4.6,Heavy Rain,121,5,10.9,05:39 Ayuk,06:19 Nungthil,Good,No,10-07-2025,18-09-2025
+WT000151,MP013,2023,7,July,Monsoon,27.4,17.9,30.6,81,261.4,8.9,Sunny,124,3,4.5,05:42 Ayuk,06:42 Nungthil,Poor,Flood Warning,13-09-2025,05-07-2026
+WT000422,MP036,2024,2,February,Winter,15.7,8.3,22.6,74,6.4,4.5,Cloudy,98,6,2.4,04:51 Ayuk,05:11 Nungthil,Excellent,No,20-08-2024,03-02-2025
+WT000061,MP006,2023,1,January,Winter,15.1,8.6,22,67,0,8.2,Clear,105,9,2.2,06:16 Ayuk,07:09 Nungthil,Excellent,No,08-02-2025,09-12-2025
+WT000613,MP052,2023,1,January,Winter,14.2,7.7,20.7,75,0,6.6,Partly Cloudy,68,9,5.7,05:31 Ayuk,07:41 Nungthil,Excellent,No,18-01-2025,25-11-2026
+WT000461,MP039,2025,5,May,Summer,24.7,15.5,33.4,68,45.6,7.3,Partly Cloudy,116,6,11.8,06:08 Ayuk,07:17 Nungthil,Moderate,No,12-12-2025,12-12-2025
+WT000600,MP050,2025,12,December,Winter,13.2,6.5,20.9,62,10.8,3.7,Sunny,130,6,6,04:25 Ayuk,05:23 Nungthil,Excellent,No,06-04-2023,03-12-2026
+WT000845,MP041,2025,1,January,Winter,15.7,9.5,20.6,61,1.8,8.8,Sunny,106,9,3.8,06:06 Ayuk,06:30 Nungthil,Excellent,No,05-01-2025,09-01-2026
+WT000720,MP060,2023,12,December,Winter,14.3,7.2,21.2,63,25,6.9,Windy,138,10,9.6,05:38 Ayuk,07:26 Nungthil,Excellent,No,02-09-2024,22-10-2026
+WT000315,MP027,2024,3,March,Spring,21.4,11.6,28.9,60,52.4,7.8,Cloudy,134,7,8.8,06:58 Ayuk,07:33 Nungthil,Good,No,16-03-2025,19-05-2025
+WT000076,MP007,2024,4,April,Spring,24.5,12.8,30.9,69,66,7.1,Clear,145,5,11.5,05:22 Ayuk,05:08 Nungthil,Good,No,13-07-2025,24-06-2025
+WT000032,MP003,2025,8,August,Monsoon,27.5,17.9,29.8,76,185.8,7.5,Cloudy,114,10,5.6,05:14 Ayuk,07:44 Nungthil,Poor,No,17-08-2023,03-06-2026
+WT000517,MP044,2023,1,January,Winter,13.8,6.6,21.1,65,45.2,6.5,Sunny,74,4,4.3,06:36 Ayuk,07:25 Nungthil,Excellent,No,01-06-2024,20-08-2025
+WT000122,MP011,2023,2,February,Winter,17.4,9.1,25.1,59,0,7.7,Windy,109,7,6.2,04:31 Ayuk,05:20 Nungthil,Excellent,No,12-08-2023,02-08-2026
+WT000169,MP015,2025,1,January,Winter,14.5,7.1,22,77,8.7,8.2,Rainy,107,4,5.5,04:50 Ayuk,05:22 Nungthil,Excellent,No,06-05-2025,08-08-2025
+WT000052,MP005,2024,4,April,Spring,21.8,15.4,32.1,54,70.2,7.8,Rainy,73,3,4.6,04:02 Ayuk,07:39 Nungthil,Good,No,05-08-2024,16-07-2026
+WT000692,MP058,2023,8,August,Monsoon,27.3,15.5,30.5,94,220.7,8.7,Foggy,84,7,3.1,04:37 Ayuk,05:53 Nungthil,Poor,Flood Warning,04-10-2024,23-03-2026
+WT000512,MP043,2023,8,August,Monsoon,25.2,15.4,29.5,95,190.5,6.3,Sunny,86,7,3.4,04:39 Ayuk,06:12 Nungthil,Poor,Flood Warning,17-03-2023,21-07-2026
+WT000502,MP042,2023,10,October,Autumn,20.5,13.6,27.1,79,71.3,5,Windy,111,3,5.8,06:48 Ayuk,05:52 Nungthil,Good,No,11-07-2023,13-03-2025
+WT000400,MP034,2025,4,April,Spring,24,14.2,32.4,56,15.6,7.6,Foggy,134,10,8.2,05:27 Ayuk,07:18 Nungthil,Good,No,13-10-2025,25-12-2025
+WT000486,MP041,2024,6,June,Summer,26,17.8,35.3,68,172.9,7.9,Partly Cloudy,110,9,5.5,06:02 Ayuk,05:40 Nungthil,Moderate,No,06-08-2023,02-02-2025
+WT000814,MP068,2023,10,October,Autumn,21.4,13.9,29,63,84.2,6.2,Cloudy,105,5,10.7,04:44 Ayuk,06:45 Nungthil,Good,No,11-04-2024,07-02-2025
+WT000572,MP048,2023,8,August,Monsoon,26.5,18,30.5,94,216.4,8.5,Heavy Rain,65,4,9.9,06:47 Ayuk,05:47 Nungthil,Poor,Flood Warning,04-12-2023,06-08-2026
+WT000042,MP004,2025,6,June,Summer,27.2,17.3,34.9,82,131.9,7,Heavy Rain,63,4,6.5,04:43 Ayuk,07:40 Nungthil,Moderate,No,18-05-2023,11-01-2026
+WT000131,MP011,2023,11,November,Autumn,18.3,9.7,23.9,62,1.2,4.7,Sunny,125,8,6.1,05:42 Ayuk,07:16 Nungthil,Good,No,13-10-2025,06-06-2026
+WT000305,MP026,2023,5,May,Summer,24.7,15.4,32.5,65,40,5.8,Heavy Rain,133,6,7.9,06:12 Ayuk,06:01 Nungthil,Moderate,No,22-09-2024,19-11-2025
+WT000721,MP061,2023,1,January,Winter,15,6.6,22.9,59,26.8,6.1,Partly Cloudy,50,10,3.2,06:29 Ayuk,05:43 Nungthil,Excellent,No,13-10-2023,06-03-2026
+WT000294,MP025,2024,6,June,Summer,28.4,19.3,34.8,76,163.6,9.9,Windy,108,5,10.2,04:19 Ayuk,06:31 Nungthil,Moderate,Heavy Rain Alert,24-08-2023,13-04-2025
+WT000308,MP026,2025,8,August,Monsoon,25.7,15.4,32.2,81,183.1,8.3,Foggy,121,9,5.9,05:52 Ayuk,07:52 Nungthil,Poor,Flood Warning,01-10-2024,16-06-2025
+WT000166,MP014,2025,10,October,Autumn,20.7,11.9,27.6,79,22.5,4.7,Sunny,98,10,7.9,05:43 Ayuk,06:55 Nungthil,Good,No,20-04-2024,17-02-2026
+WT000427,MP036,2023,7,July,Monsoon,27.7,18.1,30.7,75,214.8,8.7,Sunny,61,9,2.1,06:45 Ayuk,05:02 Nungthil,Poor,Flood Warning,21-08-2025,20-11-2026
+WT000599,MP050,2023,11,November,Autumn,18,10.9,24,71,21.8,4.4,Clear,73,6,9.3,06:20 Ayuk,05:05 Nungthil,Good,No,01-02-2023,25-09-2026
+WT000639,MP054,2025,3,March,Spring,18.8,9.5,28.5,61,39.6,6.4,Heavy Rain,85,4,8.1,06:54 Ayuk,05:37 Nungthil,Good,No,10-09-2024,20-03-2025
+WT000146,MP013,2024,2,February,Winter,15.1,8.5,22.9,71,0,4.1,Rainy,56,7,2.8,06:40 Ayuk,07:58 Nungthil,Excellent,No,04-01-2024,05-09-2026
+WT000343,MP029,2025,7,July,Monsoon,26.2,16.1,31.1,85,223.8,8.6,Cloudy,69,6,11.9,04:42 Ayuk,05:42 Nungthil,Poor,Flood Warning,16-02-2025,07-04-2026
+WT000137,MP012,2023,5,May,Summer,26,17.1,33.9,76,59.6,5.1,Cloudy,122,4,2.6,05:59 Ayuk,06:13 Nungthil,Moderate,No,18-07-2024,18-07-2026
+WT000171,MP015,2025,3,March,Spring,20.3,12,28.7,60,45.4,5,Sunny,63,8,7.9,05:08 Ayuk,07:20 Nungthil,Good,No,21-07-2024,24-01-2026
+WT000376,MP032,2024,4,April,Spring,21.7,15.3,31.5,59,61.2,7.7,Heavy Rain,146,7,8.8,06:56 Ayuk,05:09 Nungthil,Good,No,07-01-2023,11-06-2026
+WT000755,MP063,2025,11,November,Autumn,17.8,9.8,24.7,63,43.7,5.5,Sunny,137,9,3.9,04:44 Ayuk,07:40 Nungthil,Good,No,07-11-2023,14-09-2025
+WT000536,MP045,2024,8,August,Monsoon,26.8,17.8,31.9,77,214.4,9.2,Clear,110,7,4.5,06:29 Ayuk,05:10 Nungthil,Poor,Flood Warning,16-01-2023,03-07-2026
+WT000463,MP039,2024,7,July,Monsoon,26.5,18.4,30.7,92,199.9,7.7,Heavy Rain,131,4,10.8,04:57 Ayuk,05:35 Nungthil,Poor,Flood Warning,12-08-2023,21-03-2026
+WT000200,MP017,2023,8,August,Monsoon,27.3,17.8,31.1,91,241.4,9.4,Windy,99,4,2.7,06:10 Ayuk,06:15 Nungthil,Poor,Flood Warning,23-08-2025,16-11-2026
+WT000208,MP018,2023,4,April,Spring,22.6,13.5,30.4,63,70.5,4.9,Cloudy,100,6,4.8,05:59 Ayuk,07:14 Nungthil,Good,No,16-05-2024,02-11-2026
+WT000503,MP042,2025,11,November,Autumn,19.3,11.3,23.8,71,13.8,4.1,Clear,127,5,8.7,05:02 Ayuk,07:30 Nungthil,Good,No,05-11-2025,01-05-2025
+WT000237,MP020,2025,9,September,Monsoon,26.2,13.5,30.8,72,163,7.8,Clear,81,3,8.9,04:08 Ayuk,05:08 Nungthil,Poor,No,12-12-2023,20-09-2026
+WT000438,MP037,2025,6,June,Summer,25.5,17.1,32.6,83,198,9.2,Foggy,63,4,7.6,05:43 Ayuk,06:35 Nungthil,Moderate,Heavy Rain Alert,06-02-2024,08-02-2026
+WT000282,MP024,2024,6,June,Summer,28.2,19.4,32.9,76,156.1,7.5,Cloudy,103,3,6.6,04:19 Ayuk,05:27 Nungthil,Moderate,Flood Warning,17-08-2023,11-03-2025
+WT000233,MP020,2023,5,May,Summer,24.5,15.8,31.7,65,74,6.8,Heavy Rain,140,3,11.2,04:39 Ayuk,07:14 Nungthil,Moderate,No,18-02-2025,22-09-2025
+WT000006,MP001,2023,6,June,Summer,27.2,18,33.9,71,175.9,6.8,Clear,90,4,8.9,04:13 Ayuk,07:19 Nungthil,Moderate,Flood Warning,21-08-2023,04-06-2026
+WT000571,MP048,2024,7,July,Monsoon,26.8,18.3,32.4,92,202.9,6.7,Clear,135,8,4.5,04:15 Ayuk,06:49 Nungthil,Poor,Flood Warning,14-04-2023,01-12-2026
+WT000379,MP032,2025,7,July,Monsoon,27.2,17,30.8,94,202.5,8.6,Windy,75,5,5.9,05:45 Ayuk,06:53 Nungthil,Poor,Flood Warning,17-08-2023,13-05-2026
+WT000361,MP031,2023,1,January,Winter,15,9.1,21,76,5.9,8.4,Windy,82,4,5.3,06:57 Ayuk,07:51 Nungthil,Excellent,No,10-07-2024,05-03-2026
+WT000791,MP066,2024,11,November,Autumn,19.3,9.2,24.3,58,14.1,4.7,Cloudy,56,7,2.9,04:05 Ayuk,05:03 Nungthil,Good,No,02-11-2025,16-06-2025
+WT000100,MP009,2025,4,April,Spring,24.1,13.6,29.5,68,12.5,6.9,Foggy,75,4,9.6,04:05 Ayuk,07:47 Nungthil,Good,No,10-11-2024,17-08-2025
+WT000603,MP051,2023,3,March,Spring,21.1,11,27.4,62,0,7.9,Cloudy,117,3,2.9,04:42 Ayuk,07:10 Nungthil,Good,No,24-09-2025,11-08-2025
+WT000440,MP037,2024,8,August,Monsoon,26.7,15.5,30.8,93,230.4,8.2,Partly Cloudy,105,7,8.3,04:02 Ayuk,05:47 Nungthil,Poor,Flood Warning,07-02-2025,03-08-2026
+WT000117,MP010,2023,9,September,Monsoon,25.1,13.6,29.5,81,134.2,5.9,Cloudy,87,5,2.7,05:51 Ayuk,07:19 Nungthil,Poor,No,11-07-2024,18-04-2026
+WT000348,MP029,2023,12,December,Winter,13.5,7.2,21.2,66,14.3,6.2,Cloudy,91,10,8.8,05:43 Ayuk,06:09 Nungthil,Excellent,No,20-04-2024,21-02-2025
+WT000686,MP058,2024,2,February,Winter,15.2,8.7,23.4,55,54.8,5.7,Cloudy,102,6,9.9,06:54 Ayuk,06:28 Nungthil,Excellent,No,02-08-2024,20-05-2025
+WT000804,MP067,2024,12,December,Winter,14.1,6.9,19.6,65,0,6.9,Rainy,112,9,8.5,05:17 Ayuk,06:47 Nungthil,Excellent,No,06-04-2025,24-06-2026
+WT000248,MP021,2025,8,August,Monsoon,26.2,15.7,30.6,80,247,6.2,Foggy,142,5,6.6,04:16 Ayuk,05:00 Nungthil,Poor,Flood Warning,18-04-2023,12-11-2025
+WT000549,MP046,2023,9,September,Monsoon,25,13.6,29.3,75,92.9,5.2,Rainy,98,7,2.1,05:40 Ayuk,06:57 Nungthil,Moderate,No,24-08-2024,15-04-2025
+WT000627,MP053,2023,3,March,Spring,19.2,10.2,27.3,52,37.3,7.2,Partly Cloudy,70,7,6,06:45 Ayuk,07:14 Nungthil,Good,No,13-11-2025,07-04-2025
+WT000355,MP030,2023,7,July,Monsoon,27.6,16.5,30.6,81,211.1,8.5,Clear,83,8,4.9,05:46 Ayuk,05:19 Nungthil,Poor,Flood Warning,11-06-2023,25-08-2026
+WT000153,MP013,2023,9,September,Monsoon,26.5,15.9,29.2,70,122.9,7.3,Heavy Rain,122,5,10.3,05:50 Ayuk,06:44 Nungthil,Poor,No,17-09-2023,16-03-2025
+WT000328,MP028,2024,4,April,Spring,23.9,14.9,31.3,56,64.3,7.6,Foggy,126,8,8.5,04:55 Ayuk,06:45 Nungthil,Good,No,15-01-2023,12-07-2026
+WT000831,MP070,2024,3,March,Spring,19.6,10.4,29.2,67,18.6,6.9,Foggy,90,8,6.3,04:07 Ayuk,05:56 Nungthil,Good,No,06-11-2023,25-09-2026
+WT000062,MP006,2024,2,February,Winter,15.2,9.8,23.8,61,49.6,5,Sunny,112,10,8.9,04:14 Ayuk,06:45 Nungthil,Excellent,No,23-07-2024,08-06-2026
+WT000566,MP048,2023,2,February,Winter,16.3,8.5,24.6,73,59.8,4.5,Windy,129,3,9,04:18 Ayuk,07:52 Nungthil,Excellent,No,17-02-2023,21-03-2025
+WT000058,MP005,2025,10,October,Autumn,21.9,13.8,27.6,79,40.7,5.5,Clear,99,4,11.8,05:31 Ayuk,06:51 Nungthil,Good,No,03-08-2023,06-10-2026
+WT000812,MP068,2025,8,August,Monsoon,26.6,17.5,31.7,82,196.6,8,Heavy Rain,147,3,7,04:46 Ayuk,07:41 Nungthil,Poor,Heavy Rain Alert,16-08-2024,25-12-2025
+WT000806,MP068,2024,2,February,Winter,15.6,8.2,24.4,74,59.6,7,Foggy,123,5,9.8,05:30 Ayuk,07:52 Nungthil,Excellent,No,25-06-2023,21-06-2025
+WT000049,MP005,2024,1,January,Winter,14.7,7,21.5,62,0,5.3,Foggy,65,6,11.8,06:54 Ayuk,05:23 Nungthil,Excellent,No,02-10-2023,18-01-2025
+WT000123,MP011,2023,3,March,Spring,21.2,11.8,26.7,66,39,6.3,Foggy,89,3,7.8,06:15 Ayuk,05:58 Nungthil,Good,No,04-09-2023,11-07-2026
+WT000125,MP011,2023,5,May,Summer,26.5,14.5,31.8,69,97.1,5.5,,135,4,3.1,06:17 Ayuk,07:52 Nungthil,Moderate,,05-06-2023,09-10-2026
+WT000075,MP007,2025,3,March,Spring,19.6,9.7,29.3,64,54.5,6.5,Heavy Rain,76,9,4.5,05:10 Ayuk,07:59 Nungthil,Good,No,04-11-2025,15-09-2026
+WT000054,MP005,2024,6,June,Summer,27.5,18.3,35.3,83,179.6,8.3,Cloudy,52,3,3.8,05:10 Ayuk,05:50 Nungthil,Moderate,Flood Warning,20-01-2023,14-06-2026
+WT000145,MP013,2025,1,January,Winter,15,23.9,6.1,65,32.7,6.6,Foggy,111,6,7.5,04:02 Ayuk,07:19 Nungthil,Excellent,No,16-08-2025,07-09-2025
+WT000465,MP039,2024,9,September,Monsoon,24,15.4,28.7,84,133.8,5.2,Windy,64,4,6,04:13 Ayuk,07:14 Nungthil,Poor,No,02-09-2024,11-06-2025
+WT000437,MP037,2023,5,May,Summer,25.3,15.7,33.3,72,53.8,7.2,Windy,127,5,4.1,04:07 Ayuk,05:26 Nungthil,Moderate,No,14-03-2024,18-08-2026
+WT000656,MP055,2023,8,August,Monsoon,25,15.4,32.5,79,202.8,9.4,Windy,92,7,9.1,04:13 Ayuk,06:35 Nungthil,Poor,Flood Warning,14-01-2025,11-10-2025
+WT000047,MP004,2024,11,November,Autumn,18.2,11.4,25.9,68,22.2,3.9,Cloudy,102,5,9.1,06:03 Ayuk,05:24 Nungthil,Good,No,18-01-2025,21-11-2026
+WT000531,MP045,2025,3,March,Spring,20.7,10.4,27.7,54,29.6,7.4,Sunny,76,5,8.1,05:27 Ayuk,07:32 Nungthil,Good,No,23-10-2023,08-04-2026
+WT000063,MP006,2025,3,March,Spring,19.5,11.4,27.2,61,38.1,5.5,Sunny,128,3,7.2,05:40 Ayuk,07:40 Nungthil,Good,No,10-01-2024,22-07-2025
+WT000526,MP044,2024,10,October,Autumn,21.1,13.1,27.7,78,76.7,4.8,Windy,64,6,11.9,06:25 Ayuk,06:28 Nungthil,Good,No,25-07-2023,24-03-2026
+WT000402,MP034,2024,6,June,Summer,26.2,18,34.3,76,142.9,8.8,Cloudy,56,4,10.1,04:17 Ayuk,05:02 Nungthil,Moderate,No,06-01-2025,10-10-2025
+WT000026,MP003,2024,2,February,Winter,17,9.5,25.2,74,15.2,6.5,Partly Cloudy,134,4,2.2,06:10 Ayuk,05:09 Nungthil,Excellent,No,15-02-2023,25-05-2026
+WT000511,MP043,2023,7,July,Monsoon,27.1,18,33.4,79,263.6,9.9,Sunny,128,4,10.3,04:06 Ayuk,07:50 Nungthil,Poor,Flood Warning,18-09-2024,09-11-2025
+WT000023,MP002,2024,11,November,Autumn,17.5,9.6,26.5,67,27.6,4,Heavy Rain,117,5,10.6,05:42 Ayuk,07:00 Nungthil,Good,No,12-02-2025,13-06-2025
+WT000179,MP015,2025,11,November,Autumn,16.9,9.9,24.8,66,53.7,5.7,Partly Cloudy,69,7,8.9,05:36 Ayuk,06:28 Nungthil,Good,No,06-01-2025,07-12-2026
+WT000751,MP063,2023,7,July,Monsoon,26.7,18.3,32.5,91,249,7.1,Heavy Rain,141,9,8.2,05:43 Ayuk,05:27 Nungthil,Poor,Flood Warning,16-06-2023,23-02-2026
+WT000482,MP041,2025,2,February,Winter,15.4,8.7,24.4,64,19.1,7,Cloudy,52,10,8.6,06:13 Ayuk,05:39 Nungthil,Excellent,No,12-09-2023,23-11-2025
+WT000667,MP056,2024,7,July,Monsoon,25.9,16.8,33,94,200.9,6.4,Rainy,98,4,4.3,04:27 Ayuk,05:17 Nungthil,Poor,Flood Warning,16-11-2025,25-01-2026
+WT000041,MP004,2023,5,May,Summer,26.9,15.5,31.9,67,106.2,7.5,Cloudy,102,8,5.2,05:07 Ayuk,05:04 Nungthil,Moderate,No,25-03-2025,04-01-2025
+WT000676,MP057,2025,4,April,Spring,22,15,32,65,31.5,4.3,Partly Cloudy,98,5,7.9,04:50 Ayuk,05:41 Nungthil,Good,No,12-08-2024,19-12-2025
+WT000326,MP028,2024,2,February,Winter,16.6,9.5,24.7,72,36.9,6.9,Rainy,77,6,6.6,04:45 Ayuk,05:25 Nungthil,Excellent,No,08-03-2024,15-09-2026
+WT000548,MP046,2024,8,August,Monsoon,25.4,17.3,30.8,76,241,6.2,Clear,112,10,6.4,05:30 Ayuk,06:31 Nungthil,Poor,Flood Warning,15-06-2024,23-04-2025
+WT000558,MP047,2023,6,June,Summer,26.8,17.9,32.7,80,198.8,6.3,Rainy,88,10,2.3,05:38 Ayuk,05:00 Nungthil,Moderate,Flood Warning,11-08-2025,14-01-2026
+WT000711,MP060,2024,3,March,Spring,20.8,10.5,29.2,56,40.8,6.7,Foggy,121,5,9.1,06:11 Ayuk,06:16 Nungthil,Good,No,10-09-2024,20-12-2026
+WT000580,MP049,2025,4,April,Spring,21.7,15,30.8,66,16.9,6.2,Foggy,136,6,10.1,04:40 Ayuk,06:07 Nungthil,Good,No,19-10-2025,01-12-2025
+WT000223,MP019,2023,7,July,Monsoon,27.6,16.7,33.1,81,198.9,9,Heavy Rain,84,8,7.7,06:13 Ayuk,05:49 Nungthil,Poor,Heavy Rain Alert,21-02-2025,19-07-2025
+WT000393,MP033,2025,9,September,Monsoon,26.2,14.1,30.1,87,142,5.1,Foggy,109,9,7.8,04:14 Ayuk,06:09 Nungthil,Poor,No,13-07-2025,01-04-2026
+WT000110,MP010,2025,2,February,Winter,17.4,8.4,25,66,30.6,6,Sunny,100,3,5.4,06:17 Ayuk,05:20 Nungthil,Excellent,No,22-09-2024,18-10-2026
+WT000128,MP011,2023,8,August,Monsoon,26.1,16.5,31,76,198.8,7.1,Heavy Rain,90,10,4.6,05:03 Ayuk,06:16 Nungthil,Poor,No,17-11-2024,18-10-2026
+WT000404,MP034,2025,8,August,Monsoon,24.8,15.5,31.8,93,243,7.7,Windy,69,7,10.2,06:51 Ayuk,06:09 Nungthil,Poor,Flood Warning,05-07-2023,21-09-2025
+WT000668,MP056,2023,8,August,Monsoon,25.3,17.5,29.7,81,177.2,7.9,Foggy,125,9,9,06:29 Ayuk,05:34 Nungthil,Poor,No,14-04-2024,21-08-2026
+WT000546,MP046,2023,6,June,Summer,26.8,16.7,32.6,71,151.9,7.4,Clear,124,7,11.3,04:34 Ayuk,06:06 Nungthil,Moderate,Heavy Rain Alert,24-06-2025,17-09-2025
+WT000419,MP035,2023,11,November,Autumn,17.2,10.9,24.3,60,16.8,4.5,Cloudy,72,9,2.9,05:00 Ayuk,05:41 Nungthil,Good,No,05-06-2025,19-04-2026
+WT000678,MP057,2023,6,June,Summer,25.8,19,34.5,80,149.8,7.1,Foggy,78,5,6.3,05:58 Ayuk,06:57 Nungthil,Moderate,No,18-09-2023,18-04-2026
+WT000803,MP067,2025,11,November,Autumn,17.3,10.1,25,65,0,3.2,Cloudy,145,4,5.3,04:05 Ayuk,05:34 Nungthil,Good,No,09-02-2024,07-03-2025
+WT000509,MP043,2025,5,May,Summer,27.1,15.8,34.4,77,71.3,8.6,Clear,93,10,10.8,05:06 Ayuk,07:06 Nungthil,Moderate,No,09-05-2024,17-04-2026
+WT000273,MP023,2025,9,September,Monsoon,25.3,13.7,29.8,75,120.4,7.3,Clear,102,3,6.6,04:08 Ayuk,06:25 Nungthil,Poor,No,12-03-2023,23-09-2025
+WT000757,MP064,2023,1,January,Winter,15.8,7.1,20.8,60,25.2,6.7,Cloudy,74,5,2.2,06:00 Ayuk,06:14 Nungthil,Excellent,No,21-04-2024,02-03-2025
+WT000250,MP021,2024,10,October,Autumn,23.1,12.8,27.5,68,82.7,3.6,,146,6,3.3,06:03 Ayuk,06:35 Nungthil,Good,,01-01-2023,05-03-2026
+WT000101,MP009,2024,5,May,Summer,24.9,17.1,32.4,78,89.7,6.3,Partly Cloudy,82,7,10.5,04:48 Ayuk,05:44 Nungthil,Moderate,No,22-05-2024,01-03-2026
+WT000165,MP014,2025,9,September,Monsoon,23.7,15.1,29.4,81,119.6,6.2,Windy,126,6,4.7,05:38 Ayuk,06:37 Nungthil,Poor,No,08-11-2024,01-03-2026
+WT000834,MP070,2023,6,June,Summer,27.1,18,32.8,80,173.3,7.1,Sunny,107,4,10,04:16 Ayuk,07:37 Nungthil,Moderate,Heavy Rain Alert,02-03-2025,05-02-2025
+WT000747,MP063,2023,3,March,Spring,20.8,10.6,26.9,55,59.5,7.5,Sunny,71,10,10.2,05:27 Ayuk,06:53 Nungthil,Good,No,14-03-2025,05-12-2025
+WT000112,MP010,2024,4,April,Spring,24,12.9,31.8,64,26.1,7.4,Partly Cloudy,117,3,6.8,05:26 Ayuk,07:53 Nungthil,Good,No,05-10-2024,08-08-2026
+WT000705,MP059,2023,9,September,Monsoon,24,13.6,30.6,89,108.8,5.9,Clear,83,3,4.1,06:57 Ayuk,05:11 Nungthil,Poor,No,18-01-2025,17-11-2026
+WT000718,MP060,2023,10,October,Autumn,20.9,12.3,27.1,73,23.3,5.6,Clear,63,9,5.6,06:47 Ayuk,06:33 Nungthil,Good,No,03-07-2024,21-09-2026
+WT000808,MP068,2024,4,April,Spring,22.9,14.6,31.1,52,26.6,7.8,Heavy Rain,94,4,8.1,05:58 Ayuk,06:00 Nungthil,Good,No,05-03-2025,08-08-2025
+WT000614,MP052,2025,2,February,Winter,17.2,7.6,22.6,67,39,5.6,Windy,102,10,8.1,04:20 Ayuk,06:02 Nungthil,Excellent,No,22-12-2025,02-09-2025
+WT000735,MP062,2024,3,March,Spring,21.4,9.8,28.1,66,41.7,5,Sunny,64,10,5.5,06:22 Ayuk,06:45 Nungthil,Good,No,14-06-2024,25-03-2025
+WT000337,MP029,2024,1,January,Winter,14.8,9.1,23,66,0,7.6,Heavy Rain,70,7,6.6,06:16 Ayuk,07:43 Nungthil,Excellent,No,13-09-2025,15-06-2026
+WT000350,MP030,2025,2,February,Winter,16.4,9,24,56,49.4,5.4,Partly Cloudy,51,8,2.9,05:04 Ayuk,07:45 Nungthil,Excellent,No,24-08-2024,22-05-2026
+WT000265,MP023,2024,1,January,Winter,14.9,22.9,6.9,64,0,6.8,Sunny,124,4,8.5,04:38 Ayuk,06:46 Nungthil,Excellent,No,11-02-2025,24-02-2026
+WT000448,MP038,2024,4,April,Spring,23,14,31.7,53,37.2,7.9,Clear,110,7,7.4,06:54 Ayuk,05:58 Nungthil,Good,No,13-06-2023,01-05-2025
+WT000714,MP060,2024,6,June,Summer,26,17.6,34,78,145.5,8.7,Sunny,86,6,7.8,04:47 Ayuk,05:09 Nungthil,Moderate,No,13-09-2024,03-12-2026
+WT000764,MP064,2024,8,August,Monsoon,26.7,17.7,31,81,225.1,6.1,Partly Cloudy,125,4,2.1,05:32 Ayuk,06:32 Nungthil,Poor,Flood Warning,18-11-2024,09-06-2026
+WT000268,MP023,2024,4,April,Spring,22.4,14.3,30.8,70,46.5,7.3,Foggy,87,9,6.7,04:42 Ayuk,05:20 Nungthil,Good,No,18-07-2025,21-09-2026
+WT000774,MP065,2025,6,June,Summer,27.2,18.7,33.7,86,151.4,8.8,Rainy,53,7,4.1,04:49 Ayuk,07:53 Nungthil,Moderate,Flood Warning,01-07-2024,25-11-2025
+WT000701,MP059,2023,5,May,Summer,26.2,16.9,32.9,75,99.8,6.2,Foggy,107,8,5.9,04:08 Ayuk,05:51 Nungthil,Moderate,No,13-10-2023,11-11-2026
+WT000659,MP055,2023,11,November,Autumn,17.3,9,24.3,66,36.7,3,Cloudy,134,6,8.4,05:56 Ayuk,05:47 Nungthil,Good,No,04-08-2023,11-03-2026
+WT000817,MP069,2023,1,January,Winter,14,8,22.6,67,48.5,8.7,Sunny,102,7,5.4,06:06 Ayuk,07:57 Nungthil,Excellent,No,12-08-2024,02-06-2026
+WT000116,MP010,2024,8,August,Monsoon,24.8,15.9,30.9,86,185.7,8.3,Rainy,60,10,3.4,06:42 Ayuk,06:08 Nungthil,Poor,No,25-10-2023,02-11-2026
+WT000155,MP013,2023,11,November ,Autumn,19.1,11,24.1,68,21.3,3.8,Foggy ,140,6,11.1,05:33 Ayuk,07:32 Nungthil,Good,No,07-01-2023,09-05-2026
+WT000577,MP049,2025,1,January,Winter,16.3,7.2,22.3,69,0,5.6,Clear,117,10,11.4,04:29 Ayuk,06:36 Nungthil,Excellent,No,17-06-2023,18-05-2026
+WT000138,MP012,2023,6,June,Summer,28.4,18.3,33,75,155.8,8.8,Rainy,98,4,2.7,05:34 Ayuk,05:17 Nungthil,Moderate,Heavy Rain Alert,22-07-2025,09-03-2025
+WT000664,MP056,2023,4,April,Spring,24,13.9,30.9,52,60.7,7.4,Clear,148,10,10.5,06:37 Ayuk,07:53 Nungthil,Good,No,07-08-2025,17-09-2025
+WT000833,MP070,2023,5,May,Summer,26.1,17.3,33.1,62,105.2,5.3,Rainy,119,6,9.7,05:27 Ayuk,06:07 Nungthil,Moderate,No,25-08-2025,15-01-2026
+WT000450,MP038,2023,6,June,Summer,27,19.3,35.3,75,191,8.7,Foggy,108,7,2.6,05:56 Ayuk,05:45 Nungthil,Moderate,No,13-04-2025,01-09-2026
+WT000663,MP056,2023,3,March,Spring,21.4,10.3,27.4,62,24.1,7.4,Windy,72,5,8.1,06:29 Ayuk,05:11 Nungthil,Good,No,13-02-2023,19-01-2026
+WT000118,MP010,2024,10,October,Autumn,22.2,12.1,28.1,66,61.5,5.7,Heavy Rain,81,6,3.6,04:48 Ayuk,05:14 Nungthil,Good,No,18-02-2025,14-01-2026
+WT000530,MP045,2024,2,February,Winter,15.8,10.3,25.3,66,57.4,5,Cloudy,117,6,10,05:45 Ayuk,07:07 Nungthil,Excellent,No,21-06-2024,04-09-2026
+WT000188,MP016,2024,8,August,Monsoon,24.6,17.1,30.2,76,176.7,8.5,Windy,70,6,7.3,04:07 Ayuk,07:45 Nungthil,Poor,No,23-05-2025,20-01-2025
+WT000136,MP012,2024,4,April,Spring,21.7,13.1,30,66,6.3,4.5,Cloudy,128,6,10.8,06:26 Ayuk,06:57 Nungthil,Good,No,23-04-2024,11-08-2025
+WT000783,MP066,2025,3,March,Spring,18.9,12.3,27.8,64,26.8,5.9,Foggy,127,4,3.3,05:43 Ayuk,07:48 Nungthil,Good,No,16-03-2024,08-08-2025
+WT000033,MP003,2025,9,September,Monsoon,24.9,15.6,29.4,87,159.1,8.7,Windy,60,5,3.7,06:01 Ayuk,05:04 Nungthil,Poor,No,23-04-2024,18-12-2025
+WT000794,MP067,2024,2,February,Winter,14.7,7.8,23,73,32.8,7,Sunny,86,10,3.9,04:55 Ayuk,05:27 Nungthil,Excellent,No,14-11-2024,23-10-2025
+WT000494,MP042,2024,2,February,Winter,14.8,10.5,24.5,74,0,5.9,Clear,85,6,11.7,05:59 Ayuk,05:48 Nungthil,Excellent,No,02-11-2025,15-04-2026
+WT000288,MP024,2023,12,December,Winter,12.6,5.7,20.5,69,0,4.6,Rainy,103,9,2.3,04:00 Ayuk,07:21 Nungthil,Excellent,No,13-10-2024,24-12-2026
+WT000309,MP026,2024,9,September,Monsoon,23.9,15.3,28.7,83,139.1,5.3,Foggy,89,6,7.1,05:27 Ayuk,07:05 Nungthil,Poor,No,07-02-2024,10-08-2026
+WT000135,MP012,2023,3,Marchh,Spring,20,11.3,27.1,55,39.7,7.4,Heavy Rain,78,7,3.2,05:38 Ayuk,07:28 Nungthil,Good,No,12-07-2025,22-09-2025
+WT000290,MP025,2023,2,February,Winter,17.5,9.8,24.9,57,37.7,5.5,Foggy,143,6,8.7,04:40 Ayuk,05:00 Nungthil,Excellent,No,17-11-2024,05-03-2025
+WT000103,MP009,2024,7,July,Monsoon,25.2,18.4,31.3,75,225.7,8.1,Partly Cloudy,137,5,5.8,04:03 Ayuk,06:56 Nungthil,Poor,Flood Warning,09-09-2023,25-01-2026
+WT000187,MP016,2025,7,July,Monsoon,27,15.9,31.7,80,242.5,6.4,Cloudy,147,8,9.6,06:44 Ayuk,05:20 Nungthil,Poor,Flood Warning,02-05-2023,08-02-2026
+WT000460,MP039,2023,4,April,Spring,24,14.5,31.5,54,26.2,7.8,Rainy,113,5,11.4,04:43 Ayuk,07:13 Nungthil,Good,No,04-11-2024,06-08-2026
+WT000287,MP024,2024,11,November,Autumn,17,8.9,25.4,68,48,5.8,Sunny,73,7,8.9,05:24 Ayuk,07:49 Nungthil,Good,No,01-12-2025,05-09-2026
+WT000352,MP030,2023,4,April,Spring,24,14.6,32.2,62,80.6,6.1,Sunny,144,4,5.2,05:28 Ayuk,05:27 Nungthil,Good,No,07-03-2024,09-05-2025
+WT000810,MP068,2025,6,June,Summer,27.2,19.2,34.4,75,181.1,9,Cloudy,133,5,9,05:02 Ayuk,05:03 Nungthil,Moderate,Flood Warning,17-09-2024,03-05-2025
+WT000215,MP018,2023,11,November,Autumn,17.5,10.5,24.7,58,50.5,2.7,Cloudy,54,9,7.7,05:23 Ayuk,05:32 Nungthil,Good,No,23-07-2024,11-03-2026
+WT000673,MP057,2025,1,January,Winter,15.4,8.7,22.7,66,41.5,8.1,Foggy,137,5,9.4,04:28 Ayuk,06:56 Nungthil,Excellent,No,24-01-2025,14-07-2025
+WT000636,MP053,2025,12,December,Winter,13.4,6.1,22.2,71,25.7,3.3,Foggy,101,3,3.6,05:42 Ayuk,05:44 Nungthil,Excellent,No,09-12-2024,02-11-2025
+WT000160,MP014,2024,4,April,Spring,24.2,12.9,29.7,71,22.5,6.8,Cloudy,145,5,10.2,04:14 Ayuk,05:02 Nungthil,Good,No,09-04-2024,04-04-2025
+WT000129,MP011,2024,9,September,Monsoon,26.1,14.3,30,87,132.2,8.4,Clear,115,8,5,06:35 Ayuk,07:29 Nungthil,Poor,No,15-04-2023,08-11-2025
+WT000296,MP025,2023,8,August,Monsoon,24.6,16.1,31.5,93,211.3,8.9,Cloudy,106,10,10.4,05:16 Ayuk,06:44 Nungthil,Poor,Flood Warning,21-06-2025,13-01-2025
+WT000172,MP015,2024,4,April,Spring,23.9,15.2,29.7,70,13.1,6.5,Partly Cloudy,114,4,2.5,05:35 Ayuk,05:53 Nungthil,Good,No,03-07-2023,12-01-2026
+WT000799,MP067,2024,7,July,Monsoon,26.5,17.3,31,84,210.9,9.8,Cloudy,103,8,11.6,04:00 Ayuk,06:25 Nungthil,Poor,Flood Warning,09-06-2023,17-06-2026
+WT000784,MP066,2024,4,April,Spring,23.2,12.9,31.1,57,34.8,6,Partly Cloudy,137,7,9.6,06:37 Ayuk,06:29 Nungthil,Good,No,23-02-2024,01-09-2026
+WT000433,MP037,2023,1,January,Winter,15.9,9.1,21.1,63,56.2,7.3,Heavy Rain,135,10,4.9,04:00 Ayuk,06:16 Nungthil,Excellent,No,13-03-2024,14-04-2026
+WT000009,MP001,2024,9,September,Monsoon,23.8,16.2,30.7,85,111.9,6.6,Partly Cloudy,139,6,2.9,06:41 Ayuk,05:33 Nungthil,Poor,No,22-11-2023,12-07-2025
+WT000254,MP022,2025,2,February,Winter,15.8,7.5,24.9,61,48,4.7,Windy,90,7,10.4,06:54 Ayuk,05:13 Nungthil,Excellent,No,03-09-2025,23-11-2025
+WT000431,MP036,2024,11,November,Autumn,17.4,11.5,25.2,64,51.2,3.7,Clear,57,8,11.6,05:38 Ayuk,07:59 Nungthil,Good,No,05-08-2024,17-04-2026
+WT000481,MP041,2025,1,January,Winter,15.7,9.5,20.6,61,1.8,8.8,Sunny,106,9,3.8,06:06 Ayuk,06:30 Nungthil,Excellent,No,05-01-2025,09-01-2026
+WT000148,MP013,2024,4,April,Spring,22.8,15.5,31.1,66,6.2,4.5,Foggy,59,10,4.7,05:32 Ayuk,05:20 Nungthil,Good,No,09-01-2025,24-03-2026
+WT000696,MP058,2024,12,December,Winter,13.9,7,22.5,75,4.1,5.6,Clear,120,6,4.7,04:58 Ayuk,05:35 Nungthil,Excellent,No,04-07-2024,24-10-2026
+WT000498,MP042,2024,6,June,Summer,28.4,18.8,33.8,85,149.8,7.2,Partly Cloudy,64,9,12,06:17 Ayuk,05:34 Nungthil,Moderate,No,11-05-2025,15-04-2026
+WT000349,MP030,2024,1,January,Winter,15.9,8.6,21.9,58,0,6.1,Clear,50,4,8.9,06:57 Ayuk,06:06 Nungthil,Excellent,No,21-10-2023,17-06-2026
+WT000409,MP035,2025,1,January,Winter,13.8,8,22.8,69,61.6,5.6,Heavy Rain,89,3,10.4,04:06 Ayuk,05:13 Nungthil,Excellent,No,04-03-2024,10-10-2026
+WT000525,MP044,2023,9,September,Monsoon,25.1,13.5,30.4,72,93.8,7.9,Cloudy,123,9,6.6,04:44 Ayuk,06:10 Nungthil,Moderate,No,12-06-2024,19-05-2026
+WT000643,MP054,2023,7,July,Monsoon,26.9,16.1,30.7,86,236.2,6.2,Partly Cloudy,134,3,10.8,04:33 Ayuk,05:30 Nungthil,Poor,Flood Warning,18-06-2025,10-12-2025
+WT000829,MP070,2025,1,January,Winter,15.2,8.2,22.5,59,50.1,6.4,Windy,85,9,8.7,04:40 Ayuk,05:44 Nungthil,Excellent,No,06-10-2025,25-06-2025
+WT000227,MP019,2025,11,November,Autumn,17.7,8.7,23.6,56,0,3.9,Sunny,136,6,11,05:21 Ayuk,05:35 Nungthil,Good,No,12-09-2024,09-06-2026
+WT000813,MP068,2024,9,September,Monsoon,25.2,16.4,28.9,72,152.7,8,Heavy Rain,89,7,11.6,05:14 Ayuk,06:47 Nungthil,Poor,No,23-07-2025,18-06-2025
+WT000186,MP016,2025,6,June,Summer,26,17.6,34.5,83,198.2,9.5,Foggy,90,5,6.4,06:27 Ayuk,05:42 Nungthil,Moderate,Heavy Rain Alert,20-01-2023,23-10-2025
+WT000579,MP049,2024,3,March,Spring,21.1,9.5,29.2,68,21.8,6.4,Rainy,62,9,5.7,05:48 Ayuk,06:21 Nungthil,Good,No,06-06-2025,12-03-2025
+WT000330,MP028,2023,6,June,Summer,26.8,18.2,32.7,87,127.2,7.9,Partly Cloudy,145,8,5.3,06:20 Ayuk,07:46 Nungthil,Moderate,No,18-03-2023,21-02-2026
+WT000539,MP045,2023,11,November,Autumn,16.6,8.8,24,60,0,3.3,Windy,105,8,8.1,04:07 Ayuk,06:49 Nungthil,Good,No,17-02-2024,19-04-2025
+WT000840,MP070,2023,12,December,Winter,14.4,7.2,21.6,74,12.7,3.3,Partly Cloudy,148,7,7.3,06:31 Ayuk,06:53 Nungthil,Excellent,No,16-10-2024,18-03-2025
+WT000742,MP062,2024,10,October,Autumn,21.9,12.8,26.8,81,32.7,4.1,Clear,90,7,5.9,04:20 Ayuk,06:21 Nungthil,Good,No,17-08-2025,02-02-2026
+WT000550,MP046,2023,10,October,Autumn,20.9,14.5,26.8,63,82.1,5.2,Sunny,94,9,3.6,05:29 Ayuk,05:36 Nungthil,Good,No,24-11-2025,11-05-2026
+WT000749,MP063,2025,5,May,Summer,25.5,15.1,33.3,61,98.1,8.6,Sunny,141,5,7.4,06:49 Ayuk,07:57 Nungthil,Moderate,No,08-02-2023,04-07-2025
+WT000592,MP050,2025,4,April,Spring,22.9,15.5,32.2,60,57.8,5.3,Sunny,69,10,6.3,04:52 Ayuk,05:42 Nungthil,Good,No,21-05-2023,15-08-2025
+WT000565,MP048,2024,1,January,Winter,14,8.1,21.8,77,4,8.6,Foggy,72,4,3.7,06:05 Ayuk,07:41 Nungthil,Excellent,No,06-07-2025,24-12-2025
+WT000055,MP005,2023,7,July,Monsoon,28,17.5,32.4,78,204.3,7.2,Sunny,128,9,2.4,06:55 Ayuk,05:37 Nungthil,Poor,Flood Warning,02-11-2024,05-03-2025
+WT000519,MP044,2025,3,March,Spring,19.1,10.9,26.8,68,41.9,5.6,Clear,66,8,5.8,04:32 Ayuk,07:13 Nungthil,Good,No,08-01-2023,06-04-2026
+WT000302,MP026,2024,2,February,Winter,14.8,7.5,24.4,65,16.6,5.4,Cloudy,126,7,8.6,04:41 Ayuk,05:30 Nungthil,Excellent,No,04-12-2025,25-07-2025
+WT000175,MP015,2023,7,July,Monsoon,26.6,17.9,31.7,90,249.2,8.1,Partly Cloudy,145,9,7.4,06:10 Ayuk,07:39 Nungthil,Poor,Flood Warning,24-03-2023,15-12-2025
+WT000478,MP040,2024,10,October,Autumn,20.9,13.7,28.1,70,39.5,5.9,Clear,81,6,9.9,05:33 Ayuk,07:51 Nungthil,Good,No,19-01-2025,21-11-2025
+WT000428,MP036,2024,8,August,Monsoon,25.6,15.2,30.4,90,211.7,10,Cloudy,70,9,7.6,06:08 Ayuk,06:48 Nungthil,Poor,Flood Warning,14-07-2023,20-11-2026
+WT000375,MP032,2023,3,Marchh,Spring,18.7,11.3,29.2,58,4,5.2,Cloudy,74,8,8.4,04:33 Ayuk,05:47 Nungthil,Good,No,06-10-2024,13-09-2026
+WT000008,MP001,2025,8,August,Monsoon,25.4,16.8,30.7,82,178.2,8.9,Partly Cloudy,62,8,11.5,05:36 Ayuk,05:45 Nungthil,Poor,No,22-11-2024,11-03-2025
+WT000746,MP063,2025,2,February,Winter,15.7,9.8,23.6,58,5.6,7.9,Sunny,63,3,7.9,04:55 Ayuk,05:35 Nungthil,Excellent,No,21-10-2024,22-07-2026
+WT000059,MP005,2024,11,November,Autumn,17.2,9.5,24.2,66,26.2,2.7,Clear,120,3,10.4,06:10 Ayuk,07:52 Nungthil,Good,No,16-07-2025,24-11-2026
+WT000304,MP026,2025,4,April,Spring,23.1,13.4,31.8,54,52,4.5,Clear,83,4,6.1,05:40 Ayuk,05:01 Nungthil,Good,No,14-07-2023,09-01-2025
+WT000776,MP065,2025,8,August,Monsoon,27.2,17.8,31.9,80,220,8.1,Heavy Rain,116,10,5.7,04:31 Ayuk,07:10 Nungthil,Poor,Flood Warning,18-07-2024,23-09-2026
+WT000321,MP027,2024,9,September,Monsoon,23.5,14.7,29.4,80,124.5,7.2,Rainy,65,8,2.5,04:35 Ayuk,06:04 Nungthil,Poor,No,16-06-2023,19-07-2025
+WT000706,MP059,2023,10,October,Autumn,21.1,12,27.9,67,9.6,4.5,Cloudy,64,9,9.9,05:54 Ayuk,06:42 Nungthil,Good,No,11-09-2023,04-02-2026
+WT000768,MP064,2023,12,December,Winter,13.8,5.8,20.8,64,24.4,6.5,Windy,72,6,11.2,04:34 Ayuk,07:57 Nungthil,Excellent,No,02-12-2024,03-10-2025
+WT000575,MP048,2023,11,November,Autumn,18,9.1,26.2,66,9.9,3.7,Partly Cloudy,125,9,4.3,05:11 Ayuk,07:34 Nungthil,Good,No,11-08-2024,22-10-2026
+WT000205,MP018,2024,1,January,Winter,15.5,7.7,23,74,0,8.6,Rainy,147,5,7.2,05:15 Ayuk,05:18 Nungthil,Excellent,No,05-02-2025,04-04-2026
+WT000291,MP025,2025,3,March,Spring,19.1,10.6,28.6,59,45.9,4.7,Rainy,95,9,3.1,04:43 Ayuk,07:03 Nungthil,Good,No,10-11-2025,22-10-2025
+WT000087,MP008,2025,3,March,Spring,21,9.5,28.4,54,48.3,4.1,Rainy,84,7,8.7,06:14 Ayuk,05:56 Nungthil,Good,No,05-12-2023,20-09-2026
+WT000642,MP054,2024,6,June,Summer,26.8,17.5,33.6,81,169.6,9.4,Foggy,98,4,3.4,05:50 Ayuk,07:13 Nungthil,Moderate,No,25-06-2025,18-12-2026
+WT000277,MP024,2023,1,January,Winter,15.5,8.8,23.2,60,9.2,6.3,Sunny,113,8,10.7,04:06 Ayuk,07:04 Nungthil,Excellent,No,08-03-2025,07-04-2025
+WT000121,MP011,2024,1,January,Winter,14.7,7.9,23.4,65,13.6,7.7,Rainy,114,6,7.7,06:37 Ayuk,07:18 Nungthil,Excellent,No,15-07-2024,24-04-2026
+WT000828,MP069,2023,12,December,Winter,14,7.1,19.7,60,0,4.6,Sunny,97,3,6.8,04:48 Ayuk,06:18 Nungthil,Excellent,No,24-06-2024,02-07-2026
+WT000373,MP032,2023,1,January,Winter,16.3,7.4,21.7,65,24.7,8,Clear,125,4,3.5,06:28 Ayuk,05:34 Nungthil,Excellent,No,13-06-2023,20-11-2026
+WT000612,MP051,2024,12,December,Winter,14.7,8.2,22,74,40.7,6.2,Partly Cloudy,114,8,10,06:15 Ayuk,05:30 Nungthil,Excellent,No,10-03-2023,08-07-2025
+WT000644,MP054,2023,8,August,Monsoon,26.8,15.5,30.9,88,220.8,8.7,Partly Cloudy,50,5,11.1,04:08 Ayuk,06:47 Nungthil,Poor,Flood Warning,19-12-2025,11-06-2025
+WT000500,MP042,2024,8,August,monson,27.1,16.8,30.9,90,196.3,7.1,Sunny,114,9,8.7,04:58 Ayuk,05:52 Nungthil,Poor,Heavy Rain Alert,18-10-2023,10-05-2025
+WT000218,MP019,2025,2,February,Winter,16.7,8.8,24.3,69,33,6.9,Foggy,53,9,8,05:13 Ayuk,05:07 Nungthil,Excellent,No,10-07-2025,24-04-2025
+WT000715,MP060,2023,7,July,Monsoon,26.9,15.9,32.7,75,267.3,8.2,Rainy,99,4,4.4,05:54 Ayuk,05:37 Nungthil,Poor,Flood Warning,14-09-2023,13-05-2026
+WT000378,MP032,2025,6,June,Summer,27.2,16.9,32.8,87,176.3,9.9,Sunny,94,4,9.5,04:59 Ayuk,05:47 Nungthil,Moderate,Heavy Rain Alert,21-09-2024,20-09-2026
+WT000499,MP042,2024,7,July,Monsoon,25.7,17.6,31.7,88,252.1,9,Windy,64,10,9.8,05:36 Ayuk,06:08 Nungthil,Poor,Flood Warning,16-12-2025,24-02-2026
+WT000447,MP038,2023,3,March,Spring,20.8,12,29.2,55,58.9,4.8,Foggy,102,9,9.3,04:35 Ayuk,06:52 Nungthil,Good,No,10-10-2023,20-07-2026
+WT000699,MP059,2023,3,March,Spring,21.1,11.2,29.1,66,2.7,4.8,Foggy,61,6,7.4,06:45 Ayuk,06:22 Nungthil,Good,No,02-02-2024,11-07-2025
+WT000457,MP039,2023,1,January,Winter,14.1,7.2,21.4,67,18.2,7.7,Sunny,89,6,2.9,05:24 Ayuk,07:11 Nungthil,Excellent,No,12-05-2023,10-10-2025
+WT000024,MP002,2025,12,December,Winter,13.6,8.3,20,76,33.2,3.7,Heavy Rain,59,7,10.6,05:32 Ayuk,05:31 Nungthil,Excellent,No,11-07-2023,20-06-2026
+WT000275,MP023,2023,11,November ,Autumn,18.1,11.4,26,72,55.9,5.4,Clear ,94,7,6.6,05:31 Ayuk,05:52 Nungthil,Good,No,21-05-2024,09-05-2026
+WT000093,MP008,2025,9,September,Monsoon,26.1,14.6,30.7,73,105.5,6.6,Cloudy,122,6,8.4,06:32 Ayuk,07:32 Nungthil,Poor,No,10-09-2025,14-06-2026
+WT000003,MP001,2024,3,March,Spring,19.2,12.3,28.8,56,29.1,6.5,Clear,112,10,7.7,05:18 Ayuk,05:40 Nungthil,Good,No,18-09-2023,19-07-2026
+WT000173,MP015,2025,5,May,Summer,27.1,15.9,32,64,46.2,6.2,Sunny,63,3,9.8,06:04 Ayuk,07:17 Nungthil,Moderate,No,22-05-2024,11-03-2026
+WT000483,MP041,2023,3,March,Spring,21.4,11.4,27.6,62,27.2,5.7,Heavy Rain,51,8,4.3,06:51 Ayuk,05:34 Nungthil,Good,No,23-07-2025,23-08-2025
+WT000425,MP036,2023,5,May,Summer,24.6,15.8,32.3,75,65.5,7.5,Foggy,84,6,9.4,05:25 Ayuk,07:02 Nungthil,Moderate,No,22-10-2023,15-11-2025
+WT000366,MP031,2024,6,June,Summer,27.9,17.8,33.8,70,172.3,9.9,Clear,92,3,7.1,04:51 Ayuk,05:42 Nungthil,Moderate,Flood Warning,15-05-2025,10-07-2026
+WT000475,MP040,2025,7,July,Monsoon,27.1,18.4,33.1,77,265.6,9.5,Sunny,130,4,5.9,05:35 Ayuk,07:08 Nungthil,Poor,Flood Warning,05-12-2023,08-08-2025
+WT000660,MP055,2024,12,December,Winter,14.9,6.6,22.1,74,50.2,6.9,Foggy,91,3,9.6,06:46 Ayuk,06:41 Nungthil,Excellent,No,23-10-2023,21-03-2025
+WT000451,MP038,2025,7,July,Monsoon,25.5,16.2,33.1,93,242.2,8.9,Partly Cloudy,105,9,9.6,04:06 Ayuk,07:22 Nungthil,Poor,Flood Warning,07-01-2024,25-07-2026
+WT000777,MP065,2024,9,September,Monsoon,24,14.3,30.6,84,91.6,6.9,Cloudy,79,3,4.2,05:16 Ayuk,05:13 Nungthil,Moderate,No,20-08-2023,22-05-2026
+WT000708,MP059,2023,12,December,Winter,14.6,6.6,19.8,72,0,5.9,Windy,148,7,11.3,06:57 Ayuk,06:50 Nungthil,Excellent,No,17-02-2025,22-11-2026
+WT000618,MP052,2025,6,June,Summer,25.9,17.9,33.9,85,198.6,9.4,Windy,81,8,7.1,06:34 Ayuk,07:43 Nungthil,Moderate,No,02-05-2025,23-07-2026
+WT000466,MP039,2023,10,October,Autumn,22.9,12.4,27.1,66,47.2,5.5,Foggy,70,6,10.5,04:59 Ayuk,07:32 Nungthil,Good,No,16-02-2023,07-10-2026
+WT000568,MP048,2024,4,April,Spring,23.9,15.3,30.7,65,49.2,6.2,Partly Cloudy,139,4,10.4,06:31 Ayuk,06:33 Nungthil,Good,No,06-11-2024,05-11-2026
+WT000066,MP006,2023,6,June,Summer,25.6,16.7,35.1,75,184.3,7.4,Foggy,136,6,6.5,05:15 Ayuk,06:41 Nungthil,Moderate,Flood Warning,22-06-2023,05-03-2025
+WT000007,MP001,2023,7,July,Monsoon,27.9,17.7,32.1,80,222.7,6.6,Cloudy,79,10,10,04:51 Ayuk,06:55 Nungthil,Poor,Flood Warning,10-10-2023,02-09-2026
+WT000435,MP037,2025,3,March,Spring,19.5,11,29.2,57,38.7,6.4,Cloudy,79,3,11.1,06:29 Ayuk,06:51 Nungthil,Good,No,01-03-2025,25-09-2026
+WT000311,MP026,2025,11,November,Autumn,17.9,11.1,25.3,72,47.9,2.9,Cloudy,106,4,4.6,06:37 Ayuk,05:10 Nungthil,Good,No,03-08-2025,23-06-2026
+WT000213,MP018,2023,9,September,Monsoon,25.2,14.6,29.7,75,100.2,6.9,Cloudy,72,8,8.8,05:22 Ayuk,06:21 Nungthil,Poor,No,15-03-2023,19-12-2026
+WT000050,MP005,2024,2,February,Winter,14.7,9.5,23.8,69,51.6,6.4,Rainy,100,6,7.3,05:17 Ayuk,05:29 Nungthil,Excellent,No,06-02-2023,09-12-2025
+WT000770,MP065,2024,2,February,Winter,15.2,7.8,24.9,58,25.7,4.7,Partly Cloudy,57,4,4.2,05:41 Ayuk,06:22 Nungthil,Excellent,No,06-05-2023,15-07-2026
+WT000356,MP030,2025,8,August,Monsoon,25.6,15.5,30.4,92,182.1,6.9,Partly Cloudy,115,3,11.9,04:53 Ayuk,06:27 Nungthil,Poor,Flood Warning,11-09-2023,17-10-2026
+WT000183,MP016,2025,3,March,Spring,20.2,10.8,26.9,67,46.8,6.7,Rainy,92,10,6.9,04:08 Ayuk,06:40 Nungthil,Good,No,15-01-2023,02-02-2026
+WT000615,MP052,2024,3,March,Spring,19.1,10.9,28.1,59,45,6.2,Clear,86,4,2.6,05:29 Ayuk,05:10 Nungthil,Good,No,04-01-2025,15-11-2025
+WT000392,MP033,2024,8,August,Monsoon,26.7,16.8,31.2,90,177.8,7.6,Windy,70,8,2.1,04:35 Ayuk,05:00 Nungthil,Poor,Flood Warning,23-07-2024,08-11-2025
+WT000089,MP008,2023,5,May,Summer,26.3,16.5,31.6,79,78.9,6,Rainy,75,8,4.2,04:01 Ayuk,06:30 Nungthil,Moderate,No,15-02-2023,03-01-2026
+WT000650,MP055,2024,2,February,Winter,17.4,10.2,23.9,73,6.5,4.2,Partly Cloudy,129,8,10,04:58 Ayuk,07:10 Nungthil,Excellent,No,08-10-2024,02-11-2025
+WT000430,MP036,2023,10,October,Autumn,22,13.7,28.8,78,10.7,3.9,Rainy,53,8,7.3,04:30 Ayuk,05:53 Nungthil,Good,No,18-03-2025,11-10-2025
+WT000485,MP041,2023,5,May,Summer,25.9,16.2,33.6,68,35.9,8.5,,107,5,6.1,04:39 Ayuk,05:34 Nungthil,Moderate,,21-03-2024,14-09-2025
+WT000611,MP051,2025,11,November,Autumn,18.6,10.8,24.7,68,0,3.9,Heavy Rain,89,3,2.6,05:43 Ayuk,06:11 Nungthil,Good,No,20-04-2024,08-06-2025
+WT000021,MP002,2025,9,September,Monsoon,25.1,15.8,28.9,71,158.2,5.7,Foggy,89,4,7.1,06:37 Ayuk,07:58 Nungthil,Poor,No,06-05-2023,06-01-2026
+WT000779,MP065,2023,11,November,Autumn,17,10.9,26.1,68,0,3.5,Windy,63,4,4.1,05:01 Ayuk,06:56 Nungthil,Good,No,07-04-2025,23-02-2026
+WT000192,MP016,2025,12,December,Winter,15.5,6.2,21.7,68,0,5.1,Cloudy,133,7,7.8,06:50 Ayuk,07:37 Nungthil,Excellent,No,12-11-2023,25-04-2025
+WT000005,MP001,2024,5,May,Summer,25,17.1,34.2,67,109.7,5.3,,134,3,5.4,06:52 Ayuk,07:29 Nungthil,Moderate,,12-03-2025,19-02-2025
+WT000785,MP066,2024,5,May,Summer,25.9,15.7,33.7,76,75,7.2,Windy,122,7,5.7,06:54 Ayuk,07:55 Nungthil,Moderate,No,03-05-2025,03-09-2025
+WT000648,MP054,2023,12,December,Winter,13.5,6.5,21.4,60,30.6,3.6,Sunny,87,7,10.3,06:09 Ayuk,06:53 Nungthil,Excellent,No,03-12-2024,12-05-2026
+WT000506,MP043,2025,2,February,Winter,14.9,9.8,24,55,23,7.5,Rainy,92,6,9.2,06:03 Ayuk,07:17 Nungthil,Excellent,No,09-02-2024,19-07-2025
+WT000130,MP011,2024,10,October,Autumn,22.9,12.4,29.1,64,56.5,3.3,,74,6,8.6,06:03 Ayuk,06:22 Nungthil,Good,,04-02-2024,23-12-2025
+WT000395,MP033,2025,11,November ,Autumn,16.7,10.7,25.1,63,6,4.7,Rainy ,72,10,9.7,05:04 Ayuk,06:57 Nungthil,Good,No,16-07-2024,22-02-2026
+WT000168,MP014,2024,12,December,Winter,14.1,5.6,19.6,64,38.7,3.2,Heavy Rain,68,4,9.1,04:39 Ayuk,07:38 Nungthil,Excellent,No,20-01-2024,02-12-2025
+WT000830,MP070,2025,2,February,Winter,15.2,8.6,25.5,58,9.4,6,Windy,108,6,7.6,05:44 Ayuk,07:07 Nungthil,Excellent,No,07-07-2023,14-05-2025
+WT000232,MP020,2024,4,April,Spring,22.9,13.5,30.3,53,42.9,7.5,Heavy Rain,96,4,4,04:21 Ayuk,06:03 Nungthil,Good,No,09-10-2025,15-06-2026
+WT000493,MP042,2024,1,January,Winter,13.8,8.1,21.7,72,41.3,8.9,Partly Cloudy,141,8,6.5,06:00 Ayuk,07:38 Nungthil,Excellent,No,06-04-2023,01-03-2025
+WT000018,MP002,2023,6,June,Summer,25.6,16.9,34,74,142.3,9.3,Heavy Rain,88,6,2.2,05:23 Ayuk,06:10 Nungthil,Moderate,No,07-10-2023,21-01-2026
+WT000709,MP060,2025,1,January,Winter,14.9,7.8,21,68,34.9,8.4,Heavy Rain,129,5,2.1,04:51 Ayuk,07:19 Nungthil,Excellent,No,12-04-2023,05-07-2026
+WT000593,MP050,2025,5,May,Summer,27.5,15.6,33.6,69,35.7,5.2,Clear,138,7,3.1,04:20 Ayuk,07:53 Nungthil,Moderate,No,05-03-2023,19-10-2026
+WT000596,MP050,2025,8,August,Monsoon,24.7,15.8,32.4,92,220.9,9.7,Foggy,67,3,4.9,04:39 Ayuk,07:56 Nungthil,Poor,Flood Warning,18-12-2025,19-11-2025
+WT000818,MP069,2025,2,February,Winter,14.8,10.2,24.4,58,36.4,6.5,Windy,113,7,8.3,04:50 Ayuk,05:57 Nungthil,Excellent,No,05-11-2024,15-11-2025
+WT000732,MP061,2025,12,December,Winter,14.4,6.9,20.6,75,17.7,3.1,Foggy,108,4,7.6,06:50 Ayuk,07:28 Nungthil,Excellent,No,17-01-2024,05-04-2025
+WT000454,MP038,2025,10,October,Autumn,22.3,13.1,27.6,78,50.9,4.2,Foggy,86,5,6.7,06:41 Ayuk,06:25 Nungthil,Good,No,01-04-2025,18-11-2025
+WT000594,MP050,2023,6,June,Summer,27.4,19,32.7,68,198.3,9.1,Windy,100,4,10.9,05:36 Ayuk,07:37 Nungthil,Moderate,Heavy Rain Alert,06-09-2025,13-07-2026
+WT000307,MP026,2024,7,July,Monsoon,25,17.6,32.6,78,269.3,7.5,Clear,52,7,2.5,06:18 Ayuk,05:06 Nungthil,Poor,Flood Warning,10-11-2024,08-05-2026
+WT000085,MP008,2025,1,January,Winter,16.3,7.9,20.9,60,2.4,8.9,Rainy,143,4,11.3,05:07 Ayuk,07:40 Nungthil,Excellent,No,01-01-2024,10-09-2025
+WT000821,MP069,2025,5,May,Summer,26.9,17.5,34.5,71,112.5,6.4,Cloudy,112,8,8.2,05:55 Ayuk,06:28 Nungthil,Moderate,No,19-02-2023,15-02-2025
+WT000206,MP018,2023,2,February,Winter,16.8,10.4,24.3,55,0,7.8,Cloudy,90,10,11.1,06:34 Ayuk,06:50 Nungthil,Excellent,No,02-07-2024,05-08-2025
+WT000772,MP065,2024,4,April,Spring,23.5,15.5,29.8,61,65,7,Rainy,74,5,2.6,04:38 Ayuk,06:47 Nungthil,Good,No,11-01-2024,15-03-2025
+WT000185,MP016,2023,5,May,Summer,24.9,16.1,33.9,69,58.7,7.6,Sunny,73,9,8.1,05:12 Ayuk,05:08 Nungthil,Moderate,No,11-01-2025,23-05-2025
+WT000176,MP015,2024,8,August,Monsoon,26.2,15.3,31.1,82,202.8,6.1,Windy,69,4,11.3,05:41 Ayuk,06:35 Nungthil,Poor,Flood Warning,14-03-2024,20-08-2025
+WT000204,MP017,2025,12,December,Winter,15.4,6.9,20.1,71,0,6.8,Clear,70,7,10.6,04:36 Ayuk,06:04 Nungthil,Excellent,No,16-07-2024,04-03-2026
+WT000381,MP032,2024,9,September,Monsoon,23.8,14.3,29.8,77,145.7,5.2,Heavy Rain,96,3,4.4,06:29 Ayuk,06:18 Nungthil,Poor,No,23-03-2023,04-12-2026
+WT000115,MP010,2025,7,July,Monsoon,26.9,18.5,32,92,210.9,7.1,Rainy,106,4,11.8,06:32 Ayuk,06:02 Nungthil,Poor,Flood Warning,19-02-2023,09-06-2025
+WT000449,MP038,2024,5,May,Summer,26.2,17.2,33.6,70,49.2,6.3,Foggy,148,8,2.3,06:48 Ayuk,06:11 Nungthil,Moderate,No,17-08-2024,12-04-2026
+WT000299,MP025,2024,11,November,Autumn,18.5,9.6,24.2,60,31.7,5.5,Heavy Rain,116,6,2.1,04:47 Ayuk,06:05 Nungthil,Good,No,12-04-2023,09-11-2025
+WT000084,MP007,2023,12,December,Winter,12.8,6.4,21,78,8.4,4.9,Partly Cloudy,138,4,2.2,05:30 Ayuk,06:00 Nungthil,Excellent,No,17-12-2025,13-06-2026
+WT000154,MP013,2024,10,October,Autumn,23.2,12.4,29.2,80,68.1,4.9,Foggy,66,10,11.3,04:06 Ayuk,06:31 Nungthil,Good,No,15-07-2024,09-05-2025
+WT000702,MP059,2023,6,June,Summer,27.9,19.1,33.6,82,146,8.5,Foggy,123,8,10.3,06:57 Ayuk,05:59 Nungthil,Moderate,No,06-12-2024,11-12-2025
+WT000255,MP022,2023,3,Marchh,Spring,19.1,12.4,29,54,59.4,7.8,Windy,107,3,4,04:00 Ayuk,05:07 Nungthil,Good,No,14-04-2025,08-07-2025
+WT000647,MP054,2024,11,November,Autumn,17.6,9.9,25.3,62,35.2,5,Heavy Rain,79,7,10.2,05:12 Ayuk,05:15 Nungthil,Good,No,08-12-2023,05-01-2025
+WT000495,MP042,2023,3,Marchh,Spring,20.3,11.1,27.6,51,7.5,5.5,Cloudy,101,5,2.3,05:56 Ayuk,05:49 Nungthil,Good,No,16-05-2024,23-03-2025
+WT000219,MP019,2023,3,March,Spring,21.4,11.7,27.6,64,47.5,4.3,Cloudy,110,10,2.2,04:06 Ayuk,05:59 Nungthil,Good,No,09-08-2025,07-07-2025
+WT000385,MP033,2024,1,January,Winter,15.4,22.7,8.1,66,42.9,6.3,Rainy,86,7,11.5,05:26 Ayuk,05:26 Nungthil,Excellent,No,21-11-2025,23-03-2025
+WT000347,MP029,2023,11,November,Autumn,18.9,9.7,24,59,0,5,Partly Cloudy,58,6,7.3,05:04 Ayuk,07:55 Nungthil,Good,No,23-09-2024,20-10-2026
+WT000196,MP017,2024,4,April,Spring,24,12.7,31.6,65,56.8,4.2,Windy,76,6,3.5,04:03 Ayuk,05:50 Nungthil,Good,No,16-01-2024,13-05-2025
+WT000336,MP028,2024,12,December,Winter,14.2,8.4,21,71,9.3,4.1,Windy,142,5,4.2,05:14 Ayuk,07:08 Nungthil,Excellent,No,19-12-2024,11-10-2025
+WT000491,MP041,2025,11,November,Autumn,18.5,9.5,23.6,57,34.3,2.5,Rainy,81,9,8.3,05:36 Ayuk,07:36 Nungthil,Good,No,18-10-2024,14-05-2025
+WT000161,MP014,2024,5,May,Summer,26,15,33,76,81.1,8.3,Cloudy,100,3,7.3,05:15 Ayuk,05:41 Nungthil,Moderate,No,17-11-2025,03-11-2026
+WT000156,MP013,2025,12,December,Winter,14.8,5.6,21.1,64,0,5.9,Sunny,113,6,3.2,05:24 Ayuk,06:48 Nungthil,Excellent,No,25-02-2023,22-09-2026
+WT000243,MP021,2023,3,March,Spring,20.4,10.6,28.3,55,64.2,4.7,Cloudy,125,9,11.2,05:10 Ayuk,06:20 Nungthil,Good,No,08-03-2025,03-03-2026
+WT000619,MP052,2024,7,July,Monsoon,26.5,17.1,31.4,91,231.3,9.5,Partly Cloudy,98,10,11.2,05:05 Ayuk,06:16 Nungthil,Poor,Flood Warning,09-07-2024,05-08-2026
+WT000278,MP024,2025,2,February,Winter,17.4,7.7,23.1,63,36,5,Clear,93,10,4.8,06:24 Ayuk,05:19 Nungthil,Excellent,No,08-04-2024,21-09-2026
+WT000490,MP041,2024,10,October,Autumn,22.8,12.3,27.4,80,69.5,3.9,,60,3,7.5,06:56 Ayuk,06:16 Nungthil,Good,,07-03-2024,19-04-2025
+WT000199,MP017,2024,7,July,Monsoon,25.4,16.6,32.7,75,190.2,8.8,Sunny,148,9,5.5,06:12 Ayuk,05:35 Nungthil,Poor,Heavy Rain Alert,22-11-2024,15-11-2026
+WT000693,MP058,2025,9,September,Monsoon,24.4,15.3,29.4,83,91.4,8.9,Foggy,115,4,2.2,05:00 Ayuk,06:54 Nungthil,Moderate,No,18-02-2023,04-11-2025
+WT000712,MP060,2024,4,April,Spring,22.9,14.8,30.5,63,46.1,5.7,Heavy Rain,78,9,9.9,06:53 Ayuk,07:47 Nungthil,Good,No,08-07-2023,02-03-2025
+WT000251,MP021,2024,11,November,Autumn,17.4,10.7,26.2,73,57.9,3.2,Heavy Rain,142,4,8.9,06:41 Ayuk,05:40 Nungthil,Good,No,02-08-2024,18-12-2025
+WT000342,MP029,2024,6,June,Summer,26.1,18,35.2,83,141.9,9.2,Clear,117,10,10.7,05:13 Ayuk,05:38 Nungthil,Moderate,No,02-06-2023,14-01-2025
+WT000630,MP053,2024,6,June,Summer,26.8,16.6,35.2,85,145.7,8,Cloudy,141,3,10.9,04:04 Ayuk,05:52 Nungthil,Moderate,No,24-03-2025,12-04-2026
+WT000216,MP018,2024,12,December,Winter,15.5,6.4,20.8,70,49.3,5,Heavy Rain,65,3,4.5,06:30 Ayuk,06:19 Nungthil,Excellent,No,19-08-2024,21-08-2025
+WT000836,MP070,2023,8,August,Monsoon,25.7,16.6,30.8,93,204.7,8,Rainy,88,10,9.7,05:10 Ayuk,07:37 Nungthil,Poor,Flood Warning,13-09-2023,03-07-2026
+WT000351,MP030,2024,3,March,Spring,20.7,11.1,26.8,50,49.1,7.7,Rainy,128,5,5.6,05:55 Ayuk,07:32 Nungthil,Good,No,17-03-2024,10-06-2025
+WT000505,MP043,2023,1,January,Winter,16.1,23.9,8.3,71,32.8,7.1,Cloudy,92,5,11.4,06:16 Ayuk,07:16 Nungthil,Excellent,No,17-11-2025,25-06-2026
+WT000472,MP040,2024,4,April,Spring,23.3,12.9,32.1,69,60.2,7.8,Partly Cloudy,112,3,8.2,04:32 Ayuk,05:25 Nungthil,Good,No,04-06-2024,20-04-2026
+WT000001,MP001,2024,1,January,Winter,14.6,6.6,21.5,66,0,5.4,Windy,84,8,10.3,04:01 Ayuk,05:38 Nungthil,Excellent,No,14-05-2023,17-06-2025
+WT000312,MP026,2025,12,December,Winter,13.1,6.2,22.3,74,0,5.7,Rainy,124,6,5.1,06:27 Ayuk,06:10 Nungthil,Excellent,No,20-06-2025,04-04-2026
+WT000298,MP025,2023,10,October,Autumn,22,12.2,28.9,81,67.6,6,Sunny,123,8,10.8,04:44 Ayuk,05:59 Nungthil,Good,No,12-12-2025,19-09-2026
+WT000698,MP059,2025,2,February,Winter,15.8,9.9,23.9,74,4.9,4.9,Clear,73,5,8.8,05:27 Ayuk,06:39 Nungthil,Excellent,No,19-11-2025,17-04-2025
+WT000320,MP027,2024,8,August,Monsoon,24.6,17,29.7,92,178.1,7.4,Foggy,110,8,8.9,06:11 Ayuk,05:52 Nungthil,Poor,Flood Warning,12-08-2024,12-02-2026
+WT000458,MP039,2025,2,February,Winter,15.5,8.9,23.8,56,31.6,6.9,Heavy Rain,102,3,9.2,05:30 Ayuk,06:35 Nungthil,Excellent,No,02-02-2025,05-10-2025
+WT000844,MP031,2023,1,January,Winter,15,9.1,21,76,5.9,8.4,Windy,82,4,5.3,06:57 Ayuk,07:51 Nungthil,Excellent,No,10-07-2024,05-03-2026
+WT000816,MP068,2023,12,December,Winter,14.6,8.2,19.5,62,45.8,6.7,Rainy,132,4,8.7,05:14 Ayuk,05:18 Nungthil,Excellent,No,06-03-2024,02-09-2026
+WT000562,MP047,2025,10,October,Autumn,23.2,13.3,27.2,76,77.5,5.6,Partly Cloudy,100,5,4,05:11 Ayuk,07:12 Nungthil,Good,No,24-01-2023,15-09-2025
+WT000040,MP004,2023,4,April,Spring,23.1,13.2,31.9,65,70.1,5.5,Sunny,115,4,3.6,05:57 Ayuk,05:02 Nungthil,Good,No,15-10-2023,25-03-2026
+WT000581,MP049,2025,5,May,Summer,25.3,17.3,32.9,60,102.6,6.2,Clear,96,9,7.3,05:03 Ayuk,07:11 Nungthil,Moderate,No,18-01-2023,09-10-2026
+WT000012,MP001,2024,12,December,Winter,13.9,8,21.3,79,6.5,3.6,Cloudy,105,4,7.3,04:57 Ayuk,06:28 Nungthil,Excellent,No,18-09-2025,16-05-2025
+WT000423,MP036,2025,3,March,Spring,20.6,10.2,28.4,64,23.5,4.2,Partly Cloudy,53,9,11.3,04:38 Ayuk,05:02 Nungthil,Good,No,04-08-2024,13-12-2026
+WT000826,MP069,2024,10,October,Autumn,22.2,12.8,27.1,79,6.1,6.4,Partly Cloudy,128,10,9.9,04:05 Ayuk,07:46 Nungthil,Good,No,24-04-2025,18-08-2025
+WT000134,MP012,2025,2,February,Winter,14.8,9.4,24.7,57,46.2,5.7,Heavy Rain,118,3,4.2,05:16 Ayuk,07:20 Nungthil,Excellent,No,25-09-2025,22-04-2025
+WT000367,MP031,2024,7,July,Monsoon,25.1,17.3,31.6,75,199.7,7,Clear,56,4,5.2,06:02 Ayuk,07:31 Nungthil,Poor,Flood Warning,10-08-2024,25-07-2026
+WT000616,MP052,2024,4,April,Spring,22,14.8,30.5,55,12.5,6,Rainy,76,7,8.7,04:11 Ayuk,06:57 Nungthil,Good,No,23-10-2023,21-12-2026
+WT000157,MP014,2025,1,January,Winter,15.5,7.4,22.7,58,0,7.1,Foggy,136,6,5.3,06:44 Ayuk,07:49 Nungthil,Excellent,No,20-09-2025,17-05-2025
+WT000576,MP048,2023,12,December,Winter,13.6,6,22.5,72,0,6.4,Partly Cloudy,118,3,5.6,05:35 Ayuk,07:18 Nungthil,Excellent,No,21-08-2024,15-11-2026
+WT000345,MP029,2024,9,September,Monsoon,25.6,13.9,30,79,125.7,8.1,Partly Cloudy,127,5,2.5,06:31 Ayuk,07:14 Nungthil,Poor,No,21-05-2024,14-04-2026
+WT000704,MP059,2023,8,August,Monsoon,26,17.2,32.4,90,189.5,7.5,Sunny,143,5,2.9,05:16 Ayuk,05:52 Nungthil,Poor,No,19-08-2024,25-02-2025
+WT000827,MP069,2023,11,November,Autumn,19,10.1,24.8,63,13.2,5.1,Cloudy,139,7,3.9,04:11 Ayuk,07:37 Nungthil,Good,No,04-12-2024,09-08-2025
+WT000756,MP063,2024,12,December,Winter,13.2,6.8,22.4,71,26.1,5.2,Partly Cloudy,134,4,11.8,04:04 Ayuk,05:15 Nungthil,Excellent,No,23-12-2023,08-05-2025
+WT000244,MP021,2023,4,April,Spring,23.5,12.8,29.5,61,53.7,6.1,Heavy Rain,80,3,3.2,06:13 Ayuk,07:38 Nungthil,Good,No,21-01-2025,13-03-2026
+WT000837,MP070,2024,9,September,Monsoon,26.1,16.1,30.1,77,100.8,5.3,Sunny,103,7,6.4,06:24 Ayuk,06:07 Nungthil,Poor,No,12-04-2025,12-05-2026
+WT000310,MP026,2025,10,October,Autumn,21.1,13.3,28.9,64,21.8,6.8,Partly Cloudy,85,6,4.7,05:31 Ayuk,06:53 Nungthil,Good,No,21-06-2024,07-10-2025
+WT000340,MP029,2025,4,April,Spring,22.4,14.9,32.2,67,30.2,6.1,Foggy,108,6,9.8,06:40 Ayuk,05:25 Nungthil,Good,No,08-08-2024,05-01-2025
+WT000417,MP035,2025,9,September,Monsoon,26.1,15.3,31.3,84,103.1,5.1,Clear,147,6,10.2,05:35 Ayuk,07:55 Nungthil,Poor,No,05-11-2024,01-07-2025
+WT000681,MP057,2025,9,September,Monsoon,24.8,14.5,29.6,89,128.2,8.4,Heavy Rain,138,5,5.1,04:48 Ayuk,05:32 Nungthil,Poor,No,17-08-2023,07-08-2025
+WT000408,MP034,2023,12,December,Winter,15.2,5.6,20.6,75,21,4.3,Cloudy,63,3,10,04:48 Ayuk,05:37 Nungthil,Excellent,No,09-09-2023,05-03-2025
+WT000091,MP008,2025,7,July,Monsoon,26,16.2,32.7,87,197.2,8,Cloudy,66,5,7.9,05:27 Ayuk,06:36 Nungthil,Poor,No,25-02-2025,02-12-2025
+WT000099,MP009,2023,3,March,Spring,20.5,11.6,28.1,60,15.4,6.2,Windy,66,8,3,05:48 Ayuk,05:29 Nungthil,Good,No,14-12-2025,18-07-2025
+WT000610,MP051,2025,10,October,Autumn,20.6,13.4,27,67,10.5,4.2,Clear,74,8,3.8,06:07 Ayuk,06:05 Nungthil,Good,No,03-07-2023,17-05-2025
+WT000038,MP004,2024,2,February,Winter,15.1,7.9,25,74,0,4.5,Windy,112,4,5.7,04:53 Ayuk,06:39 Nungthil,Excellent,No,16-04-2025,07-12-2026
+WT000239,MP020,2025,11,November,Autumn,19.1,10.5,25.8,60,0,4.8,Sunny,111,3,3.1,05:27 Ayuk,06:04 Nungthil,Good,No,08-06-2023,02-11-2025
+WT000143,MP012,2025,11,November,Autumn,18.1,10.4,24.2,73,28.8,5.5,Foggy,117,5,5,06:29 Ayuk,07:35 Nungthil,Good,No,18-02-2025,22-07-2026
+WT000081,MP007,2023,9,September,Monsoon,25.2,14.4,30,79,147.2,7,Heavy Rain,67,3,5.2,04:39 Ayuk,05:32 Nungthil,Poor,No,20-11-2025,24-12-2025
+WT000079,MP007,2023,7,July,Monsoon,27,15.6,31.3,85,226.5,8.7,Foggy,137,7,11.7,05:44 Ayuk,06:33 Nungthil,Poor,Flood Warning,08-03-2025,19-03-2025
+WT000107,MP009,2024,11,November,Autumn,18.5,8.6,25.2,55,5.3,5.4,Cloudy,67,6,6.8,04:12 Ayuk,05:56 Nungthil,Good,No,02-12-2023,16-02-2026
+WT000775,MP065,2023,7,July,Monsoon,25.4,17.7,33.1,87,246.7,6.9,Partly Cloudy,125,9,9.2,06:18 Ayuk,06:02 Nungthil,Poor,Flood Warning,17-11-2024,21-03-2026
+WT000380,MP032,2024,8,August,monson,25.2,15.2,32.1,81,174,9.8,Cloudy,117,6,2.6,04:13 Ayuk,05:42 Nungthil,Poor,Flood Warning,08-04-2024,06-05-2025
+WT000652,MP055,2024,4,April,Spring,24,14.2,31.1,67,54.8,6.4,Cloudy,113,5,7,04:48 Ayuk,06:39 Nungthil,Good,No,17-05-2023,11-06-2026
+WT000683,MP057,2025,11,November,Autumn,17.2,11,24.4,58,17.4,4.8,Heavy Rain,74,5,7.8,06:03 Ayuk,05:59 Nungthil,Good,No,21-07-2024,15-03-2025
+WT000741,MP062,2024,9,September,Monsoon,25.4,15.7,30.6,73,152.3,5.6,Windy,102,9,3,06:01 Ayuk,07:19 Nungthil,Poor,No,17-11-2025,18-10-2026
+WT000621,MP052,2025,9,September,Monsoon,25.4,13.6,29.5,88,150.8,7,Heavy Rain,105,10,2.2,04:23 Ayuk,07:57 Nungthil,Poor,No,01-08-2023,03-07-2025
+WT000582,MP049,2024,6,June,Summer,27.5,16.7,34.2,78,179,9.7,Sunny,99,4,3.1,04:48 Ayuk,07:52 Nungthil,Moderate,Flood Warning,06-09-2025,24-06-2026
+WT000170,MP015,2023,2,February,Winter,15.3,7.7,24.6,62,5.9,6.9,Cloudy,70,5,3.4,04:13 Ayuk,05:54 Nungthil,Excellent,No,03-04-2024,18-06-2025
+WT000274,MP023,2023,10,October,Autumn,21.9,12,29.3,72,33,5.5,Sunny,69,7,8.3,04:52 Ayuk,07:44 Nungthil,Good,No,15-03-2023,02-12-2026
+WT000316,MP027,2024,4,April,Spring,21.7,12.8,32.4,69,36.3,7,Foggy,76,7,5.3,05:00 Ayuk,07:00 Nungthil,Good,No,07-01-2024,25-07-2025
+WT000247,MP021,2024,7,July,Monsoon,27.5,16.3,31,83,229.8,9.7,Foggy,94,6,8.6,05:31 Ayuk,06:42 Nungthil,Poor,Flood Warning,11-03-2023,20-12-2025
+WT000807,MP068,2024,3,March,Spring,20.7,10.7,29.3,50,0.4,5.4,Foggy,77,3,4.9,06:30 Ayuk,05:10 Nungthil,Good,No,16-09-2025,23-09-2026
+WT000051,MP005,2024,3,March,Spring,19.7,11.2,27.2,63,16.8,6,Sunny,99,6,9.3,06:29 Ayuk,05:55 Nungthil,Good,No,11-12-2024,19-10-2025
+WT000790,MP066,2024,10,October,Autumn,23.1,11.6,27,80,60.6,6.7,Heavy Rain,119,7,6.6,05:45 Ayuk,06:06 Nungthil,Good,No,07-12-2024,21-09-2026
+WT000480,MP040,2025,12,December,Winter,15.2,7.2,19.8,65,27.1,4.9,Clear,124,9,5.3,04:04 Ayuk,07:20 Nungthil,Excellent,No,25-02-2023,04-05-2025
+WT000737,MP062,2025,5,May,Summer,25.5,16.9,34.1,75,108.8,8.3,Sunny,97,3,7.5,04:39 Ayuk,06:56 Nungthil,Moderate,No,13-07-2024,12-11-2026
+WT000625,MP053,2025,1,January,Winter,14.3,6.9,21.4,60,29.2,7.4,Sunny,143,8,3.1,05:43 Ayuk,06:17 Nungthil,Excellent,No,24-10-2024,15-05-2025
+WT000369,MP031,2025,9,September,Monsoon,25.8,14.4,30.9,74,104,5.1,Rainy,141,9,9.9,04:20 Ayuk,05:52 Nungthil,Poor,No,24-05-2024,24-01-2026
+WT000758,MP064,2025,2,February,Winter,14.7,9.9,22.7,61,28.9,7.7,Cloudy,92,7,7.9,04:43 Ayuk,06:32 Nungthil,Excellent,No,14-06-2023,14-06-2025
+WT000697,MP059,2024,1,January,Winter,15.3,8.2,20.7,69,4.7,5.4,Partly Cloudy,143,8,5,05:15 Ayuk,07:18 Nungthil,Excellent,No,14-11-2025,04-02-2026
+WT000421,MP036,2025,1,January,Winter,16.1,7,22.9,75,0,8.6,Foggy,60,6,2.5,04:15 Ayuk,05:27 Nungthil,Excellent,No,09-10-2023,23-04-2026
+WT000645,MP054,2024,9,September,Monsoon,25.9,16.4,30.2,87,114.7,5.2,Rainy,107,3,8.1,06:23 Ayuk,07:54 Nungthil,Poor,No,20-02-2024,14-01-2026
+WT000335,MP028,2024,11,November,Autumn,17.7,10,25.5,61,7.3,5.3,Heavy Rain,108,3,2,04:33 Ayuk,06:22 Nungthil,Good,No,23-10-2025,18-04-2025
+WT000484,MP041,2025,4,April,Spring,22.2,13.4,31.9,54,36.9,4.1,Heavy Rain,83,5,6.3,06:30 Ayuk,07:53 Nungthil,Good,No,23-11-2025,24-12-2025
+WT000563,MP047,2024,11,November,Autumn,17.4,9.9,24.2,57,0,5.5,Foggy,130,9,4,06:00 Ayuk,07:10 Nungthil,Good,No,19-08-2023,03-12-2025
+WT000795,MP067,2024,3,March,Spring,20.6,11,26.5,59,0,5.2,Sunny,133,8,5.6,04:21 Ayuk,06:35 Nungthil,Good,No,03-06-2023,05-10-2025
+WT000623,MP052,2025,11,November,Autumn,17.7,10.2,24.3,58,13.1,4.8,Foggy,62,4,9.8,04:32 Ayuk,05:50 Nungthil,Good,No,02-01-2025,21-09-2026
+WT000222,MP019,2024,6,June,Summer,28.1,17.4,32.5,75,173.2,6.2,Foggy,58,6,2.2,04:37 Ayuk,07:43 Nungthil,Moderate,Heavy Rain Alert,13-08-2025,18-03-2026
+WT000635,MP053,2025,11,November,Autumn,18.2,9.3,24.6,60,41.9,3.1,Partly Cloudy,86,8,7.2,05:20 Ayuk,05:12 Nungthil,Good,No,10-06-2025,03-06-2025
+WT000713,MP060,2024,5,May,Summer,25.5,14.6,33.8,77,74.8,6.9,Windy,141,3,7.7,05:33 Ayuk,05:32 Nungthil,Moderate,No,08-10-2023,01-06-2026
+WT000523,MP044,2024,7,July,Monsoon,25.8,16.3,32.4,78,219.8,7.9,Cloudy,84,3,2.6,04:27 Ayuk,06:43 Nungthil,Poor,Flood Warning,25-06-2024,07-01-2025
+WT000507,MP043,2025,3,March,Spring,21.1,9.8,28.2,62,32.1,5.7,Heavy Rain,136,6,9.1,04:43 Ayuk,06:04 Nungthil,Good,No,08-05-2024,09-02-2025
+WT000246,MP021,2024,6,June,Summer,27.3,18.6,34.4,76,154,6.2,Clear,98,8,9.7,04:47 Ayuk,06:34 Nungthil,Moderate,Heavy Rain Alert,06-10-2025,12-07-2026
+WT000013,MP002,2023,1,January,Winter,14.6,9.3,22.4,69,0,5.5,Cloudy,92,3,3.8,04:32 Ayuk,05:45 Nungthil,Excellent,No,17-11-2025,10-05-2026
+WT000738,MP062,2023,6,June,Summer,27.1,17.5,34.4,85,159.4,9.5,Cloudy,130,10,10.2,06:49 Ayuk,05:54 Nungthil,Moderate,No,04-01-2025,06-02-2025
+WT000842,MP011,2024,1,January,Winter,14.7,7.9,23.4,65,13.6,7.7,Rainy,114,6,7.7,06:37 Ayuk,07:18 Nungthil,Excellent,No,15-07-2024,24-04-2026
+WT000533,MP045,2024,5,May,Summer,25.2,16.7,32.1,68,36.6,7.7,Partly Cloudy,120,5,3.7,06:28 Ayuk,05:03 Nungthil,Moderate,No,10-07-2023,23-07-2026
+WT000407,MP034,2024,11,November,Autumn,17.2,11,25.4,69,0,3.4,Windy,88,7,2.8,05:03 Ayuk,06:57 Nungthil,Good,No,16-12-2025,08-10-2025
+WT000217,MP019,2023,1,January,Winter,15.5,6.9,22.2,59,26.5,7.6,Cloudy,80,8,3.2,06:15 Ayuk,07:37 Nungthil,Excellent,No,10-12-2025,20-02-2026
+WT000260,MP022,2024,8,August,monson,25.8,15.6,30.3,83,247.1,9.2,Partly Cloudy,65,10,5,04:37 Ayuk,07:15 Nungthil,Poor,Flood Warning,04-01-2023,08-11-2026
+WT000688,MP058,2023,4,April,Spring,22.8,12.9,32.2,55,35,5.6,Windy,97,9,5.1,04:21 Ayuk,06:50 Nungthil,Good,No,15-08-2025,25-04-2025
+WT000786,MP066,2024,6,June,Summer,27,18.4,35,70,165.3,6.2,Windy,148,7,6.9,04:45 Ayuk,05:14 Nungthil,Moderate,Flood Warning,03-11-2025,08-10-2026
+WT000313,MP027,2025,1,January,Winter,14.4,9.3,20.8,72,26.2,5.5,Windy,71,6,9.8,06:14 Ayuk,07:37 Nungthil,Excellent,No,21-07-2025,13-12-2025
+WT000694,MP058,2024,10,October,Autumn,22.1,13.3,26.9,67,34.7,6.5,Windy,115,3,4.3,04:49 Ayuk,07:16 Nungthil,Good,No,24-01-2024,16-07-2026
+WT000675,MP057,2025,3,March,Spring,19.4,10.7,26.5,64,54.8,4.9,Foggy,145,3,3.3,05:14 Ayuk,07:49 Nungthil,Good,No,15-08-2025,09-05-2026
+WT000226,MP019,2025,10,October,Autumn,21.3,12.1,27,78,22.6,5.4,Clear,81,6,7.5,04:24 Ayuk,06:31 Nungthil,Good,No,02-06-2023,11-10-2026
+WT000241,MP021,2023,1,January,Winter,16,7,20.6,59,27.3,7.7,Foggy,100,5,10,06:55 Ayuk,07:16 Nungthil,Excellent,No,02-07-2025,22-08-2026
+WT000805,MP068,2025,1,January,Winter,13.7,8.7,20.6,60,0,8.6,Sunny,117,4,10.2,04:51 Ayuk,06:10 Nungthil,Excellent,No,21-09-2024,20-12-2026

@@ -1,0 +1,165 @@
+{% extends "base.html" %} {% block title %}Home - Smart Tourism Platform{%
+endblock %} {% block content %}
+<div class="container py-4">
+  <!-- Hero Section -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-12">
+      <div class="bg-primary text-white rounded-4 p-5 text-center">
+        <h1 class="display-4 fw-bold">Welcome to Smart Tourism</h1>
+        <p class="lead">
+          Data Curation Platform for Analytics and Decision Support
+        </p>
+        <p>
+          Discover Manipur's rich heritage, analyze visitor patterns, and make
+          data-driven decisions
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-primary">
+            <i class="bi bi-geo-alt"></i> Places
+          </h5>
+          <p class="display-4 fw-bold text-dark">{{ total_places }}</p>
+          <small class="text-muted">Tourist Destinations</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-success">
+            <i class="bi bi-people"></i> Visitors
+          </h5>
+          <p class="display-4 fw-bold text-dark">
+            {{ "{:,}".format(total_visitors) }}
+          </p>
+          <small class="text-muted">Total Visitors</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-warning">
+            <i class="bi bi-star"></i> Reviews
+          </h5>
+          <p class="display-4 fw-bold text-dark">
+            {{ "{:,}".format(total_reviews) }}
+          </p>
+          <small class="text-muted">User Reviews</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-danger">
+            <i class="bi bi-calendar-event"></i> Events
+          </h5>
+          <p class="display-4 fw-bold text-dark">
+            {{ upcoming_events|length }}
+          </p>
+          <small class="text-muted">Upcoming Events</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visitor Chart -->
+  {% if visitor_chart %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Visitor Trends</h5>
+          <div id="visitorChart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Popular Places -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h3 class="mb-3"><i class="bi bi-fire"></i> Popular Destinations</h3>
+    </div>
+    {% for place in popular_places %}
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ place.place_name }}</h5>
+          <p class="card-text">
+            <span class="badge bg-primary"
+              >{{ place.total_visitors or 0 }} visitors</span
+            >
+            {% if place.avg_satisfaction %}
+            <span class="badge bg-success"
+              >⭐ {{ "%.1f"|format(place.avg_satisfaction) }}</span
+            >
+            {% endif %}
+          </p>
+          <a
+            href="{{ url_for('place_detail', place_id=place.place_id) }}"
+            class="btn btn-outline-primary btn-sm"
+            >View Details</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Recent Reviews & Upcoming Events -->
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-chat-dots"></i> Recent Reviews
+          </h5>
+          {% for review in recent_reviews %}
+          <div class="border-bottom py-2">
+            <strong>{{ review.reviewer_name }}</strong>
+            <span class="text-warning">⭐ {{ review.overall_rating }}</span>
+            <p class="mb-0 text-muted small">
+              {{ review.review_text[:100] }}...
+            </p>
+            <small class="text-muted">{{ review.place_name }}</small>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-calendar"></i> Upcoming Events
+          </h5>
+          {% for event in upcoming_events %}
+          <div class="border-bottom py-2">
+            <strong>{{ event.event_name }}</strong>
+            <span class="badge bg-info">{{ event.start_date }}</span>
+            <p class="mb-0 text-muted small">{{ event.venue }}</p>
+            <small class="text-muted">{{ event.place_name }}</small>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if visitor_chart %}
+<script>
+  var visitorData = {{ visitor_chart|safe }};
+  Plotly.newPlot('visitorChart', visitorData.data, visitorData.layout);
+</script>
+{% endif %} {% endblock %}

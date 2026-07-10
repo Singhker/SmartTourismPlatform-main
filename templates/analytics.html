@@ -1,0 +1,213 @@
+{% extends "base.html" %} {% block title %}Analytics Dashboard - Smart Tourism
+Platform{% endblock %} {% block content %}
+<div class="container py-4">
+  <h2 class="mb-4"><i class="bi bi-graph-up"></i> Analytics Dashboard</h2>
+
+  <!-- Summary Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6 class="text-muted">Total Visitors</h6>
+          <p class="display-6">
+            {% if seasonal and seasonal|length > 0 %} {{
+            seasonal|sum(attribute='total_visitors')|default(0, true)|int }} {%
+            else %} 0 {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6 class="text-muted">Categories</h6>
+          <p class="display-6">{{ category_analysis|length|default(0) }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6 class="text-muted">Districts</h6>
+          <p class="display-6">{{ district_analysis|length|default(0) }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h6 class="text-muted">Avg Satisfaction</h6>
+          <p class="display-6">
+            {% if seasonal and seasonal|length > 0 %} {{
+            "%.1f"|format(seasonal|map(attribute='avg_satisfaction')|select('defined')|sum
+            / seasonal|length) }} {% else %} 0.0 {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seasonal Chart -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Visitors by Season</h5>
+          {% if charts and charts.seasonal %}
+          <div id="seasonalChart"></div>
+          <script>
+            var seasonalData = {{ charts.seasonal|safe }};
+            Plotly.newPlot('seasonalChart', seasonalData.data, seasonalData.layout);
+          </script>
+          {% else %}
+          <p class="text-muted">No seasonal data available</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Chart -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Average Visitors by Category</h5>
+          {% if charts and charts.category %}
+          <div id="categoryChart"></div>
+          <script>
+            var categoryData = {{ charts.category|safe }};
+            Plotly.newPlot('categoryChart', categoryData.data, categoryData.layout);
+          </script>
+          {% else %}
+          <p class="text-muted">No category data available</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Total Visitors by District</h5>
+          {% if charts and charts.district %}
+          <div id="districtChart"></div>
+          <script>
+            var districtData = {{ charts.district|safe }};
+            Plotly.newPlot('districtChart', districtData.data, districtData.layout);
+          </script>
+          {% else %}
+          <p class="text-muted">No district data available</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Tables -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Seasonal Analysis</h5>
+          <div class="table-responsive">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Season</th>
+                  <th>Total Visitors</th>
+                  <th>Avg Satisfaction</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if seasonal and seasonal|length > 0 %} {% for row in seasonal
+                %}
+                <tr>
+                  <td>{{ row.season }}</td>
+                  <td>{{ row.total_visitors|default(0)|int }}</td>
+                  <td>{{ "%.2f"|format(row.avg_satisfaction|default(0)) }}</td>
+                </tr>
+                {% endfor %} {% else %}
+                <tr>
+                  <td colspan="3" class="text-muted">No seasonal data</td>
+                </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>Category Analysis</h5>
+          <div class="table-responsive">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Places</th>
+                  <th>Avg Visitors</th>
+                  <th>Avg Satisfaction</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if category_analysis and category_analysis|length > 0 %} {%
+                for row in category_analysis %}
+                <tr>
+                  <td>{{ row.category }}</td>
+                  <td>{{ row.place_count|default(0)|int }}</td>
+                  <td>{{ row.avg_visitors|default(0)|int }}</td>
+                  <td>{{ "%.2f"|format(row.avg_satisfaction|default(0)) }}</td>
+                </tr>
+                {% endfor %} {% else %}
+                <tr>
+                  <td colspan="4" class="text-muted">No category data</td>
+                </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5>District Analysis</h5>
+          <div class="table-responsive">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>District</th>
+                  <th>Places</th>
+                  <th>Total Visitors</th>
+                  <th>Avg Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if district_analysis and district_analysis|length > 0 %} {%
+                for row in district_analysis %}
+                <tr>
+                  <td>{{ row.district }}</td>
+                  <td>{{ row.place_count|default(0)|int }}</td>
+                  <td>{{ row.total_visitors|default(0)|int }}</td>
+                  <td>{{ "%.2f"|format(row.avg_rating|default(0)) }}</td>
+                </tr>
+                {% endfor %} {% else %}
+                <tr>
+                  <td colspan="4" class="text-muted">No district data</td>
+                </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
